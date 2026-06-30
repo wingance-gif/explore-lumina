@@ -375,10 +375,10 @@ export const TESTIMONIALS = [
   { name: "Maria Gonzalez", country: "Spain", quote: "We came for the wildlife. We left in love with the people. Our Maasai host's stories will stay with me forever." },
 ];
 
-import lionsSafariAsset from "../assets/lions-safari.jpg.asset.json";
+import newCategoryImageAsset from "../assets/new-category-image.png.asset.json";
 
 export const CATEGORIES = [
-  { slug: "luxury", label: "Luxury Safari", image: lionsSafariAsset.url },
+  { slug: "luxury", label: "Luxury Safari", image: newCategoryImageAsset.url },
   { slug: "lodge", label: "Lodge Safari", image: IMAGES.heroNgorongoro },
   { slug: "camping", label: "Camping Safari", image: IMAGES.heroLuxuryCamp },
   { slug: "honeymoon", label: "Honeymoon", image: IMAGES.heroZanzibar },
