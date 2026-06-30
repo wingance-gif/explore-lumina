@@ -376,6 +376,7 @@ export const TESTIMONIALS = [
 ];
 
 import newCategoryImageAsset from "../assets/new-category-image.png.asset.json";
+import lodgeSafariAsset from "../assets/lodge-safari.png.asset.json";
 
 export const CATEGORIES = [
   { slug: "luxury", label: "Luxury Safari", image: newCategoryImageAsset.url },
