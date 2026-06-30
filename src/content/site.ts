@@ -380,7 +380,7 @@ import lodgeSafariAsset from "../assets/lodge-safari.png.asset.json";
 
 export const CATEGORIES = [
   { slug: "luxury", label: "Luxury Safari", image: newCategoryImageAsset.url },
-  { slug: "lodge", label: "Lodge Safari", image: IMAGES.heroNgorongoro },
+  { slug: "lodge", label: "Lodge Safari", image: lodgeSafariAsset.url },
   { slug: "camping", label: "Camping Safari", image: IMAGES.heroLuxuryCamp },
   { slug: "honeymoon", label: "Honeymoon", image: IMAGES.heroZanzibar },
   { slug: "trekking", label: "Kilimanjaro Trekking", image: IMAGES.kilimanjaroTrek },
