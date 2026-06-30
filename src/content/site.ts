@@ -376,18 +376,22 @@ export const TESTIMONIALS = [
 ];
 
 import newCategoryImageAsset from "../assets/new-category-image.png.asset.json";
-import lodgeSafariAsset from "../assets/lodge-safari.png.asset.json";
-import campingSafariAsset from "../assets/camping-safari.png.asset.json";
+import birdingAsset from "../assets/tours/birding.png.asset.json";
+import honeymoonAsset from "../assets/tours/honeymoon.png.asset.json";
+import lodgeSafariAsset from "../assets/tours/lodge-safari-upload.png.asset.json";
+import campingSafariAsset from "../assets/tours/camping-safari-upload.png.asset.json";
+import zanzibarAsset from "../assets/tours/zanzibar-upload.png.asset.json";
+import balloonSafariAsset from "../assets/tours/balloon-upload.png.asset.json";
 
 export const CATEGORIES = [
   { slug: "luxury", label: "Luxury Safari", image: newCategoryImageAsset.url },
   { slug: "lodge", label: "Lodge Safari", image: lodgeSafariAsset.url },
   { slug: "camping", label: "Camping Safari", image: campingSafariAsset.url },
-  { slug: "honeymoon", label: "Honeymoon", image: IMAGES.heroZanzibar },
+  { slug: "honeymoon", label: "Honeymoon", image: honeymoonAsset.url },
   { slug: "trekking", label: "Kilimanjaro Trekking", image: IMAGES.kilimanjaroTrek },
-  { slug: "birding", label: "Birding", image: IMAGES.wildElephants },
-  { slug: "balloon", label: "Balloon Safari", image: IMAGES.balloonSafari },
-  { slug: "beach", label: "Zanzibar Beach", image: IMAGES.heroZanzibar },
+  { slug: "birding", label: "Birding", image: birdingAsset.url },
+  { slug: "balloon", label: "Balloon Safari", image: balloonSafariAsset.url },
+  { slug: "beach", label: "Zanzibar Beach", image: zanzibarAsset.url },
 ];
 
 export const BLOG = [
