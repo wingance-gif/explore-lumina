@@ -377,11 +377,12 @@ export const TESTIMONIALS = [
 
 import newCategoryImageAsset from "../assets/new-category-image.png.asset.json";
 import lodgeSafariAsset from "../assets/lodge-safari.png.asset.json";
+import campingSafariAsset from "../assets/camping-safari.png.asset.json";
 
 export const CATEGORIES = [
   { slug: "luxury", label: "Luxury Safari", image: newCategoryImageAsset.url },
   { slug: "lodge", label: "Lodge Safari", image: lodgeSafariAsset.url },
-  { slug: "camping", label: "Camping Safari", image: IMAGES.heroLuxuryCamp },
+  { slug: "camping", label: "Camping Safari", image: campingSafariAsset.url },
   { slug: "honeymoon", label: "Honeymoon", image: IMAGES.heroZanzibar },
   { slug: "trekking", label: "Kilimanjaro Trekking", image: IMAGES.kilimanjaroTrek },
   { slug: "birding", label: "Birding", image: IMAGES.wildElephants },
