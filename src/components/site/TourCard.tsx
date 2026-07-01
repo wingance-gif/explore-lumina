@@ -21,7 +21,7 @@ export function TourCard({ tour }: { tour: Tour }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
           <div className="absolute inset-x-5 top-5 flex items-start justify-between">
-            <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-foreground/90">
+            <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/90">
               {tour.category}
             </span>
             <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-accent text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100">
@@ -29,20 +29,20 @@ export function TourCard({ tour }: { tour: Tour }) {
             </span>
           </div>
           <div className="absolute inset-x-5 bottom-5">
-            <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-foreground/70">
+            <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-white/70">
               <span className="inline-flex items-center gap-1"><Calendar size={11} /> {tour.days}D / {tour.nights}N</span>
-              <span className="h-1 w-1 rounded-full bg-foreground/40" />
+              <span className="h-1 w-1 rounded-full bg-white/40" />
               <span className="inline-flex items-center gap-1"><MapPin size={11} /> {tour.destination}</span>
             </div>
-            <h3 className="mt-3 font-display text-2xl leading-tight text-balance">
+            <h3 className="mt-3 font-display text-2xl leading-tight text-balance text-white">
               {tour.title}
             </h3>
             <div className="mt-3 flex items-end justify-between">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-foreground/60">From</p>
-                <p className="font-display text-2xl text-primary">${tour.priceFrom}<span className="text-xs text-foreground/60"> / person</span></p>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-white/60">From</p>
+                <p className="font-display text-2xl text-primary">${tour.priceFrom}<span className="text-xs text-white/60"> / person</span></p>
               </div>
-              <span className="text-xs text-foreground/70 group-hover:text-primary transition-colors">View itinerary →</span>
+              <span className="text-xs text-white/70 group-hover:text-primary transition-colors">View itinerary →</span>
             </div>
           </div>
         </div>
