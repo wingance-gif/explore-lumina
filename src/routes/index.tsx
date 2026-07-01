@@ -167,7 +167,7 @@ function Home() {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                <span className="absolute inset-x-4 bottom-4 font-display text-xl">{c.label}</span>
+                <span className="absolute inset-x-4 bottom-4 font-display text-xl text-white">{c.label}</span>
               </Link>
             </motion.div>
           ))}
@@ -261,7 +261,7 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/85" />
         <div className="relative z-10 container-x mx-auto max-w-[1100px] h-full flex flex-col items-center justify-center text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">Experience Tanzania</p>
-          <h2 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-balance">
+          <h2 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-balance text-white">
             Beyond Expectations.
           </h2>
           <Link
