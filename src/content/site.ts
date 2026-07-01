@@ -62,7 +62,7 @@ export const HERO_SLIDES = [
 
 export const DESTINATIONS = [
   {
-    slug: "The-best-serengeti-view",
+    slug: "serengeti",
     name: "Serengeti National Park",
     short: "1.5 million wildebeest. Endless plains. The greatest wildlife show on earth.",
     long: "Spanning 14,750 km², the Serengeti hosts the Great Migration — over 1.5 million wildebeest, 200,000 zebras and thousands of gazelles in an ancient 3,000 km loop. Predators trail the herds: lion prides, cheetah coalitions, leopards in sausage trees. Best from June to October for river crossings, January to March for calving in the southern plains.",
