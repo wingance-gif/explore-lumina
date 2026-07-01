@@ -167,7 +167,7 @@ function Home() {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                <span className="absolute inset-x-4 bottom-4 font-display text-xl">{c.label}</span>
+                <span className="absolute inset-x-4 bottom-4 font-display text-xl text-white">{c.label}</span>
               </Link>
             </motion.div>
           ))}
