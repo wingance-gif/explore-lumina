@@ -2,13 +2,13 @@
 const TANZANIA_PHOTO = "/images/tours";
 
 export const IMAGES = {
-  heroSerengeti: `${TANZANIA_PHOTO}/serengeti1.jpg`,
+  heroSerengeti: `${TANZANIA_PHOTO}/serengeti-new 1.png`,
   heroKilimanjaro: `${TANZANIA_PHOTO}/kilimanjaro.jpg`,
   heroLuxuryCamp: `${TANZANIA_PHOTO}/serengeti.jpg`,
   heroZanzibar: `${TANZANIA_PHOTO}/nyerere.jpg`,
-  heroNgorongoro: `${TANZANIA_PHOTO}/ngorongoro.jpg`,
-  wildLion: `${TANZANIA_PHOTO}/manyara.jpg`,
-  wildElephants: `${TANZANIA_PHOTO}/tarangire.jpg`,
+  heroNgorongoro: `${TANZANIA_PHOTO}/ngorongoro-new.png`,
+  wildLion: `${TANZANIA_PHOTO}/lake manyara-new.jpg`,
+  wildElephants: `${TANZANIA_PHOTO}/tarangire-new.jpg`,
   wildCheetah: `${TANZANIA_PHOTO}/serengeti.jpg`,
   maasai: `${TANZANIA_PHOTO}/meru.jpg`,
   balloonSafari: `${TANZANIA_PHOTO}/balloon1.jpg`,
