@@ -2,7 +2,7 @@
 const TANZANIA_PHOTO = "/images/tours";
 
 export const IMAGES = {
-  heroSerengeti: `${TANZANIA_PHOTO}/serengeti.jpg`,
+  heroSerengeti: `${TANZANIA_PHOTO}/serengeti1.jpg`,
   heroKilimanjaro: `${TANZANIA_PHOTO}/kilimanjaro.jpg`,
   heroLuxuryCamp: `${TANZANIA_PHOTO}/serengeti.jpg`,
   heroZanzibar: `${TANZANIA_PHOTO}/nyerere.jpg`,
@@ -11,7 +11,7 @@ export const IMAGES = {
   wildElephants: `${TANZANIA_PHOTO}/tarangire.jpg`,
   wildCheetah: `${TANZANIA_PHOTO}/serengeti.jpg`,
   maasai: `${TANZANIA_PHOTO}/meru.jpg`,
-  balloonSafari: `${TANZANIA_PHOTO}/balloon.jpg`,
+  balloonSafari: `${TANZANIA_PHOTO}/balloon1.jpg`,
   kilimanjaroTrek: `${TANZANIA_PHOTO}/kilimanjaro.jpg`,
   luxuryPool: `${TANZANIA_PHOTO}/nyerere.jpg`,
 };
@@ -375,23 +375,25 @@ export const TESTIMONIALS = [
   { name: "Maria Gonzalez", country: "Spain", quote: "We came for the wildlife. We left in love with the people. Our Maasai host's stories will stay with me forever." },
 ];
 
-import newCategoryImageAsset from "../assets/new-category-image.png.asset.json";
-import birdingAsset from "../assets/tours/birding.png.asset.json";
-import honeymoonAsset from "../assets/tours/honeymoon.png.asset.json";
-import lodgeSafariAsset from "../assets/tours/lodge-safari-upload.png.asset.json";
-import campingSafariAsset from "../assets/tours/camping-safari-upload.png.asset.json";
-import zanzibarAsset from "../assets/tours/zanzibar-upload.png.asset.json";
-import balloonSafariAsset from "../assets/tours/balloon-upload.png.asset.json";
+import luxuryImage from "../assets/luxury safari.png";
+import birdingImage from "../assets/birding.png";
+import honeymoonImage from "../assets/honeymoon.png";
+import lodgeSafariImage from "../assets/lodge safari.png";
+import campingSafariImage from "../assets/campingsafari.png";
+import zanzibarImage from "../assets/zanzibar.png";
+import balloonSafariImage from "../assets/balloon-safari.png";
+
 
 export const CATEGORIES = [
-  { slug: "luxury", label: "Luxury Safari", image: newCategoryImageAsset.url },
-  { slug: "lodge", label: "Lodge Safari", image: lodgeSafariAsset.url },
-  { slug: "camping", label: "Camping Safari", image: campingSafariAsset.url },
-  { slug: "honeymoon", label: "Honeymoon", image: honeymoonAsset.url },
+  { slug: "luxury", label: "Luxury Safari", image: luxuryImage },
+  { slug: "lodge", label: "Lodge Safari", image: lodgeSafariImage },
+  { slug: "camping", label: "Camping Safari", image: campingSafariImage },
+  { slug: "honeymoon", label: "Honeymoon", image: honeymoonImage },
   { slug: "trekking", label: "Kilimanjaro Trekking", image: IMAGES.kilimanjaroTrek },
-  { slug: "birding", label: "Birding", image: birdingAsset.url },
-  { slug: "balloon", label: "Balloon Safari", image: balloonSafariAsset.url },
-  { slug: "beach", label: "Zanzibar Beach", image: zanzibarAsset.url },
+  { slug: "birding", label: "Birding", image: birdingImage },
+  { slug: "balloon", label: "Balloon Safari", image: balloonSafariImage },
+  { slug: "beach", label: "Zanzibar Beach", image: zanzibarImage },
+  
 ];
 
 export const BLOG = [
@@ -483,8 +485,8 @@ export const TE_IMG = {
   selous: `${TANZANIA_PHOTO}/nyerere.jpg`,
   arusha: `${TANZANIA_PHOTO}/meru.jpg`,
   luxurySafari: `${TANZANIA_PHOTO}/ngorongoro.jpg`,
-  lodgeSafari: `${TANZANIA_PHOTO}/serengeti.jpg`,
-  campingSafari: `${TANZANIA_PHOTO}/tarangire.jpg`,
+  lodgeSafari: `${TANZANIA_PHOTO}/lodgesafari.png`,
+  campingSafari: `${TANZANIA_PHOTO}/campingsafari.png`,
   birdWatch: `${TANZANIA_PHOTO}/manyara.jpg`,
   walkingSafari: `${TANZANIA_PHOTO}/kilimanjaro.jpg`,
 };
