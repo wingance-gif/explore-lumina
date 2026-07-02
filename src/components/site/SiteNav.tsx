@@ -293,7 +293,7 @@ export function SiteNav() {
                 </div>
               );
             })}
-            <Link to="/contact" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-cream/70 bg-cream/95 px-5 py-3 text-center text-xs uppercase tracking-[0.3em] text-primary-foreground">
+            <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-cream/70 bg-cream/95 px-5 py-3 text-center text-xs uppercase tracking-[0.3em] text-primary-foreground">
               Plan a trip
             </Link>
           </nav>
