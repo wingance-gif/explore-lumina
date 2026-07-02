@@ -44,7 +44,6 @@ function ContactPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-5">
               <Field label="Phone Number" name="phone" type="tel" placeholder="+255 XXX XXX XXX" />
-/>
               <Field label="subject" name="subject" placeholder="e.g. Safari inquiry or partnership" />
             </div>
             <div>
