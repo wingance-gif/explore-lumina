@@ -14,6 +14,19 @@ export const IMAGES = {
   balloonSafari: `${TANZANIA_PHOTO}/balloon1.jpg`,
   kilimanjaroTrek: `${TANZANIA_PHOTO}/kilimanjaro.jpg`,
   luxuryPool: `${TANZANIA_PHOTO}/nyerere.jpg`,
+
+  tour: {
+  luxury6Days: `${TANZANIA_PHOTO}/tour-luxury-6-days.jpg`,
+  honeymoon14Days: `${TANZANIA_PHOTO}/tour-honeymoon-14-days.png`,
+  lodge3Days: `${TANZANIA_PHOTO}/tour-lodge-3-days.jpg`,
+  camping6Days: `${TANZANIA_PHOTO}/tour-camping-6-days.png`,
+  lodge4Days: `${TANZANIA_PHOTO}/tour-lodge-4-days.png`,
+  birding5Days: `${TANZANIA_PHOTO}/tour-birding-5-days.png`,
+  machame7Days: `${TANZANIA_PHOTO}/tour-machame-7-days.jpg`,
+  lemosho8Days: `${TANZANIA_PHOTO}/tour-lemosho-8-days.jpg`,
+  zanzibar5Days: `${TANZANIA_PHOTO}/tour-zanzibar-5-days.jpg`,
+  balloonSafari: `${TANZANIA_PHOTO}/tour-balloon-safari.jpg`,
+},
 };
 
 export const SITE = {
@@ -178,7 +191,7 @@ export const TOURS: Tour[] = [
     category: "Honeymoon",
     days: 14, nights: 13, priceFrom: 860,
     destination: "Northern Circuit · Zanzibar",
-    image: IMAGES.heroZanzibar,
+    image: IMAGES.tour.honeymoon14Days,
     summary: "A two-week celebration: private game drives, candle-lit dinners under the stars, then seven nights on Zanzibar's white-sand beaches.",
     highlights: ["Private vehicle throughout", "Couples' bush dinner", "Sunset dhow cruise", "Beach villa upgrade"],
     itinerary: [
@@ -206,7 +219,7 @@ export const TOURS: Tour[] = [
     category: "Lodge Safari",
     days: 3, nights: 2, priceFrom: 340,
     destination: "Tarangire · Ngorongoro",
-    image: IMAGES.heroNgorongoro,
+    image: IMAGES.tour.lodge3Days,
     summary: "A short, intense taste of Tanzania — perfect as an extension to a beach holiday or a long weekend escape.",
     highlights: ["Tarangire elephants", "Ngorongoro Crater floor", "Comfortable mid-range lodges"],
     itinerary: [
@@ -223,7 +236,7 @@ export const TOURS: Tour[] = [
     category: "Camping Safari",
     days: 6, nights: 5, priceFrom: 610,
     destination: "Tarangire · Serengeti · Ngorongoro",
-    image: IMAGES.heroLuxuryCamp,
+    image: IMAGES.tour.camping6Days,
     summary: "Sleep close to the wild in our spacious safari tents — campfire stories, dawn coffees and the sounds of the bush at night.",
     highlights: ["Public campsites inside parks", "Hot bucket showers", "Camp chef cooked meals", "Big Five viewing"],
     itinerary: [
@@ -243,7 +256,7 @@ export const TOURS: Tour[] = [
     category: "Lodge Safari",
     days: 4, nights: 3, priceFrom: 470,
     destination: "Serengeti · Ngorongoro",
-    image: IMAGES.wildCheetah,
+    image: IMAGES.tour.lodge4Days,
     summary: "The classic short safari combo — two of Africa's most iconic ecosystems in four immersive days.",
     highlights: ["Serengeti plains", "Crater floor game drive", "Comfort lodges"],
     itinerary: [
@@ -261,7 +274,7 @@ export const TOURS: Tour[] = [
     category: "Birding",
     days: 5, nights: 4, priceFrom: 520,
     destination: "Tarangire · Lake Manyara",
-    image: IMAGES.wildElephants,
+    image: IMAGES.tour.birding5Days,
     summary: "Over 550 species recorded — a paradise for birders, with specialist guides and dawn drives.",
     highlights: ["550+ bird species", "Yellow-collared lovebird", "Specialist guide", "Dawn & dusk drives"],
     itinerary: [
