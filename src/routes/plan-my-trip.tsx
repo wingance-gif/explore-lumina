@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { SITE, IMAGES } from "@/content/site";
 
-export const Route = createFileRoute("/contact")({
+export const Route = createFileRoute("/plan-my-trip")({
   head: () => ({
     meta: [
       { title: "Contact Sahara Wild — Plan Your Tanzania Trip" },
@@ -25,10 +25,10 @@ function ContactPage() {
       <section className="pt-40 pb-16 container-x mx-auto max-w-[1500px]">
         <p className="text-xs uppercase tracking-[0.3em] text-primary">Plan your trip</p>
         <h1 className="mt-5 font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-balance max-w-4xl">
-          We're Ready to Help You Explore Tanzania
+          Let's start scripting your Tanzania.
         </h1>
         <p className="mt-8 max-w-2xl text-base md:text-lg text-foreground/75">
-          We're here to help you plan the perfect Tanzanian adventure. Contact us today, and our team will help you create a journey tailored to your interests and travel style.
+          Tell us your dates, your travelers and what excites you. A trip designer will reply within 24 hours with ideas.
         </p>
       </section>
 
@@ -39,19 +39,18 @@ function ContactPage() {
             onSubmit={(e) => { e.preventDefault(); setSent(true); }}
           >
             <div className="grid md:grid-cols-2 gap-5">
-              <Field label="Your name" name="name" placeholder="e.g. John doe" required />
-              <Field label="Email" name="email" type="email" placeholder="jd@gmail.com" required />
+              <Field label="Your name" name="name" required />
+              <Field label="Email" name="email" type="email" required />
             </div>
             <div className="grid md:grid-cols-2 gap-5">
-              <Field label="Phone Number" name="phone" type="tel" placeholder="+255 XXX XXX XXX" />
-/>
-              <Field label="subject" name="subject" placeholder="e.g. Safari inquiry or partnership" />
+              <Field label="Approx. travel date" name="date" placeholder="e.g. Aug 2026" />
+              <Field label="Travelers" name="people" placeholder="e.g. 2 adults" />
             </div>
             <div>
-              <label className="text-xs uppercase tracking-[0.18em] text-foreground/60">What can we help you with?</label>
+              <label className="text-xs uppercase tracking-[0.18em] text-foreground/60">Tell us about your dream trip</label>
               <textarea
                 name="message" required rows={6}
-                placeholder="Write your message here..."
+                placeholder="Safari, summit, beach, family, honeymoon..."
                 className="mt-2 w-full rounded-2xl bg-input/40 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
