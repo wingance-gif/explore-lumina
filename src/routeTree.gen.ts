@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZanzibarHoneymoonRouteImport } from './routes/zanzibar-honeymoon'
 import { Route as TrekkingItineraryRouteImport } from './routes/trekking-itinerary'
 import { Route as ToursRouteImport } from './routes/tours'
 import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
@@ -23,6 +24,11 @@ import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const ZanzibarHoneymoonRoute = ZanzibarHoneymoonRouteImport.update({
+  id: '/zanzibar-honeymoon',
+  path: '/zanzibar-honeymoon',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrekkingItineraryRoute = TrekkingItineraryRouteImport.update({
   id: '/trekking-itinerary',
   path: '/trekking-itinerary',
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
+  '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
+  '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
+  '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
     | '/plan-my-trip'
     | '/tours'
     | '/trekking-itinerary'
+    | '/zanzibar-honeymoon'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -163,6 +173,7 @@ export interface FileRouteTypes {
     | '/plan-my-trip'
     | '/tours'
     | '/trekking-itinerary'
+    | '/zanzibar-honeymoon'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -178,6 +189,7 @@ export interface FileRouteTypes {
     | '/plan-my-trip'
     | '/tours'
     | '/trekking-itinerary'
+    | '/zanzibar-honeymoon'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -194,10 +206,18 @@ export interface RootRouteChildren {
   PlanMyTripRoute: typeof PlanMyTripRoute
   ToursRoute: typeof ToursRouteWithChildren
   TrekkingItineraryRoute: typeof TrekkingItineraryRoute
+  ZanzibarHoneymoonRoute: typeof ZanzibarHoneymoonRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/zanzibar-honeymoon': {
+      id: '/zanzibar-honeymoon'
+      path: '/zanzibar-honeymoon'
+      fullPath: '/zanzibar-honeymoon'
+      preLoaderRoute: typeof ZanzibarHoneymoonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/trekking-itinerary': {
       id: '/trekking-itinerary'
       path: '/trekking-itinerary'
@@ -335,7 +355,18 @@ const rootRouteChildren: RootRouteChildren = {
   PlanMyTripRoute: PlanMyTripRoute,
   ToursRoute: ToursRouteWithChildren,
   TrekkingItineraryRoute: TrekkingItineraryRoute,
+  ZanzibarHoneymoonRoute: ZanzibarHoneymoonRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
