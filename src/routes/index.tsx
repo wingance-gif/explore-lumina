@@ -256,7 +256,7 @@ function Home() {
       <section className="relative my-24 h-[70svh] min-h-[480px] w-full overflow-hidden">
         <div
           className="absolute inset-0 bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url(${IMAGES.balloonSafari})` }}
+          style={{ backgroundImage: `url(${IMAGES.cta.parallax})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/85" />
         <div className="relative z-10 container-x mx-auto max-w-[1100px] h-full flex flex-col items-center justify-center text-center">

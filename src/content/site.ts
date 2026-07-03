@@ -66,6 +66,11 @@ zanzibar: {
   magical5: `${TANZANIA_PHOTO}/magical.png`,
   gateway6: `${TANZANIA_PHOTO}/gateway-6.png`,
 },
+
+// ================= CTA =================
+cta: {
+  parallax: `${TANZANIA_PHOTO}/parallax-cta.png`,
+},
 };
 
 export const SITE = {
