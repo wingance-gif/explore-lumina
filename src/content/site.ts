@@ -71,6 +71,18 @@ zanzibar: {
 cta: {
   parallax: `${TANZANIA_PHOTO}/parallax-cta.png`,
 },
+
+// ================= DESTINATIONS =================
+destinations: {
+  serengeti: `${TANZANIA_PHOTO}/serengeti-new 1.png`,
+  ngorongoro: `${TANZANIA_PHOTO}/ngorongoro-new.png`,
+  kilimanjaro: `${TANZANIA_PHOTO}/kilimanjaro1.png`,
+  tarangire: `${TANZANIA_PHOTO}/destination-tarangire.jpg`,
+  manyara: `${TANZANIA_PHOTO}/tarangire-new.jpg`,
+  selous: `${TANZANIA_PHOTO}/selous.png`,
+  zanzibar: `${TANZANIA_PHOTO}/zanzibar.png`,
+  arusha: `${TANZANIA_PHOTO}/arusha-park.png`,
+},
 };
 
 export const SITE = {
@@ -186,7 +198,7 @@ export const DESTINATIONS = [
     name: "Arusha National Park",
     short: "Mount Meru, Momella lakes, walking safaris and giraffe at the foothills.",
     long: "An underrated gem at the foot of Mount Meru (4,562 m). Walking safaris are permitted — rare in Tanzania. Spot giraffe, buffalo, colobus monkeys and over 400 bird species across rainforest, alkaline lakes and crater rim.",
-    image: IMAGES.maasai,
+    image: IMAGES.destinations.arusha,
     region: "Northern Tanzania",
     highlights: ["Walking safaris", "Mount Meru trek", "Momella Lakes", "Day trip from Arusha"],
   },
