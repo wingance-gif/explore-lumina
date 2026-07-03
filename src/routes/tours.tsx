@@ -30,17 +30,17 @@ type SafariType = {
 };
 
 const SAFARI_TYPES: SafariType[] = [
-  { id: "safari-luxury", title: "Tanzania Luxury Safaris", image: IMAGES.heroLuxuryCamp, blurb: "Private guides, premier lodges and exclusive-use camps in the heart of the wild — refined comfort without compromise." },
-  { id: "safari-tented-lodge", title: "Tented Lodge Safari", image: IMAGES.luxuryPool, blurb: "Permanent tented lodges that pair canvas-under-the-stars romance with hotel-grade comforts in iconic parks." },
-  { id: "safari-camping", title: "Tanzania Camping Safaris", image: IMAGES.heroSerengeti, blurb: "Authentic mobile camps that bring you closer to the wilderness — perfect for adventurous travellers and families on a budget." },
-  { id: "safari-bird-watching", title: "Bird Watching Safaris", image: IMAGES.wildCheetah, blurb: "Specialist itineraries across Tarangire, Manyara and the Rift Valley lakes — home to 1,100+ bird species." },
-  { id: "safari-honeymoon", title: "Honeymoon Safari Packages", image: IMAGES.heroZanzibar, blurb: "Romantic combinations of bush and beach — private dinners, plunge pools and sunset dhow cruises in Zanzibar." },
-  { id: "safari-flying", title: "Flying Safari", image: IMAGES.heroNgorongoro, blurb: "Maximise time in the parks with light-aircraft transfers between Serengeti, Selous, Ruaha and Zanzibar." },
-  { id: "safari-family", title: "Family Safari", image: IMAGES.wildElephants, blurb: "Tailored pace, kid-friendly lodges and family-rated guides — wildlife adventures that work for every age." },
-  { id: "safari-photographic", title: "Photographic Safari", image: IMAGES.wildLion, blurb: "Dedicated photo vehicles, bean bags and golden-hour tracking led by guides who know the best light and sightlines." },
-  { id: "safari-migration", title: "Wildebeest Migration", image: IMAGES.heroSerengeti, blurb: "Follow 1.5 million wildebeest across the Serengeti — calving, river crossings and predator action, month by month." },
-  { id: "safari-balloon", title: "Balloon Safari", image: IMAGES.balloonSafari, blurb: "Float silently over the Serengeti at dawn followed by a sparkling bush breakfast under an acacia." },
-  { id: "safari-walking", title: "Guided Walking Safaris", image: IMAGES.maasai, blurb: "Walk the wilderness with armed rangers and Maasai guides — tracks, plants and the small details game-drives miss." },
+  { id: "safari-luxury", title: "Tanzania Luxury Safaris", image: IMAGES.safariTypes.luxury, blurb: "Private guides, premier lodges and exclusive-use camps in the heart of the wild — refined comfort without compromise." },
+  { id: "safari-tented-lodge", title: "Tented Lodge Safari", image: IMAGES.safariTypes.tentedLodge, blurb: "Permanent tented lodges that pair canvas-under-the-stars romance with hotel-grade comforts in iconic parks." },
+  { id: "safari-camping", title: "Tanzania Camping Safaris", image: IMAGES.safariTypes.camping, blurb: "Authentic mobile camps that bring you closer to the wilderness — perfect for adventurous travellers and families on a budget." },
+  { id: "safari-bird-watching", title: "Bird Watching Safaris", image: IMAGES.safariTypes.birding, blurb: "Specialist itineraries across Tarangire, Manyara and the Rift Valley lakes — home to 1,100+ bird species." },
+  { id: "safari-honeymoon", title: "Honeymoon Safari Packages", image: IMAGES.safariTypes.honeymoon, blurb: "Romantic combinations of bush and beach — private dinners, plunge pools and sunset dhow cruises in Zanzibar." },
+  { id: "safari-flying", title: "Flying Safari", image: IMAGES.safariTypes.flying, blurb: "Maximise time in the parks with light-aircraft transfers between Serengeti, Selous, Ruaha and Zanzibar." },
+  { id: "safari-family", title: "Family Safari", image: IMAGES.safariTypes.family, blurb: "Tailored pace, kid-friendly lodges and family-rated guides — wildlife adventures that work for every age." },
+  { id: "safari-photographic", title: "Photographic Safari", image: IMAGES.safariTypes.photographic, blurb: "Dedicated photo vehicles, bean bags and golden-hour tracking led by guides who know the best light and sightlines." },
+  { id: "safari-migration", title: "Wildebeest Migration", image: IMAGES.safariTypes.migration, blurb: "Follow 1.5 million wildebeest across the Serengeti — calving, river crossings and predator action, month by month." },
+  { id: "safari-balloon", title: "Balloon Safari", image: IMAGES.safariTypes.balloon, blurb: "Float silently over the Serengeti at dawn followed by a sparkling bush breakfast under an acacia." },
+  { id: "safari-walking", title: "Guided Walking Safaris", image: IMAGES.safariTypes.walking, blurb: "Walk the wilderness with armed rangers and Maasai guides — tracks, plants and the small details game-drives miss." },
 ];
 
 function ToursPage() {

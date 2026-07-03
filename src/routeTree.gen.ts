@@ -10,9 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as DestinationsRouteImport } from './routes/destinations'
-import { Route as ContactRouteImport } from './routes/plan-my-trip.tsx'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AccommodationRouteImport } from './routes/accommodation'
 import { Route as AboutRouteImport } from './routes/about'
@@ -24,6 +25,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const ToursRoute = ToursRouteImport.update({
   id: '/tours',
   path: '/tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanMyTripRoute = PlanMyTripRouteImport.update({
+  id: '/plan-my-trip',
+  path: '/plan-my-trip',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/destinations'
     | '/gallery'
+    | '/plan-my-trip'
     | '/tours'
     | '/blog/$slug'
     | '/destinations/$slug'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/destinations'
     | '/gallery'
+    | '/plan-my-trip'
     | '/tours'
     | '/blog/$slug'
     | '/destinations/$slug'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/destinations'
     | '/gallery'
+    | '/plan-my-trip'
     | '/tours'
     | '/blog/$slug'
     | '/destinations/$slug'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
   GalleryRoute: typeof GalleryRoute
+  PlanMyTripRoute: typeof PlanMyTripRoute
   ToursRoute: typeof ToursRouteWithChildren
 }
 
@@ -177,6 +190,13 @@ declare module '@tanstack/react-router' {
       path: '/tours'
       fullPath: '/tours'
       preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan-my-trip': {
+      id: '/plan-my-trip'
+      path: '/plan-my-trip'
+      fullPath: '/plan-my-trip'
+      preLoaderRoute: typeof PlanMyTripRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -292,6 +312,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
   GalleryRoute: GalleryRoute,
+  PlanMyTripRoute: PlanMyTripRoute,
   ToursRoute: ToursRouteWithChildren,
 }
 export const routeTree = rootRouteImport

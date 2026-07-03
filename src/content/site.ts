@@ -3,16 +3,16 @@ const TANZANIA_PHOTO = "/images/tours";
 
 export const IMAGES = {
   heroSerengeti: `${TANZANIA_PHOTO}/serengeti-new 1.png`,
-  heroKilimanjaro: `${TANZANIA_PHOTO}/kilimanjaro.jpg`,
+  heroKilimanjaro: `${TANZANIA_PHOTO}/kilimanjaro1.png`,
   heroLuxuryCamp: `${TANZANIA_PHOTO}/serengeti.jpg`,
   heroZanzibar: `${TANZANIA_PHOTO}/nyerere.jpg`,
   heroNgorongoro: `${TANZANIA_PHOTO}/ngorongoro-new.png`,
-  wildLion: `${TANZANIA_PHOTO}/lake manyara-new.jpg`,
+  wildLion: `${TANZANIA_PHOTO}/lake-manyara-new.png`,
   wildElephants: `${TANZANIA_PHOTO}/tarangire-new.jpg`,
   wildCheetah: `${TANZANIA_PHOTO}/serengeti.jpg`,
   maasai: `${TANZANIA_PHOTO}/meru.jpg`,
   balloonSafari: `${TANZANIA_PHOTO}/balloon1.jpg`,
-  kilimanjaroTrek: `${TANZANIA_PHOTO}/kilimanjaro.jpg`,
+  kilimanjaroTrek: `${TANZANIA_PHOTO}/kilimanjaro1.png`,
   luxuryPool: `${TANZANIA_PHOTO}/nyerere.jpg`,
 
   tour: {
@@ -26,6 +26,45 @@ export const IMAGES = {
   lemosho8Days: `${TANZANIA_PHOTO}/tour-lemosho-8-days.jpg`,
   zanzibar5Days: `${TANZANIA_PHOTO}/tour-zanzibar-5-days.jpg`,
   balloonSafari: `${TANZANIA_PHOTO}/tour-balloon-safari.jpg`,
+},
+
+// ================= SAFARI TYPES =================
+safariTypes: {
+  luxury: `${TANZANIA_PHOTO}/safari-types/luxury-safari.png`,
+  tentedLodge: `${TANZANIA_PHOTO}/safari-types/tent.png`,
+  camping: `${TANZANIA_PHOTO}/safari-types/camping safari.png`,
+  birding: `${TANZANIA_PHOTO}/safari-types/bird.png`,
+  honeymoon: `${TANZANIA_PHOTO}/safari-types/honeymoonZ.jpg`,
+  flying: `${TANZANIA_PHOTO}/safari-types/flying.png`,
+  family: `${TANZANIA_PHOTO}/safari-types/family.png`,
+  photographic: `${TANZANIA_PHOTO}/safari-types/photography.png`,
+  migration: `${TANZANIA_PHOTO}/safari-types/migration.png`,
+  balloon: `${TANZANIA_PHOTO}/safari-types/balloonsafari.png`,
+  walking: `${TANZANIA_PHOTO}/safari-types/walking.png`,
+},
+
+// ================= TREKKING =================
+trekking: {
+  kilimanjaro: `${TANZANIA_PHOTO}/kilimanjaro1.png`,
+  meru: `${TANZANIA_PHOTO}/mount-meru.png`,
+},
+
+// ================= DAY TRIPS =================
+dayTrips: {
+  arusha: `${TANZANIA_PHOTO}/arusha-day.jpg`,
+  kikuletwa: `${TANZANIA_PHOTO}/kikuletwa.png`,
+  manyara: `${TANZANIA_PHOTO}/manyara-day.png`,
+  materuniFalls: `${TANZANIA_PHOTO}/materuni-falls.png`,
+  tarangire: `${TANZANIA_PHOTO}/tarangire-day.png`,
+  materuniCoffee: `${TANZANIA_PHOTO}/materuni-coffee.png`,
+},
+
+// ================= ZANZIBAR PACKAGES =================
+zanzibar: {
+  stoneTown3: `${TANZANIA_PHOTO}/stone-town-3.png`,
+  beach4: `${TANZANIA_PHOTO}/beach-4.png`,
+  magical5: `${TANZANIA_PHOTO}/magical.png`,
+  gateway6: `${TANZANIA_PHOTO}/gateway-6.png`,
 },
 };
 
@@ -522,7 +561,7 @@ export const TREKKING_SERVICES: TrekkingService[] = [
   {
     id: "kilimanjaro",
     title: "Mount Kilimanjaro Climbing",
-    image: TE_IMG.kilimanjaro,
+    image: IMAGES.trekking.kilimanjaro,
     altitude: "5,895 m · Roof of Africa",
     summary:
       "Climbing Kilimanjaro is the experience of a lifetime — and it's not hard to see why this trek tops bucket lists around the world. The mighty Mount Kilimanjaro is the highest mountain in Africa at a staggering 5,895 metres (19,341 ft), and the world's highest free-standing mountain. Many of the routes are not for the faint-hearted, but with an experienced guide at your side you don't need to be a seasoned climber to reach its summit.",
@@ -538,7 +577,7 @@ export const TREKKING_SERVICES: TrekkingService[] = [
   {
     id: "meru",
     title: "Mount Meru Climbing",
-    image: TE_IMG.meru,
+    image: IMAGES.trekking.meru,
     altitude: "4,566 m · Tanzania's second highest",
     summary:
       "Mount Meru is Tanzania's second-highest mountain, often overshadowed by the eminent Mount Kilimanjaro. For nature lovers, beautiful Mount Meru offers an unforgettable adventure with its abundant wildlife and stunning views — it is far more than a warm-up trek for Kilimanjaro. At 4,566 m, this stratovolcano in Arusha National Park is as challenging as Kilimanjaro itself.",
@@ -566,7 +605,7 @@ export const DAY_TRIPS: DayTrip[] = [
     id: "arusha-np",
     title: "Arusha National Park Day Trip",
     location: "Arusha National Park",
-    image: TE_IMG.arusha,
+    image: IMAGES.dayTrips.arusha,
     summary:
       "Game viewing among Momella Lakes, walking safaris through montane forest and canoe trips beneath Mount Meru — all within a couple of hours of Arusha town.",
   },
@@ -574,7 +613,7 @@ export const DAY_TRIPS: DayTrip[] = [
     id: "kikuletwa",
     title: "Kikuletwa Hotsprings Day Trip",
     location: "Boma la Ng'ombe, near Moshi",
-    image: TE_IMG.luxurySafari,
+    image: IMAGES.dayTrips.kikuletwa,
     summary:
       "Crystal-clear turquoise springs fringed by fig trees and palms — a refreshing swim and lunch stop hidden in the Maasai steppe.",
   },
@@ -582,7 +621,7 @@ export const DAY_TRIPS: DayTrip[] = [
     id: "manyara-day",
     title: "Lake Manyara Day Trip",
     location: "Lake Manyara National Park",
-    image: TE_IMG.manyara,
+    image: IMAGES.dayTrips.manyara,
     summary:
       "Groundwater forest, tree-climbing lions, hippo pools and pink-hued flamingos on the alkaline lake — a perfect one-day Rift Valley safari.",
   },
@@ -590,7 +629,7 @@ export const DAY_TRIPS: DayTrip[] = [
     id: "materuni-falls",
     title: "Materuni Waterfalls Day Trip",
     location: "Kilimanjaro foothills, Moshi",
-    image: TE_IMG.walkingSafari,
+    image: IMAGES.dayTrips.materuniFalls,
     summary:
       "A guided forest walk to an 80-metre waterfall on the lower slopes of Kilimanjaro, ending with a traditional Chagga lunch in the village.",
   },
@@ -598,7 +637,7 @@ export const DAY_TRIPS: DayTrip[] = [
     id: "tarangire-day",
     title: "Tarangire National Park Day Trip",
     location: "Tarangire National Park",
-    image: TE_IMG.tarangire,
+    image: IMAGES.dayTrips.tarangire,
     summary:
       "A full day among ancient baobabs and the densest elephant herds in Tanzania — easily combined as a day-trip from Arusha or Karatu.",
   },
@@ -606,7 +645,7 @@ export const DAY_TRIPS: DayTrip[] = [
     id: "materuni-coffee",
     title: "Materuni Coffee Plantation Day Trip",
     location: "Moshi · Materuni village",
-    image: TE_IMG.lodgeSafari,
+    image: IMAGES.dayTrips.materuniCoffee,
     summary:
       "Pick, roast and grind your own beans with a Chagga family on the lush volcanic slopes of Kilimanjaro — a cultural half-day combining easily with the waterfalls.",
   },
@@ -630,7 +669,7 @@ export const ZANZIBAR_PACKAGES: ZanzibarPackage[] = [
     id: "stone-town-3",
     title: "3 Days Discover Stone Town",
     days: 3,
-    image: TE_IMG.lodgeSafari,
+    image: IMAGES.zanzibar.stoneTown3,
     summary:
       "Three nights inside the UNESCO-listed labyrinth of Stone Town — Swahili-Arab architecture, spice tours, night markets and dhow sunsets.",
     inclusions: ["B&B accommodation", "Airport transfers", "Stone Town walking tour", "24/7 service"],
@@ -639,7 +678,7 @@ export const ZANZIBAR_PACKAGES: ZanzibarPackage[] = [
     id: "beach-4",
     title: "4 Days Zanzibar Beach Holiday",
     days: 4,
-    image: TE_IMG.luxurySafari,
+    image: IMAGES.zanzibar.beach4,
     summary:
       "A short beach break on the white sands of the north or east coast — perfect as a quick add-on to a Northern Circuit safari.",
     inclusions: ["Bed & Breakfast", "Beachfront stay", "Airport transfer", "24/7 service"],
@@ -648,7 +687,7 @@ export const ZANZIBAR_PACKAGES: ZanzibarPackage[] = [
     id: "magical-5",
     title: "5 Days Magical Zanzibar",
     days: 5,
-    image: TE_IMG.campingSafari,
+    image: IMAGES.zanzibar.magical5,
     summary:
       "Five days that blend culture and coast — Stone Town heritage, a spice plantation tour and three nights on a quiet stretch of the archipelago.",
     inclusions: ["Bed & Breakfast", "Spice tour", "Airport transfers", "24/7 service"],
@@ -657,7 +696,7 @@ export const ZANZIBAR_PACKAGES: ZanzibarPackage[] = [
     id: "gateway-6",
     title: "6 Days Zanzibar Gateway",
     days: 6,
-    image: TE_IMG.birdWatch,
+    image: IMAGES.zanzibar.gateway6,
     summary:
       "Six full days to truly unwind — snorkel at Mnemba atoll, dhow sail at sunset, swim with dolphins and finish in the old town.",
     inclusions: ["Bed & Breakfast", "Airport transfer", "Excursions on request", "24/7 service"],
