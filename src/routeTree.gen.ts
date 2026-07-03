@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrekkingItineraryRouteImport } from './routes/trekking-itinerary'
 import { Route as ToursRouteImport } from './routes/tours'
 import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -22,6 +23,11 @@ import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const TrekkingItineraryRoute = TrekkingItineraryRouteImport.update({
+  id: '/trekking-itinerary',
+  path: '/trekking-itinerary',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToursRoute = ToursRouteImport.update({
   id: '/tours',
   path: '/tours',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
+  '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
+  '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/tours': typeof ToursRouteWithChildren
+  '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/plan-my-trip'
     | '/tours'
+    | '/trekking-itinerary'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/plan-my-trip'
     | '/tours'
+    | '/trekking-itinerary'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/plan-my-trip'
     | '/tours'
+    | '/trekking-itinerary'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -181,10 +193,18 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   PlanMyTripRoute: typeof PlanMyTripRoute
   ToursRoute: typeof ToursRouteWithChildren
+  TrekkingItineraryRoute: typeof TrekkingItineraryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/trekking-itinerary': {
+      id: '/trekking-itinerary'
+      path: '/trekking-itinerary'
+      fullPath: '/trekking-itinerary'
+      preLoaderRoute: typeof TrekkingItineraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tours': {
       id: '/tours'
       path: '/tours'
@@ -314,17 +334,8 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   PlanMyTripRoute: PlanMyTripRoute,
   ToursRoute: ToursRouteWithChildren,
+  TrekkingItineraryRoute: TrekkingItineraryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
