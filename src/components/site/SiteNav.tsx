@@ -130,7 +130,7 @@ export function SiteNav() {
               className="h-9 w-9 md:h-10 md:w-10 object-contain"
             />
           </span>
-          <span className="hidden lg:inline font-script text-xl leading-none text-cream">
+          <span className="hidden lg:inline font-script text-xl leading-none text-foreground">
             {SITE.shortName}
           </span>
         </Link>
