@@ -143,8 +143,8 @@ export function SiteNav() {
             >
               <Link
                 to={group.to}
-                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] bg-cream/95 text-primary-foreground rounded-sm border border-cream/70 px-3 py-1.5 transition-colors hover:bg-white"
-                activeProps={{ className: "inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] bg-white text-primary-foreground rounded-sm border border-cream/70 px-3 py-1.5" }}
+                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-primary-foreground rounded-sm px-3 py-1.5 transition-colors hover:bg-white"
+                activeProps={{ className: "inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] bg-white text-primary-foreground rounded-sm px-3 py-1.5" }}
                 onClick={() => setOpenGroup(null)}
               >
                 {group.label}
