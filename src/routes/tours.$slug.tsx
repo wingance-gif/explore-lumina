@@ -39,10 +39,10 @@ function TourDetail() {
         <img src={tour.image} alt={tour.title} className="absolute inset-0 h-full w-full object-cover ken-burns" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-background" />
         <div className="relative z-10 container-x mx-auto max-w-[1500px] h-full flex flex-col justify-end pb-20">
-          <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.22em] text-foreground/80">
+          <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.22em] text-white/90">
             <span className="rounded-full glass px-3 py-1 text-primary">{tour.category}</span>
-            <span className="inline-flex items-center gap-1"><Calendar size={11} /> {tour.days}D / {tour.nights}N</span>
-            <span className="inline-flex items-center gap-1"><MapPin size={11} /> {tour.destination}</span>
+            <span className="inline-flex items-center gap-1"><Calendar size={12} /> {tour.days}D / {tour.nights}N</span>
+            <span className="inline-flex items-center gap-1"><MapPin size={12} /> {tour.destination}</span>
           </div>
           <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-balance max-w-4xl">
             {tour.title}
