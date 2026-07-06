@@ -130,12 +130,12 @@ export function SiteNav() {
               className="h-9 w-9 md:h-10 md:w-10 object-contain"
             />
           </span>
-          <span className="hidden sm:inline font-script text-2xl leading-none">
+          <span className="hidden lg:inline font-script text-xl leading-none text-cream">
             {SITE.shortName}
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-3">
           {NAV.map((group) => (
             <div
               key={group.label}
@@ -145,8 +145,8 @@ export function SiteNav() {
             >
               <Link
                 to={group.to}
-                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-foreground/80 transition-colors hover:text-cream"
-                activeProps={{ className: "inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-cream" }}
+                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] bg-cream/95 text-primary-foreground rounded-sm border border-cream/70 px-3 py-1.5 transition-colors hover:bg-white"
+                activeProps={{ className: "inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] bg-white text-primary-foreground rounded-sm border border-cream/70 px-3 py-1.5" }}
                 onClick={() => setOpenGroup(null)}
               >
                 {group.label}
@@ -163,7 +163,7 @@ export function SiteNav() {
                             <Link
                               to={to}
                               hash={s.hash}
-                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
                               onClick={() => setOpenGroup(null)}
                             >
                               <span>{s.label}</span>
@@ -176,7 +176,7 @@ export function SiteNav() {
                                     key={c.label}
                                     to={c.to ?? to}
                                     hash={c.hash}
-                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
                                     onClick={() => setOpenGroup(null)}
                                   >
                                     {c.label}
@@ -192,7 +192,7 @@ export function SiteNav() {
                           key={s.label}
                           to={to}
                           hash={s.hash}
-                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
                           onClick={() => setOpenGroup(null)}
                         >
                           {s.label}
@@ -206,7 +206,7 @@ export function SiteNav() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <div className="flex items-center gap-1 rounded-full border border-cream/40 px-1.5 py-1 text-cream">
             <button aria-label="Decrease font size" onClick={dec} className="grid h-7 w-7 place-items-center rounded-full hover:bg-cream/10 transition-colors">
               <Minus size={12} />
@@ -226,7 +226,7 @@ export function SiteNav() {
           </Link>
         </div>
 
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <button aria-label="Toggle theme" onClick={toggle} className="grid h-10 w-10 place-items-center rounded-full glass">
             {light ? <Moon size={16} /> : <Sun size={16} />}
           </button>
@@ -237,7 +237,7 @@ export function SiteNav() {
       </div>
 
       {open && (
-        <div className="md:hidden glass-strong border-t border-border">
+        <div className="lg:hidden glass-strong border-t border-border">
           <nav className="container-x mx-auto flex flex-col py-2">
             {NAV.map((group) => {
               const isOpen = mobileGroup === group.label;
