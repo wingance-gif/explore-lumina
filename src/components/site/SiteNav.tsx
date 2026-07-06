@@ -113,8 +113,8 @@ export function SiteNav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-strong shadow-elevated" : ""
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-cream/95 ${
+        scrolled ? "shadow-elevated" : ""
       }`}
     >
       <div className="container-x mx-auto flex h-18 max-w-[1500px] items-center justify-between py-4">
