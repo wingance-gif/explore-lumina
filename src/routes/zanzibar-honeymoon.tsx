@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Calendar, Check, Heart, X } from "lucide-react";
-import honeymoonAsset from "@/assets/tours/honeymoon.png.asset.json";
+import { IMAGES } from "@/content/site";
 
 export const Route = createFileRoute("/zanzibar-honeymoon")({
   head: () => ({
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/zanzibar-honeymoon")({
         content:
           "Seven days of romance on the Spice Island — private villa, turquoise reefs, and unforgettable sunsets.",
       },
-      { property: "og:image", content: honeymoonAsset.url },
+      { property: "og:image", content: IMAGES.zanzibar.beach4 },
       { property: "og:url", content: "/zanzibar-honeymoon" },
     ],
     links: [{ rel: "canonical", href: "/zanzibar-honeymoon" }],
@@ -51,7 +51,7 @@ const ZANZIBAR_HONEYMOON: HoneymoonPackage = {
   id: "zanzibar-luxury-honeymoon",
   name: "Zanzibar Luxury Honeymoon",
   tagline: "Seven days of romance on the Spice Island",
-  image: honeymoonAsset.url,
+  image: IMAGES.zanzibar.beach4,
   duration: "7 days / 6 nights",
   difficulty: "Relaxed — designed for unwinding",
   bestTime: "Jun–Mar (dry season, clearest seas; avoid long rains Apr–May)",

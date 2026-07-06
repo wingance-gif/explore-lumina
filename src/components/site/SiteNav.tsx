@@ -50,9 +50,9 @@ const NAV: NavGroup[] = [
     to: "/tours",
     sub: [
       { label: "Safari", hash: "safari", children: SAFARI_TYPES },
-      { label: "Trekking", hash: "trekking" },
+      { label: "Trekking", to: "/trekking-itinerary" },
       { label: "Day Trips", hash: "day-trips" },
-      { label: "Zanzibar Packages", hash: "zanzibar" },
+      { label: "Zanzibar Packages", to: "/zanzibar-honeymoon" },
     ],
   },
   {

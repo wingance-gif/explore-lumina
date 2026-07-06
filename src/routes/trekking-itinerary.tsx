@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Calendar, Check, Mountain, X } from "lucide-react";
-import kilimanjaroAsset from "@/assets/tours/kilimanjaro.jpg.asset.json";
-import meruAsset from "@/assets/tours/meru.jpg.asset.json";
+// import kilimanjaroAsset from "@/assets/tours/kilimanjaro.jpg.asset.json";
+// import meruAsset from "@/assets/tours/meru.jpg.asset.json";
+import { IMAGES } from "@/content/site";
 
 export const Route = createFileRoute("/trekking-itinerary")({
   head: () => ({
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/trekking-itinerary")({
         content:
           "Full day-by-day plans for the Machame route on Kilimanjaro and the classic 4-day Mount Meru climb.",
       },
-      { property: "og:image", content: kilimanjaroAsset.url },
+      { property: "og:image", content: IMAGES.trekking.kilimanjaro },
       { property: "og:url", content: "/trekking-itinerary" },
     ],
     links: [{ rel: "canonical", href: "/trekking-itinerary" }],
@@ -58,7 +59,7 @@ const KILIMANJARO: Trek = {
   id: "kilimanjaro",
   name: "Mount Kilimanjaro",
   route: "Machame Route — 7 days on the mountain",
-  image: kilimanjaroAsset.url,
+  image: IMAGES.trekking.kilimanjaro,
   summitAltitude: "5,895 m / 19,341 ft (Uhuru Peak)",
   duration: "7 days / 6 nights on the mountain",
   difficulty: "Challenging — no technical climbing, altitude is the crux",
@@ -164,7 +165,7 @@ const MERU: Trek = {
   id: "meru",
   name: "Mount Meru",
   route: "Momella Route — 4 days on the mountain",
-  image: meruAsset.url,
+  image: IMAGES.trekking.meru,
   summitAltitude: "4,566 m / 14,980 ft (Socialist Peak)",
   duration: "4 days / 3 nights on the mountain",
   difficulty: "Moderate to challenging — steep summit ridge, real exposure",
@@ -243,7 +244,7 @@ function TrekkingItineraryPage() {
       {/* HERO */}
       <section className="relative h-[70svh] min-h-[480px] w-full overflow-hidden">
         <img
-          src={kilimanjaroAsset.url}
+          src={IMAGES.trekking.kilimanjaro}
           alt="Mount Kilimanjaro at sunrise"
           className="absolute inset-0 h-full w-full object-cover ken-burns"
         />
