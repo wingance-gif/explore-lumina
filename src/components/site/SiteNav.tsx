@@ -205,18 +205,18 @@ export function SiteNav() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <div className="flex items-center gap-1 rounded-full border border-cream/40 px-1.5 py-1 text-cream">
-            <button aria-label="Decrease font size" onClick={dec} className="grid h-7 w-7 place-items-center rounded-full hover:bg-cream/10 transition-colors">
+          <div className="flex items-center gap-1 rounded-full border border-primary-foreground/20 px-1.5 py-1 text-primary-foreground">
+            <button aria-label="Decrease font size" onClick={dec} className="grid h-7 w-7 place-items-center rounded-full hover:bg-black/5 transition-colors">
               <Minus size={12} />
             </button>
-            <button aria-label="Reset font size" onClick={reset} className="px-1 text-[10px] uppercase tracking-[0.2em] tabular-nums hover:text-cream/80" title="Reset">
+            <button aria-label="Reset font size" onClick={reset} className="px-1 text-[10px] uppercase tracking-[0.2em] tabular-nums hover:text-primary-foreground/70" title="Reset">
               {Math.round(scale * 100)}%
             </button>
-            <button aria-label="Increase font size" onClick={inc} className="grid h-7 w-7 place-items-center rounded-full hover:bg-cream/10 transition-colors">
+            <button aria-label="Increase font size" onClick={inc} className="grid h-7 w-7 place-items-center rounded-full hover:bg-black/5 transition-colors">
               <Plus size={12} />
             </button>
           </div>
-          <button aria-label="Toggle theme" onClick={toggle} className="grid h-10 w-10 place-items-center rounded-full border border-cream/40 text-cream hover:bg-cream/10 transition-colors">
+          <button aria-label="Toggle theme" onClick={toggle} className="grid h-10 w-10 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground hover:bg-black/5 transition-colors">
             {light ? <Moon size={16} /> : <Sun size={16} />}
           </button>
           <Link to="/contact" className="rounded-sm border border-cream/70 bg-cream/95 px-6 py-2.5 text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground hover:bg-white transition-colors">
