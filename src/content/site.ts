@@ -87,7 +87,7 @@ destinations: {
 
 export const SITE = {
   name: "Tanzania Exploration",
-  shortName: "TE",
+  shortName: "Tanzania Exploration",
   tagline: "Tanzania, untamed.",
   email: "info@tanzaniaexploration.com",
   phone: "+255 686 166 360",

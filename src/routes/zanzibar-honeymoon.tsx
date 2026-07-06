@@ -209,7 +209,7 @@ function ZanzibarHoneymoonPage() {
               <div className="flex-1 min-w-0">
                 <h4 className="font-display text-xl">{d.title}</h4>
                 {d.location && (
-                  <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] uppercase tracking-[0.15em] text-foreground/65">
+                  <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] uppercase tracking-[0.15em] text-foreground/85">
                     <span className="inline-flex items-center gap-1.5">
                       <Calendar size={11} /> {d.location}
                     </span>

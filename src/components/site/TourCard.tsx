@@ -29,10 +29,10 @@ export function TourCard({ tour }: { tour: Tour }) {
             </span>
           </div>
           <div className="absolute inset-x-5 bottom-5">
-            <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-white/70">
-              <span className="inline-flex items-center gap-1"><Calendar size={11} /> {tour.days}D / {tour.nights}N</span>
-              <span className="h-1 w-1 rounded-full bg-white/40" />
-              <span className="inline-flex items-center gap-1"><MapPin size={11} /> {tour.destination}</span>
+            <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-white/90">
+              <span className="inline-flex items-center gap-1"><Calendar size={12} /> {tour.days}D / {tour.nights}N</span>
+              <span className="h-1 w-1 rounded-full bg-white/50" />
+              <span className="inline-flex items-center gap-1"><MapPin size={12} /> {tour.destination}</span>
             </div>
             <h3 className="mt-3 font-display text-2xl leading-tight text-balance text-white">
               {tour.title}
