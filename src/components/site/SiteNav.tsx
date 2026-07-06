@@ -120,9 +120,7 @@ export function SiteNav() {
       <div className="container-x mx-auto flex h-18 max-w-[1500px] items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-3 group" aria-label={SITE.name}>
           <span
-            className={`grid place-items-center h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden ring-1 ring-border shadow-sm ${
-              light ? "bg-white" : "bg-black"
-            }`}
+            className="grid place-items-center h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden ring-1 ring-border shadow-sm bg-white"
           >
             <img
               src={logo}
