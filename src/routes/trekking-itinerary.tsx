@@ -335,7 +335,7 @@ function TrekkingItineraryPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="font-display text-xl">{d.title}</h4>
-                  <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] uppercase tracking-[0.15em] text-foreground/65">
+                  <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] uppercase tracking-[0.15em] text-foreground/85">
                     {d.distance && (
                       <span className="inline-flex items-center gap-1.5">
                         <span className="h-1 w-1 rounded-full bg-primary" /> {d.distance}
