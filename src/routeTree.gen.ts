@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZanzibarHoneymoonRouteImport } from './routes/zanzibar-honeymoon'
 import { Route as TrekkingItineraryRouteImport } from './routes/trekking-itinerary'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as SafariItinerariesRouteImport } from './routes/safari-itineraries'
 import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as DestinationsRouteImport } from './routes/destinations'
@@ -37,6 +38,11 @@ const TrekkingItineraryRoute = TrekkingItineraryRouteImport.update({
 const ToursRoute = ToursRouteImport.update({
   id: '/tours',
   path: '/tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafariItinerariesRoute = SafariItinerariesRouteImport.update({
+  id: '/safari-itineraries',
+  path: '/safari-itineraries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlanMyTripRoute = PlanMyTripRouteImport.update({
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
+  '/safari-itineraries': typeof SafariItinerariesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByTo {
   '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
+  '/safari-itineraries': typeof SafariItinerariesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -137,6 +145,7 @@ export interface FileRoutesById {
   '/destinations': typeof DestinationsRouteWithChildren
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
+  '/safari-itineraries': typeof SafariItinerariesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -155,6 +164,7 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/gallery'
     | '/plan-my-trip'
+    | '/safari-itineraries'
     | '/tours'
     | '/trekking-itinerary'
     | '/zanzibar-honeymoon'
@@ -171,6 +181,7 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/gallery'
     | '/plan-my-trip'
+    | '/safari-itineraries'
     | '/tours'
     | '/trekking-itinerary'
     | '/zanzibar-honeymoon'
@@ -187,6 +198,7 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/gallery'
     | '/plan-my-trip'
+    | '/safari-itineraries'
     | '/tours'
     | '/trekking-itinerary'
     | '/zanzibar-honeymoon'
@@ -204,6 +216,7 @@ export interface RootRouteChildren {
   DestinationsRoute: typeof DestinationsRouteWithChildren
   GalleryRoute: typeof GalleryRoute
   PlanMyTripRoute: typeof PlanMyTripRoute
+  SafariItinerariesRoute: typeof SafariItinerariesRoute
   ToursRoute: typeof ToursRouteWithChildren
   TrekkingItineraryRoute: typeof TrekkingItineraryRoute
   ZanzibarHoneymoonRoute: typeof ZanzibarHoneymoonRoute
@@ -230,6 +243,13 @@ declare module '@tanstack/react-router' {
       path: '/tours'
       fullPath: '/tours'
       preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safari-itineraries': {
+      id: '/safari-itineraries'
+      path: '/safari-itineraries'
+      fullPath: '/safari-itineraries'
+      preLoaderRoute: typeof SafariItinerariesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plan-my-trip': {
@@ -353,6 +373,7 @@ const rootRouteChildren: RootRouteChildren = {
   DestinationsRoute: DestinationsRouteWithChildren,
   GalleryRoute: GalleryRoute,
   PlanMyTripRoute: PlanMyTripRoute,
+  SafariItinerariesRoute: SafariItinerariesRoute,
   ToursRoute: ToursRouteWithChildren,
   TrekkingItineraryRoute: TrekkingItineraryRoute,
   ZanzibarHoneymoonRoute: ZanzibarHoneymoonRoute,
@@ -360,13 +381,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { TourCard } from "@/components/site/TourCard";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
-import { TOURS, IMAGES, TREKKING_SERVICES, DAY_TRIPS, ZANZIBAR_PACKAGES } from "@/content/site";
+import { TOURS, IMAGES, DAY_TRIPS } from "@/content/site";
 
 
 export const Route = createFileRoute("/tours")({
@@ -89,61 +89,11 @@ function ToursPage() {
                 <h3 className="font-display text-xl">{s.title}</h3>
                 <p className="mt-2 text-sm text-foreground/70">{s.blurb}</p>
                 <Link
-                  to="/contact"
+                  to="/safari-itineraries"
+                  hash={s.id}
                   className="mt-4 inline-block text-[11px] uppercase tracking-[0.25em] text-primary hover:underline"
                 >
-                  Enquire →
-                </Link>
-              </div>
-            </article>
-          ))}
-        </ScrollReveal>
-      </section>
-
-      {/* ============================ TREKKING ============================ */}
-      <section id="trekking" className="container-x mx-auto max-w-[1500px] py-20 scroll-mt-28 border-t border-border/40">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Trekking</p>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl">Climb Tanzania</h2>
-          </div>
-          <p className="max-w-md text-sm text-foreground/70">
-            Two iconic Tanzanian peaks — the Roof of Africa and her quieter, wilder sister.
-          </p>
-        </div>
-
-        <ScrollReveal className="mt-10 grid gap-8 lg:grid-cols-2">
-          {TREKKING_SERVICES.map((t) => (
-            <article key={t.id} className="group overflow-hidden rounded-xl border border-border bg-card">
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={t.image}
-                  alt={t.title}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-7">
-                <p className="text-[11px] uppercase tracking-[0.25em] text-primary">{t.altitude}</p>
-                <h3 className="mt-2 font-display text-2xl">{t.title}</h3>
-                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{t.summary}</p>
-                <div className="mt-5">
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-2">Available routes</p>
-                  <ul className="grid grid-cols-2 gap-1.5 text-sm">
-                    {t.routes.map((r, i) => (
-                      <li key={`${r.name}-${r.days}-${i}`} className="flex items-center gap-2 text-foreground/80">
-                        <span className="h-1 w-1 rounded-full bg-primary" />
-                        {r.days} days — {r.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Link
-                  to="/contact"
-                  className="mt-6 inline-block text-[11px] uppercase tracking-[0.25em] text-primary hover:underline"
-                >
-                  Plan this climb →
+                  View itinerary →
                 </Link>
               </div>
             </article>
@@ -191,52 +141,6 @@ function ToursPage() {
         </ScrollReveal>
       </section>
 
-      {/* ============================ ZANZIBAR ============================ */}
-      <section id="zanzibar" className="container-x mx-auto max-w-[1500px] py-20 scroll-mt-28 border-t border-border/40">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Zanzibar Packages</p>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl">End your journey in the Indian Ocean</h2>
-          </div>
-          <p className="max-w-md text-sm text-foreground/70">
-            The Zanzibar Archipelago is a world-class beach destination — easily combined with a mainland safari.
-          </p>
-        </div>
-
-        <ScrollReveal className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {ZANZIBAR_PACKAGES.map((z) => (
-            <article key={z.id} className="group overflow-hidden rounded-lg border border-border bg-card">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={z.image}
-                  alt={z.title}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-5">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-primary">{z.days} days · Zanzibar</p>
-                <h3 className="mt-2 font-display text-lg">{z.title}</h3>
-                <p className="mt-2 text-sm text-foreground/70">{z.summary}</p>
-                <ul className="mt-3 flex flex-wrap gap-1.5">
-                  {z.inclusions.map((inc) => (
-                    <li key={inc} className="text-[10px] uppercase tracking-[0.18em] text-foreground/70 rounded-full border border-border px-2.5 py-1">
-                      {inc}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/contact"
-                  className="mt-4 inline-block text-[11px] uppercase tracking-[0.25em] text-primary hover:underline"
-                >
-                  Enquire →
-                </Link>
-              </div>
-            </article>
-          ))}
-        </ScrollReveal>
-      </section>
 
 
 

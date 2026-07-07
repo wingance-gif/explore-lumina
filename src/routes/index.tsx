@@ -98,8 +98,8 @@ function Home() {
               <input
                 type="date"
                 name="date"
-                className="mt-1 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2 text-sm text-foreground/80"
-                color-scheme={light ? "light" : "dark"}
+                className="date-input-dark mt-1 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2 text-sm text-foreground/80"
+                style={{ colorScheme: light ? "light" : "dark" }}
               />
             </div>
           </div>

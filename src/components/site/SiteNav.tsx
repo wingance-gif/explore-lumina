@@ -11,17 +11,17 @@ type SubLink = { label: string; hash?: string; to?: string; children?: SubLink[]
 type NavGroup = { label: string; to: string; sub: SubLink[] };
 
 const SAFARI_TYPES: SubLink[] = [
-  { label: "Tanzania Luxury Safaris", to: "/tours", hash: "safari-luxury" },
-  { label: "Tented Lodge Safari", to: "/tours", hash: "safari-tented-lodge" },
-  { label: "Tanzania Camping Safaris", to: "/tours", hash: "safari-camping" },
-  { label: "Bird Watching Safaris", to: "/tours", hash: "safari-bird-watching" },
-  { label: "Honeymoon Safari Packages", to: "/tours", hash: "safari-honeymoon" },
-  { label: "Flying Safari", to: "/tours", hash: "safari-flying" },
-  { label: "Family Safari", to: "/tours", hash: "safari-family" },
-  { label: "Photographic Safari", to: "/tours", hash: "safari-photographic" },
-  { label: "Wildebeest Migration", to: "/tours", hash: "safari-migration" },
-  { label: "Balloon Safari", to: "/tours", hash: "safari-balloon" },
-  { label: "Guided Walking Safaris", to: "/tours", hash: "safari-walking" },
+  { label: "Tanzania Luxury Safaris", to: "/safari-itineraries", hash: "safari-luxury" },
+  { label: "Tented Lodge Safari", to: "/safari-itineraries", hash: "safari-tented-lodge" },
+  { label: "Tanzania Camping Safaris", to: "/safari-itineraries", hash: "safari-camping" },
+  { label: "Bird Watching Safaris", to: "/safari-itineraries", hash: "safari-bird-watching" },
+  { label: "Honeymoon Safari Packages", to: "/safari-itineraries", hash: "safari-honeymoon" },
+  { label: "Flying Safari", to: "/safari-itineraries", hash: "safari-flying" },
+  { label: "Family Safari", to: "/safari-itineraries", hash: "safari-family" },
+  { label: "Photographic Safari", to: "/safari-itineraries", hash: "safari-photographic" },
+  { label: "Wildebeest Migration", to: "/safari-itineraries", hash: "safari-migration" },
+  { label: "Balloon Safari", to: "/safari-itineraries", hash: "safari-balloon" },
+  { label: "Guided Walking Safaris", to: "/safari-itineraries", hash: "safari-walking" },
 ];
 
 const NAV: NavGroup[] = [
@@ -49,9 +49,9 @@ const NAV: NavGroup[] = [
     label: "Tours & Safaris",
     to: "/tours",
     sub: [
-      { label: "Safari", hash: "safari", children: SAFARI_TYPES },
+      { label: "Safari", to: "/safari-itineraries", children: SAFARI_TYPES },
       { label: "Trekking", to: "/trekking-itinerary" },
-      { label: "Day Trips", hash: "day-trips" },
+      { label: "Day Trips", to: "/tours", hash: "day-trips" },
       { label: "Zanzibar Packages", to: "/zanzibar-honeymoon" },
     ],
   },
@@ -113,8 +113,8 @@ export function SiteNav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-cream/30 ${
-        scrolled ? "shadow-elevated" : ""
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 backdrop-blur-md ${
+        scrolled ? "bg-cream/60 shadow-elevated" : "bg-cream/10"
       }`}
     >
       <div className="container-x mx-auto flex h-18 max-w-[1500px] items-center justify-between py-4">
