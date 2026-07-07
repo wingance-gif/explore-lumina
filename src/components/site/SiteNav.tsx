@@ -49,9 +49,9 @@ const NAV: NavGroup[] = [
     label: "Tours & Safaris",
     to: "/tours",
     sub: [
-      { label: "Safari", hash: "safari", children: SAFARI_TYPES },
+      { label: "Safari", to: "/safari-itineraries", children: SAFARI_TYPES },
       { label: "Trekking", to: "/trekking-itinerary" },
-      { label: "Day Trips", hash: "day-trips" },
+      { label: "Day Trips", to: "/tours", hash: "day-trips" },
       { label: "Zanzibar Packages", to: "/zanzibar-honeymoon" },
     ],
   },
