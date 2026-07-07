@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { TourCard } from "@/components/site/TourCard";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
-import { TOURS, IMAGES, TREKKING_SERVICES, DAY_TRIPS, ZANZIBAR_PACKAGES } from "@/content/site";
+import { TOURS, IMAGES, DAY_TRIPS } from "@/content/site";
 
 
 export const Route = createFileRoute("/tours")({
