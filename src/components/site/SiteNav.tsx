@@ -113,7 +113,7 @@ export function SiteNav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-cream/95 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-cream/30 ${
         scrolled ? "shadow-elevated" : ""
       }`}
     >
@@ -219,7 +219,7 @@ export function SiteNav() {
           <button aria-label="Toggle theme" onClick={toggle} className="grid h-10 w-10 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground hover:bg-black/5 transition-colors">
             {light ? <Moon size={16} /> : <Sun size={16} />}
           </button>
-          <Link to="/contact" className="rounded-sm border border-cream/70 bg-cream/95 px-6 py-2.5 text-[10px] font-medium uppercase tracking-[0.3em] text-primary-foreground hover:bg-white transition-colors">
+          <Link to="/contact" className="rounded-sm border border-cream/70 bg-cream/95 px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:bg-white transition-colors whitespace-nowrap">
             Plan a trip
           </Link>
         </div>
@@ -291,7 +291,7 @@ export function SiteNav() {
                 </div>
               );
             })}
-            <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-cream/70 bg-cream/95 px-5 py-3 text-center text-xs uppercase tracking-[0.3em] text-primary-foreground">
+            <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-cream/70 bg-cream/95 px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-primary-foreground whitespace-nowrap">
               Plan a trip
             </Link>
           </nav>

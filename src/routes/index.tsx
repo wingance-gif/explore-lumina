@@ -15,6 +15,7 @@ import {
   Zap,
   Send,
 } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 import { CinematicHero } from "@/components/site/CinematicHero";
 import { DestinationCard } from "@/components/site/DestinationCard";
 import { TourCard } from "@/components/site/TourCard";
@@ -46,6 +47,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { light } = useTheme();
   const featuredTours = TOURS.slice(0, 6);
   const topDestinations = DESTINATIONS.slice(0, 5);
 
@@ -96,7 +98,8 @@ function Home() {
               <input
                 type="date"
                 name="date"
-                className="mt-1 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2 text-sm"
+                className="mt-1 w-full bg-transparent border-b border-border focus:border-primary outline-none py-2 text-sm text-foreground/80"
+                color-scheme={light ? "light" : "dark"}
               />
             </div>
           </div>
