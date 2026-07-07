@@ -114,7 +114,7 @@ export function SiteNav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 backdrop-blur-md ${
-        scrolled ? "bg-cream/60 shadow-elevated" : "bg-cream/10"
+        scrolled ? "bg-cream/40 shadow-elevated" : "bg-cream/5"
       }`}
     >
       <div className="container-x mx-auto flex h-18 max-w-[1500px] items-center justify-between py-4">
@@ -143,8 +143,8 @@ export function SiteNav() {
             >
               <Link
                 to={group.to}
-                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-primary-foreground rounded-sm px-3 py-1.5 transition-colors hover:bg-white"
-                activeProps={{ className: "inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] bg-white text-primary-foreground rounded-sm px-3 py-1.5" }}
+                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-primary-foreground rounded-sm px-3 py-1.5 transition-colors hover:text-accent-foreground"
+                activeProps={{ className: "inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-accent-foreground rounded-sm px-3 py-1.5" }}
                 onClick={() => setOpenGroup(null)}
               >
                 {group.label}
@@ -161,7 +161,7 @@ export function SiteNav() {
                             <Link
                               to={to}
                               hash={s.hash}
-                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
                               onClick={() => setOpenGroup(null)}
                             >
                               <span>{s.label}</span>
@@ -174,7 +174,7 @@ export function SiteNav() {
                                     key={c.label}
                                     to={c.to ?? to}
                                     hash={c.hash}
-                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
                                     onClick={() => setOpenGroup(null)}
                                   >
                                     {c.label}
@@ -190,7 +190,7 @@ export function SiteNav() {
                           key={s.label}
                           to={to}
                           hash={s.hash}
-                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
                           onClick={() => setOpenGroup(null)}
                         >
                           {s.label}

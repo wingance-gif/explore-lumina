@@ -208,4 +208,32 @@
   .dark .date-input-dark::-webkit-calendar-picker-indicator {
     filter: invert(1);
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-professional {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+  }
+  .scrollbar-professional::-webkit-scrollbar {
+    height: 4px;
+  }
+  .scrollbar-professional::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-professional::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .scrollbar-professional::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    height: 6px;
+  }
 }

@@ -310,12 +310,12 @@ function SafariItinerariesPage() {
       {/* JUMP NAV */}
       <nav className="sticky top-20 z-30 border-y border-border/40 bg-background/85 backdrop-blur-md">
         <div className="container-x mx-auto max-w-[1500px] py-3">
-          <ul className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
+          <ul className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-professional scroll-smooth">
             {SAFARIS.map((s) => (
               <li key={s.id} className="shrink-0">
                 <a
                   href={`#${s.id}`}
-                  className="inline-block rounded-full border border-border px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] text-foreground/80 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+                  className="inline-block rounded-full border border-border px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] text-foreground/80 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors whitespace-nowrap"
                 >
                   {s.name}
                 </a>
