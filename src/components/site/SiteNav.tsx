@@ -11,17 +11,17 @@ type SubLink = { label: string; hash?: string; to?: string; children?: SubLink[]
 type NavGroup = { label: string; to: string; sub: SubLink[] };
 
 const SAFARI_TYPES: SubLink[] = [
-  { label: "Tanzania Luxury Safaris", to: "/tours", hash: "safari-luxury" },
-  { label: "Tented Lodge Safari", to: "/tours", hash: "safari-tented-lodge" },
-  { label: "Tanzania Camping Safaris", to: "/tours", hash: "safari-camping" },
-  { label: "Bird Watching Safaris", to: "/tours", hash: "safari-bird-watching" },
-  { label: "Honeymoon Safari Packages", to: "/tours", hash: "safari-honeymoon" },
-  { label: "Flying Safari", to: "/tours", hash: "safari-flying" },
-  { label: "Family Safari", to: "/tours", hash: "safari-family" },
-  { label: "Photographic Safari", to: "/tours", hash: "safari-photographic" },
-  { label: "Wildebeest Migration", to: "/tours", hash: "safari-migration" },
-  { label: "Balloon Safari", to: "/tours", hash: "safari-balloon" },
-  { label: "Guided Walking Safaris", to: "/tours", hash: "safari-walking" },
+  { label: "Tanzania Luxury Safaris", to: "/safari-itineraries", hash: "safari-luxury" },
+  { label: "Tented Lodge Safari", to: "/safari-itineraries", hash: "safari-tented-lodge" },
+  { label: "Tanzania Camping Safaris", to: "/safari-itineraries", hash: "safari-camping" },
+  { label: "Bird Watching Safaris", to: "/safari-itineraries", hash: "safari-bird-watching" },
+  { label: "Honeymoon Safari Packages", to: "/safari-itineraries", hash: "safari-honeymoon" },
+  { label: "Flying Safari", to: "/safari-itineraries", hash: "safari-flying" },
+  { label: "Family Safari", to: "/safari-itineraries", hash: "safari-family" },
+  { label: "Photographic Safari", to: "/safari-itineraries", hash: "safari-photographic" },
+  { label: "Wildebeest Migration", to: "/safari-itineraries", hash: "safari-migration" },
+  { label: "Balloon Safari", to: "/safari-itineraries", hash: "safari-balloon" },
+  { label: "Guided Walking Safaris", to: "/safari-itineraries", hash: "safari-walking" },
 ];
 
 const NAV: NavGroup[] = [
