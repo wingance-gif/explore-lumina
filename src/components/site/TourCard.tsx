@@ -38,11 +38,8 @@ export function TourCard({ tour }: { tour: Tour }) {
               {tour.title}
             </h3>
             <div className="mt-3 flex items-end justify-between">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-white/60">From</p>
-                <p className="font-display text-2xl text-primary">${tour.priceFrom}<span className="text-xs text-white/60"> / person</span></p>
-              </div>
-              <span className="text-xs text-white/70 group-hover:text-primary transition-colors">View itinerary →</span>
+              <span className="text-[10px] uppercase tracking-[0.22em] text-white/70">Tailored itinerary</span>
+              <span className="text-xs text-white/80 group-hover:text-primary transition-colors">View itinerary →</span>
             </div>
           </div>
         </div>
