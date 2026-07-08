@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Sparkles } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
+import type { DestinationExperience } from "@/content/site";
 
 type Props = {
   slug: string;
@@ -10,10 +11,23 @@ type Props = {
   image: string;
   region: string;
   highlights?: string[];
+  experiences?: DestinationExperience[];
   index?: number;
 };
 
-export function DestinationCard({ slug, name, short, image, region, highlights = [], index = 0 }: Props) {
+export function DestinationCard({
+  slug,
+  name,
+  short,
+  image,
+  region,
+  highlights = [],
+  experiences = [],
+  index = 0,
+}: Props) {
+  const hasExperiences = experiences.length > 0;
+  const hasContent = hasExperiences || highlights.length > 0;
+
   return (
     <motion.article variants={fadeUp} className="group relative flex flex-col">
       <Link
@@ -42,7 +56,7 @@ export function DestinationCard({ slug, name, short, image, region, highlights =
         </div>
       </Link>
 
-      {highlights.length > 0 && (
+      {hasContent && (
         <details className="group/details mt-3 rounded-2xl border border-border bg-card/80 backdrop-blur-sm px-5 py-3">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary">
             <span className="inline-flex items-center gap-2">
@@ -50,14 +64,40 @@ export function DestinationCard({ slug, name, short, image, region, highlights =
             </span>
             <ChevronDown size={14} className="opacity-70 transition-transform duration-300 group-open/details:rotate-180" />
           </summary>
-          <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
-            {highlights.map((h) => (
-              <li key={h} className="flex items-start gap-2">
-                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                {h}
-              </li>
-            ))}
-          </ul>
+
+          {hasExperiences ? (
+            <ul className="mt-4 grid gap-4 text-sm text-foreground/85">
+              {experiences.map((exp) => (
+                <li key={exp.title} className="flex items-start gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <div>
+                    <p className="font-medium text-foreground">{exp.title}</p>
+                    <p className="mt-1 text-foreground/70 leading-relaxed">{exp.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
+              {highlights.map((h) => (
+                <li key={h} className="flex items-start gap-2">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {hasExperiences && (
+            <div className="mt-4 border-t border-border/60 pt-3">
+              <Link
+                to="/plan-my-trip"
+                className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
+              >
+                Plan this experience →
+              </Link>
+            </div>
+          )}
         </details>
       )}
     </motion.article>

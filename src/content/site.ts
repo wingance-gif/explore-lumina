@@ -129,7 +129,20 @@ export const HERO_SLIDES = [
   },
 ] as const;
 
-export const DESTINATIONS = [
+export type DestinationExperience = { title: string; description: string };
+
+export type Destination = {
+  slug: string;
+  name: string;
+  short: string;
+  long: string;
+  image: string;
+  region: string;
+  highlights: string[];
+  experiences: DestinationExperience[];
+};
+
+export const DESTINATIONS: Destination[] = [
   {
     slug: "serengeti",
     name: "Serengeti National Park",
@@ -138,6 +151,14 @@ export const DESTINATIONS = [
     image: IMAGES.heroSerengeti,
     region: "Northern Circuit",
     highlights: ["Great Migration", "Big Five", "Balloon safaris", "Maasai culture"],
+    experiences: [
+      { title: "Witness the Great Migration", description: "Follow 1.5 million wildebeest and 200,000 zebras across the plains, with dramatic river crossings at the Mara and Grumeti between July and October." },
+      { title: "Track the Big Five", description: "Search for lion, leopard, elephant, buffalo and the elusive black rhino on twice-daily game drives with expert Silver-level Tanzanian guides." },
+      { title: "Sunrise hot-air balloon safari", description: "Drift silently above the plains at dawn and land to a champagne bush breakfast — an unforgettable, once-in-a-lifetime view of the Serengeti." },
+      { title: "Predator action in Seronera Valley", description: "The central Serengeti's rivers concentrate lion prides, cheetah coalitions and leopards in sausage trees year-round." },
+      { title: "Meet the Maasai", description: "Visit an authentic Maasai boma on the park's edge — learn about warriorhood, cattle culture and beadwork straight from the community." },
+      { title: "Bush dining under the stars", description: "Private candle-lit dinners in the middle of the wilderness, followed by nightcaps around a fire beneath the Southern Cross." },
+    ],
   },
   {
     slug: "ngorongoro",
@@ -147,6 +168,14 @@ export const DESTINATIONS = [
     image: IMAGES.heroNgorongoro,
     region: "Northern Circuit",
     highlights: ["Crater game drives", "Black rhino", "Maasai villages", "Olduvai Gorge"],
+    experiences: [
+      { title: "Descend into the crater", description: "A 600 m descent into the world's largest unbroken caldera — 260 km² of grassland, forest and soda lakes packed with wildlife." },
+      { title: "See critically endangered black rhino", description: "Ngorongoro is one of the last places in Tanzania where you can reliably spot free-roaming black rhino in the wild." },
+      { title: "Flamingos on Lake Magadi", description: "Thousands of lesser flamingos paint the crater's soda lake pink, alongside hippo pods and herds of wildebeest and zebra." },
+      { title: "Olduvai Gorge — the cradle of humankind", description: "Walk the site where the Leakeys uncovered 1.8-million-year-old hominid fossils, with a small museum overlooking the gorge." },
+      { title: "Cultural visit to a Maasai village", description: "Share stories with a Maasai family who still herd cattle on the crater rim, unchanged for centuries." },
+      { title: "Rim-view lodges at sunset", description: "Sleep on the edge of the caldera with panoramic views 600 m down to the crater floor as the sun sets over Africa's Eden." },
+    ],
   },
   {
     slug: "kilimanjaro",
@@ -156,6 +185,14 @@ export const DESTINATIONS = [
     image: IMAGES.heroKilimanjaro,
     region: "Northern Tanzania",
     highlights: ["6 trekking routes", "Uhuru Peak summit", "Glacier views", "5 ecosystems"],
+    experiences: [
+      { title: "Summit Uhuru Peak at 5,895 m", description: "Stand on the Roof of Africa at sunrise after a midnight push from Barafu or Kibo camp — a bucket-list achievement for trekkers of all levels." },
+      { title: "Choose the route that fits you", description: "Machame (7 days, scenic), Lemosho (8 days, best acclimatisation), Rongai (quiet northern approach), Marangu (huts) or the full Northern Circuit (9 days)." },
+      { title: "Walk through five ecosystems", description: "In a single trek you pass cultivated foothills, montane rainforest, heather-moorland, alpine desert and the arctic summit zone." },
+      { title: "See the shrinking glaciers up close", description: "The Furtwängler and Northern Icefield glaciers still crown the summit crater — a rare and vanishing sight in equatorial Africa." },
+      { title: "Certified guides and full support", description: "KPAP-partnered outfitters, salaried porters, oxygen, pulse oximeters and rescue plans on every climb." },
+      { title: "Celebrate at Moshi", description: "Return to a hot shower, cold Kilimanjaro lager and your official summit certificate at a boutique lodge under the mountain." },
+    ],
   },
   {
     slug: "tarangire",
@@ -165,6 +202,14 @@ export const DESTINATIONS = [
     image: IMAGES.wildElephants,
     region: "Northern Circuit",
     highlights: ["Elephant herds", "Baobab forests", "Birding", "Tree-climbing pythons"],
+    experiences: [
+      { title: "Massive elephant herds", description: "Tarangire has the highest concentration of elephants in northern Tanzania — herds of 100–300 gather along the Tarangire River in the dry season." },
+      { title: "Ancient baobab landscapes", description: "Iconic prehistoric baobabs over a thousand years old dot the plains — one of the most photogenic landscapes in East Africa." },
+      { title: "550+ species for birders", description: "Yellow-collared lovebirds, ashy starlings and the rare Kori bustard make Tarangire a top birding destination." },
+      { title: "Tree-climbing lions and pythons", description: "Look up — lions and even African rock pythons regularly rest in the sausage trees and baobabs." },
+      { title: "Silale Swamp game viewing", description: "The swamps stay green year-round and draw buffalo, elephant and predator action even in the driest months." },
+      { title: "Optional night game drives", description: "One of the few Tanzanian parks that allows night drives — spot genets, civets, bushbabies and hunting leopards." },
+    ],
   },
   {
     slug: "lake-manyara",
@@ -174,6 +219,14 @@ export const DESTINATIONS = [
     image: IMAGES.wildLion,
     region: "Northern Circuit",
     highlights: ["Tree-climbing lions", "Flamingos", "Rift Valley views", "Hot springs"],
+    experiences: [
+      { title: "Famous tree-climbing lions", description: "Manyara's lions are known for lounging in acacia branches — a rare behaviour you'll almost never see elsewhere in Africa." },
+      { title: "Pink flamingo shores", description: "Thousands of lesser and greater flamingos gather on the alkaline lake, alongside pelicans, storks and cormorants." },
+      { title: "Rift Valley escarpment views", description: "The park sits below a dramatic 600 m Rift Valley wall — sunset views from the rim lodges are unforgettable." },
+      { title: "Canopy treetop walkway", description: "Africa's longest treetop walkway (370 m) suspended above the groundwater forest — a family-friendly highlight." },
+      { title: "Hot springs at Maji Moto", description: "Bubbling geothermal springs on the lake's southern shore, framed by fever tree forest." },
+      { title: "Ideal Northern Circuit add-on", description: "A perfect half-day stop between Tarangire and Ngorongoro — big variety in a compact 330 km² park." },
+    ],
   },
   {
     slug: "selous",
@@ -183,6 +236,14 @@ export const DESTINATIONS = [
     image: IMAGES.destinations.selous,
     region: "Southern Circuit",
     highlights: ["Boat safaris", "Walking safaris", "Wild dogs", "Fly-camping"],
+    experiences: [
+      { title: "Boat safaris on the Rufiji", description: "Glide past pods of hippo, giant crocodiles and elephants coming to drink — a totally different rhythm from a game drive." },
+      { title: "Walking safaris with armed rangers", description: "Read tracks, follow lion pug marks and learn the bush from the ground up on multi-hour walks." },
+      { title: "Wild dog stronghold", description: "One of Africa's largest remaining populations of endangered African wild dogs (painted wolves) roams these woodlands." },
+      { title: "Fly-camping under the stars", description: "Overnight in a light mosquito-net camp deep in the bush — the ultimate remote-Africa experience." },
+      { title: "Off-the-beaten-path solitude", description: "Vast, low-traffic wilderness — you can go all day without seeing another vehicle." },
+      { title: "Combines beautifully with Zanzibar", description: "A 45-minute flight from Dar links Nyerere with the beaches, ideal for a bush-and-beach honeymoon." },
+    ],
   },
   {
     slug: "zanzibar",
@@ -192,6 +253,14 @@ export const DESTINATIONS = [
     image: IMAGES.destinations.zanzibar,
     region: "Indian Ocean",
     highlights: ["White-sand beaches", "Stone Town", "Spice tours", "Dhow sunsets"],
+    experiences: [
+      { title: "White-sand beaches on every coast", description: "Nungwi & Kendwa for swim-any-tide beaches, Paje for kitesurfing, Matemwe for reef access, Michamvi for sunsets over the lagoon." },
+      { title: "UNESCO Stone Town", description: "Wander 400-year-old Swahili-Arab lanes, carved doors, spice markets and the old Sultan's palace." },
+      { title: "Snorkelling and diving at Mnemba Atoll", description: "Turquoise reefs teeming with turtles, dolphins, reef sharks and 600+ species of fish." },
+      { title: "Spice plantation tour", description: "See where cloves, cinnamon, cardamom, nutmeg and vanilla grow — with a Zanzibari lunch cooked over the fire." },
+      { title: "Sunset dhow cruise", description: "Sail a traditional wooden dhow at golden hour, drinks in hand, dolphins alongside." },
+      { title: "Perfect post-safari escape", description: "3–7 nights to decompress after the bush — private beach villas, spa treatments and seafood on the sand." },
+    ],
   },
   {
     slug: "arusha",
@@ -201,8 +270,17 @@ export const DESTINATIONS = [
     image: IMAGES.destinations.arusha,
     region: "Northern Tanzania",
     highlights: ["Walking safaris", "Mount Meru trek", "Momella Lakes", "Day trip from Arusha"],
+    experiences: [
+      { title: "Walking safaris on foot", description: "One of the very few Tanzanian parks where you can walk with an armed ranger — get eye-level with giraffe and buffalo." },
+      { title: "Climb Mount Meru (4,566 m)", description: "A 3–4 day trek that's excellent acclimatisation for Kilimanjaro, with buffalo and giraffe on the lower slopes." },
+      { title: "Canoe the Momella Lakes", description: "Paddle alkaline lakes ringed with flamingos, hippo and waterbuck — a unique water-safari experience." },
+      { title: "Ngurdoto Crater viewpoints", description: "The 'Little Ngorongoro' — a lush, self-contained caldera you view from the rim." },
+      { title: "Black-and-white colobus monkeys", description: "Dense montane forest teems with these striking, long-tailed monkeys — a photographer's favourite." },
+      { title: "Perfect day trip from Arusha", description: "Only 40 minutes from town — ideal for your first or final day in Tanzania when time is short." },
+    ],
   },
 ];
+
 
 export type Tour = {
   slug: string;
