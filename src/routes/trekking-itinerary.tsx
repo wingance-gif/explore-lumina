@@ -390,7 +390,7 @@ function TrekkingItineraryPage() {
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              to="/contact"
+              to="/plan-my-trip"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-accent px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-[1.02] transition-transform"
             >
               Plan this climb <ArrowRight size={14} />

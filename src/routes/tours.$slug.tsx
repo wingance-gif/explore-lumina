@@ -101,7 +101,7 @@ function TourDetail() {
             ))}
           </div>
 
-          <Link to="/contact" className="mt-8 w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-accent px-6 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-[1.02] transition-transform">
+          <Link to="/plan-my-trip" className="mt-8 w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-accent px-6 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-[1.02] transition-transform">
             Enquire about this tour <ArrowRight size={14} />
           </Link>
           <a href="https://wa.me/255686166360" target="_blank" rel="noreferrer" className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-full glass px-6 py-4 text-sm hover:bg-surface-elevated transition-colors">

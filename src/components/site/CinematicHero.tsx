@@ -83,7 +83,7 @@ export function CinematicHero() {
             <div className="mt-10 flex flex-col items-center gap-6">
               <SunOrnament className="h-9 w-9 text-white/80" />
               <a
-                href="/tours"
+                href="/plan-my-trip"
                 className="inline-flex items-center justify-center rounded-sm border border-cream/80 bg-cream/95 px-9 py-3.5 text-[11px] font-medium uppercase tracking-[0.35em] text-primary-foreground hover:bg-white transition-colors"
               >
                 Plan a trip

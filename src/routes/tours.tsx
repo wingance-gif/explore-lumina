@@ -130,7 +130,7 @@ function ToursPage() {
                 <h3 className="mt-2 font-display text-lg">{d.title}</h3>
                 <p className="mt-2 text-sm text-foreground/70">{d.summary}</p>
                 <Link
-                  to="/contact"
+                  to="/plan-my-trip"
                   className="mt-4 inline-block text-[11px] uppercase tracking-[0.25em] text-primary hover:underline"
                 >
                   Book this trip →
