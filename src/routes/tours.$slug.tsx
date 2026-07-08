@@ -89,9 +89,10 @@ function TourDetail() {
         </div>
 
         <aside className="lg:sticky lg:top-28 h-fit glass-strong rounded-3xl p-8">
-          <p className="text-xs uppercase tracking-[0.22em] text-foreground/60">From</p>
-          <p className="mt-2 font-display text-5xl text-primary">${tour.priceFrom}</p>
-          <p className="text-sm text-foreground/65">per person · group of 2+</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-foreground/60">Tailored trip</p>
+          <p className="mt-2 font-display text-3xl text-primary">Bespoke pricing</p>
+          <p className="text-sm text-foreground/65">Every itinerary is quoted to your dates, party size and preferred camps.</p>
+
 
           <div className="mt-6 space-y-2 text-sm">
             <p className="text-xs uppercase tracking-[0.18em] text-foreground/55">Highlights</p>
