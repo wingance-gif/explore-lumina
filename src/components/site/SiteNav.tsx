@@ -285,21 +285,15 @@ export function SiteNav() {
             >
 
               <Link
-
                 to={group.to}
-
-                className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-primary-foreground rounded-sm px-3 py-1.5 transition-colors hover:text-accent-foreground"
-
-                activeProps={{ className: "inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] text-accent-foreground rounded-sm px-3 py-1.5" }}
-
+                className={`relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 transition-colors hover:text-primary after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-primary after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
+                  scrolled ? "text-foreground" : "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55)]"
+                }`}
+                activeProps={{ className: "relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 text-primary after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-primary after:scale-x-100" }}
                 onClick={() => setOpenGroup(null)}
-
               >
-
                 {group.label}
-
                 <ChevronDown size={10} className="opacity-70" />
-
               </Link>
 
               {openGroup === group.label && (
