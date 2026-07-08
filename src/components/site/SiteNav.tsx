@@ -406,21 +406,21 @@ export function SiteNav() {
 
         <div className="hidden lg:flex items-center gap-3">
 
-          <div className="flex items-center gap-1 rounded-full border border-primary-foreground/20 px-1.5 py-1 text-primary-foreground">
+          <div className={`flex items-center gap-1 rounded-full border px-1.5 py-1 transition-colors ${scrolled ? "border-foreground/25 text-foreground" : "border-white/40 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55)]"}`}>
 
-            <button aria-label="Decrease font size" onClick={dec} className="grid h-7 w-7 place-items-center rounded-full hover:bg-black/5 transition-colors">
+            <button aria-label="Decrease font size" onClick={dec} className="grid h-7 w-7 place-items-center rounded-full hover:bg-foreground/10 transition-colors">
 
               <Minus size={12} />
 
             </button>
 
-            <button aria-label="Reset font size" onClick={reset} className="px-1 text-[10px] uppercase tracking-[0.2em] tabular-nums hover:text-primary-foreground/70" title="Reset">
+            <button aria-label="Reset font size" onClick={reset} className="px-1 text-[10px] uppercase tracking-[0.2em] tabular-nums hover:opacity-70" title="Reset">
 
               {Math.round(scale * 100)}%
 
             </button>
 
-            <button aria-label="Increase font size" onClick={inc} className="grid h-7 w-7 place-items-center rounded-full hover:bg-black/5 transition-colors">
+            <button aria-label="Increase font size" onClick={inc} className="grid h-7 w-7 place-items-center rounded-full hover:bg-foreground/10 transition-colors">
 
               <Plus size={12} />
 
@@ -428,7 +428,7 @@ export function SiteNav() {
 
           </div>
 
-          <button aria-label="Toggle theme" onClick={toggle} className="grid h-10 w-10 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground hover:bg-black/5 transition-colors">
+          <button aria-label="Toggle theme" onClick={toggle} className={`grid h-10 w-10 place-items-center rounded-full border transition-colors ${scrolled ? "border-foreground/25 text-foreground hover:bg-foreground/10" : "border-white/40 text-white hover:bg-white/10 [text-shadow:0_1px_3px_rgba(0,0,0,0.55)]"}`}>
 
             {light ? <Moon size={16} /> : <Sun size={16} />}
 
