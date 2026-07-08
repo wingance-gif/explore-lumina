@@ -10,7 +10,7 @@ import { useTheme } from "@/hooks/use-theme";
 
 import { useFontSize } from "@/hooks/use-font-size";
 
-import logoGold from "@/assets/logo-gold.png";
+import logoGold from "@/assets/logo-black.png";
 
 import logoBlack from "@/assets/logo-black.png";
 
@@ -228,9 +228,9 @@ export function SiteNav() {
 
     <header
 
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 backdrop-blur-md ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
 
-        scrolled ? "bg-cream/40 shadow-elevated" : "bg-cream/5"
+        scrolled ? "bg-cream/10 backdrop-blur-md shadow-elevated" : "bg-transparent backdrop-blur-none"
 
       }`}
 
