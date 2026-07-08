@@ -43,12 +43,12 @@ export function DestinationCard({ slug, name, short, image, region, highlights =
       </Link>
 
       {highlights.length > 0 && (
-        <details className="mt-3 rounded-2xl border border-border bg-card/80 backdrop-blur-sm px-5 py-3 [&_svg.chev]:open:rotate-180">
+        <details className="group/details mt-3 rounded-2xl border border-border bg-card/80 backdrop-blur-sm px-5 py-3">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary">
             <span className="inline-flex items-center gap-2">
               <Sparkles size={12} /> What you'll experience
             </span>
-            <ChevronDown size={14} className="chev opacity-70 transition-transform duration-300" />
+            <ChevronDown size={14} className="opacity-70 transition-transform duration-300 group-open/details:rotate-180" />
           </summary>
           <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
             {highlights.map((h) => (
