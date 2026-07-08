@@ -61,7 +61,7 @@ function Home() {
       {/* Quick inquiry form */}
       <section className="container-x mx-auto max-w-[1200px] mt-12 md:mt-16 relative z-20 px-4">
         <form
-          action="/contact"
+          action="/plan-my-trip"
           method="get"
           className="glass rounded-2xl p-5 md:p-6 shadow-xl border border-border/50"
         >
@@ -268,7 +268,7 @@ function Home() {
             Beyond Expectations.
           </h2>
           <Link
-            to="/contact"
+            to="/plan-my-trip"
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-accent px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-105 transition-transform"
           >
             Plan my trip <ArrowRight size={16} />

@@ -434,7 +434,7 @@ export function SiteNav() {
 
           </button>
 
-          <Link to="/contact" className="rounded-sm border border-cream/70 bg-cream/95 px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:bg-white transition-colors whitespace-nowrap">
+          <Link to="/plan-my-trip" className="rounded-sm border border-cream/70 bg-cream/95 px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:bg-white transition-colors whitespace-nowrap">
 
             Plan a trip
 
