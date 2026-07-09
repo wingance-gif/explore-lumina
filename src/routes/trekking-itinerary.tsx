@@ -317,14 +317,15 @@ function TrekkingItineraryPage() {
             </aside>
           </div>
 
-          <div className="rounded-2xl overflow-hidden aspect-[21/9] mb-12">
+          <div className={`rounded-2xl overflow-hidden mb-12 ${trek.id === "meru" ? "aspect-[16/9] bg-black/40" : "aspect-[21/9]"}`}>
             <img
               src={trek.image}
               alt={trek.name}
               loading="lazy"
-              className="h-full w-full object-cover"
+              className={`h-full w-full ${trek.id === "meru" ? "object-contain" : "object-cover"}`}
             />
           </div>
+
 
           {/* Day-by-day */}
           <h3 className="font-display text-2xl md:text-3xl mb-8">Day-by-day itinerary</h3>
