@@ -319,7 +319,7 @@ export function SiteNav() {
 
                               hash={s.hash}
 
-                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
+                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
 
                               onClick={() => setOpenGroup(null)}
 
@@ -345,7 +345,7 @@ export function SiteNav() {
 
                                     hash={c.hash}
 
-                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
+                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
 
                                     onClick={() => setOpenGroup(null)}
 
@@ -377,7 +377,7 @@ export function SiteNav() {
 
                           hash={s.hash}
 
-                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
+                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
 
                           onClick={() => setOpenGroup(null)}
 
