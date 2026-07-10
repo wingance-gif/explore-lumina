@@ -286,12 +286,13 @@ export function SiteNav() {
 
               <Link
                 to={group.to}
-                className={`relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 transition-colors hover:text-primary after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-primary after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                  scrolled ? "text-foreground" : "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.55)]"
+                className={`relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 transition-colors hover:text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
+                  scrolled ? "text-foreground" : "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.7)]"
                 }`}
-                activeProps={{ className: "relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 text-primary after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-primary after:scale-x-100" }}
+                activeProps={{ className: "relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:scale-x-100" }}
                 onClick={() => setOpenGroup(null)}
               >
+
                 {group.label}
                 <ChevronDown size={10} className="opacity-70" />
               </Link>
@@ -318,7 +319,7 @@ export function SiteNav() {
 
                               hash={s.hash}
 
-                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
+                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
 
                               onClick={() => setOpenGroup(null)}
 
@@ -344,7 +345,7 @@ export function SiteNav() {
 
                                     hash={c.hash}
 
-                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
+                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
 
                                     onClick={() => setOpenGroup(null)}
 
@@ -376,7 +377,7 @@ export function SiteNav() {
 
                           hash={s.hash}
 
-                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-foreground hover:scale-105"
+                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
 
                           onClick={() => setOpenGroup(null)}
 
