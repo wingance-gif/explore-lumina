@@ -45,8 +45,8 @@ safariTypes: {
 
 // ================= TREKKING =================
 trekking: {
-  kilimanjaro: `${TANZANIA_PHOTO}/kilimanjaro1.png`,
-  meru: `${TANZANIA_PHOTO}/mount-meru.png`,
+  kilimanjaro: `${TANZANIA_PHOTO}/Mt.Kilimanjaro.png`,
+  meru: `${TANZANIA_PHOTO}/Mount_Meru.jpeg`,
 },
 
 // ================= DAY TRIPS =================
