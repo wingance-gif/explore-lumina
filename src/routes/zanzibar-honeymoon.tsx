@@ -37,6 +37,7 @@ type HoneymoonPackage = {
   name: string;
   tagline: string;
   image: string;
+  overviewImage: string;
   duration: string;
   difficulty: string;
   bestTime: string;
@@ -51,7 +52,8 @@ const ZANZIBAR_HONEYMOON: HoneymoonPackage = {
   id: "zanzibar-luxury-honeymoon",
   name: "Zanzibar Luxury Honeymoon",
   tagline: "Seven days of romance on the Spice Island",
-  image: IMAGES.zanzibar.beach4,
+  image: IMAGES.zanzibar.beach4,          // Hero image (Honeymoon2.png)
+  overviewImage: IMAGES.zanzibar.stoneTown3, // Second image (Honeymoon1.png)
   duration: "7 days / 6 nights",
   difficulty: "Relaxed — designed for unwinding",
   bestTime: "Jun–Mar (dry season, clearest seas; avoid long rains Apr–May)",
@@ -191,11 +193,11 @@ function ZanzibarHoneymoonPage() {
 
         <div className="rounded-2xl overflow-hidden aspect-[21/9] mb-12">
           <img
-            src={pkg.image}
+            src={pkg.overviewImage}
             alt={pkg.name}
             loading="lazy"
             className="h-full w-full object-cover"
-          />
+            />
         </div>
 
         {/* Day-by-day */}

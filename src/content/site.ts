@@ -34,7 +34,7 @@ safariTypes: {
   tentedLodge: `${TANZANIA_PHOTO}/safari-types/tent.png`,
   camping: `${TANZANIA_PHOTO}/safari-types/camping safari.png`,
   birding: `${TANZANIA_PHOTO}/safari-types/bird.png`,
-  honeymoon: `${TANZANIA_PHOTO}/safari-types/honeymoonZ.jpg`,
+  honeymoon: `${TANZANIA_PHOTO}/safari-types/Honeymoon1.png`,
   flying: `${TANZANIA_PHOTO}/safari-types/flying.png`,
   family: `${TANZANIA_PHOTO}/safari-types/family.png`,
   photographic: `${TANZANIA_PHOTO}/safari-types/photography.png`,
@@ -61,8 +61,8 @@ dayTrips: {
 
 // ================= ZANZIBAR PACKAGES =================
 zanzibar: {
-  stoneTown3: `${TANZANIA_PHOTO}/stone-town-3.png`,
-  beach4: `${TANZANIA_PHOTO}/beach-4.png`,
+  stoneTown3: `${TANZANIA_PHOTO}/Honeymoon1.png`,
+  beach4: `${TANZANIA_PHOTO}/Honeymoon2.png`,
   magical5: `${TANZANIA_PHOTO}/magical.png`,
   gateway6: `${TANZANIA_PHOTO}/gateway-6.png`,
 },
@@ -95,8 +95,8 @@ export const SITE = {
   address: "Usa River, Arusha, Tanzania",
   hours: "Mon–Sat · 8.00 – 18.00",
   social: {
-    instagram: "https://instagram.com",
-    facebook: "https://facebook.com",
+    instagram: "https://www.instagram.com/tanzaniaexploration?igsh=MWlnMDFxYzhza3RiZA==",
+    facebook: "https://www.facebook.com/tanzaniaexploration",
     youtube: "https://youtube.com",
     tiktok: "https://tiktok.com",
   },
