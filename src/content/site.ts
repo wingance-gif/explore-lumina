@@ -11,7 +11,7 @@ export const IMAGES = {
   wildElephants: `${TANZANIA_PHOTO}/tarangire-new.jpg`,
   wildCheetah: `${TANZANIA_PHOTO}/serengeti.jpg`,
   maasai: `${TANZANIA_PHOTO}/meru.jpg`,
-  balloonSafari: `${TANZANIA_PHOTO}/balloon1.jpg`,
+  balloonSafari: `${TANZANIA_PHOTO}/balloon1.png`,
   kilimanjaroTrek: `${TANZANIA_PHOTO}/kilimanjaro1.png`,
   luxuryPool: `${TANZANIA_PHOTO}/nyerere.jpg`,
 
@@ -470,7 +470,7 @@ export const TOURS: Tour[] = [
     category: "Beach",
     days: 5, nights: 4, priceFrom: 690,
     destination: "Zanzibar",
-    image: IMAGES.heroZanzibar,
+    image: IMAGES.destinations.zanzibar,
     summary: "Soft sand, turquoise water, and nothing on the agenda but breakfast in the sun.",
     highlights: ["Beachfront villa", "Spice tour", "Stone Town walk", "Snorkel at Mnemba"],
     itinerary: [
@@ -592,7 +592,7 @@ We recommend Lemosho for most clients.`,
     excerpt: "Soft duffel, neutral colours, the right binoculars — and what to leave at home.",
     date: "2025-08-10",
     author: "Sahara Wild Editors",
-    image: IMAGES.maasai,
+    image: IMAGES.trekking.kilimanjaro,
     body: `**Soft duffel only** — internal flights have a 15 kg limit and won't accept hard cases.
 **Neutral colours** — khaki, olive, brown. Skip black & dark blue (attract tsetse), white (shows dust), bright camo (illegal in some countries).
 **Binoculars** — 8x42 is the sweet spot. Don't share one between two people.
@@ -606,7 +606,7 @@ We recommend Lemosho for most clients.`,
     excerpt: "The classic Tanzania trip ends in the Indian Ocean. Three nights is fine. Seven is better.",
     date: "2025-07-22",
     author: "Hassan Mwangi",
-    image: IMAGES.heroZanzibar,
+    image: IMAGES.zanzibar.gateway6,
     body: `Most clients add 4–7 nights on Zanzibar after the safari. We recommend at least five — you need a day to recover, a day for Stone Town, a snorkel day, and at least two pure beach days.
 
 **Best beaches by month:**
