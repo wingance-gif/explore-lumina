@@ -46,27 +46,27 @@
 :root {
   --radius: 0.75rem;
 
-  /* Deep cinematic dark palette */
-  --background: oklch(0.13 0.01 150);
-  --surface: oklch(0.16 0.012 150);
-  --surface-elevated: oklch(0.20 0.014 150);
+  /* Deep cinematic dark palette (warm taupe base) */
+  --background: oklch(0.13 0.008 70);
+  --surface: oklch(0.16 0.010 70);
+  --surface-elevated: oklch(0.20 0.012 70);
   --foreground: oklch(0.98 0.005 100);
 
-  --card: oklch(0.16 0.012 150);
+  --card: oklch(0.16 0.010 70);
   --card-foreground: oklch(0.98 0.005 100);
-  --popover: oklch(0.18 0.012 150);
+  --popover: oklch(0.18 0.010 70);
   --popover-foreground: oklch(0.98 0.005 100);
 
   /* Primary = warm cream (Tabi-style) */
   --primary: oklch(0.92 0.04 85);
   --primary-foreground: oklch(0.18 0.02 80);
 
-  /* Secondary = deep forest green */
-  --secondary: oklch(0.30 0.04 145);
+  /* Secondary = warm taupe #827768 */
+  --secondary: oklch(0.52 0.015 70);
   --secondary-foreground: oklch(0.98 0.005 100);
 
-  --muted: oklch(0.22 0.01 100);
-  --muted-foreground: oklch(0.72 0.015 90);
+  --muted: oklch(0.22 0.01 70);
+  --muted-foreground: oklch(0.72 0.015 80);
 
   --accent: oklch(0.85 0.07 80);
   --accent-foreground: oklch(0.18 0.02 80);
@@ -75,7 +75,7 @@
   --cream: oklch(0.93 0.04 85);
   --sand: oklch(0.82 0.06 75);
   --gold: oklch(0.78 0.10 80);
-  --forest: oklch(0.30 0.04 145);
+  --forest: oklch(0.52 0.015 70); /* #827768 taupe */
   --lime: oklch(0.86 0.10 110);
 
   --destructive: oklch(0.62 0.22 25);
@@ -85,7 +85,7 @@
   --ring: oklch(0.92 0.04 85 / 60%);
 
   /* Gradients */
-  --gradient-hero: linear-gradient(180deg, oklch(0.10 0.01 100 / 0.35) 0%, oklch(0.10 0.01 100 / 0.15) 40%, oklch(0.13 0.01 100 / 0.85) 100%);
+  --gradient-hero: linear-gradient(180deg, oklch(0.10 0.01 70 / 0.35) 0%, oklch(0.10 0.01 70 / 0.15) 40%, oklch(0.13 0.008 70 / 0.85) 100%);
   --gradient-accent: linear-gradient(135deg, var(--cream), var(--sand));
   --gradient-forest: linear-gradient(180deg, var(--forest), var(--background));
 
@@ -96,8 +96,7 @@
 }
 
 .dark {
-  /* Already dark by default — keep tokens identical */
-  --background: oklch(0.13 0.01 150);
+  --background: oklch(0.13 0.008 70);
   --foreground: oklch(0.98 0.005 100);
 }
 
