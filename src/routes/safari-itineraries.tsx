@@ -458,12 +458,17 @@ function SafariItinerariesPage() {
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                to="/plan-my-trip"
-                className="inline-flex items-center gap-2 rounded-sm bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
-              >
-                Plan this safari <ArrowRight size={14} />
-              </Link>
+              <PlanTripDialog
+                experienceTitle={s.name}
+                trigger={
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
+                  >
+                    Plan this safari <ArrowRight size={14} />
+                  </button>
+                }
+              />
               <a
                 href="#top"
                 className="text-[11px] uppercase tracking-[0.25em] text-foreground/60 hover:text-primary transition-colors"
