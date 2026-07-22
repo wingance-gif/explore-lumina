@@ -373,11 +373,25 @@ function SafariItinerariesPage() {
 
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {s.highlights.map((h) => (
-                    <li key={h} className="text-[10px] uppercase tracking-[0.18em] rounded-full border border-primary/40 px-3 py-1 text-foreground/85">
+                    <li key={h} className="text-[10px] uppercase tracking-[0.18em] rounded-full bg-[#3D372F] px-3 py-1 text-white">
                       {h}
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-6">
+                  <PlanTripDialog
+                    experienceTitle={s.name}
+                    trigger={
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
+                      >
+                        Plan my trip <ArrowRight size={14} />
+                      </button>
+                    }
+                  />
+                </div>
               </div>
             </div>
 
