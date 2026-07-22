@@ -34,7 +34,7 @@ export function DestinationCard({
   return (
     <motion.article
       variants={fadeUp}
-      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm shadow-elevated"
+      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-border/40 bg-card shadow-elevated"
     >
       <Link
         to="/destinations/$slug"
