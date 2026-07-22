@@ -71,7 +71,7 @@ export function DestinationCard({
             className="flex w-full cursor-pointer items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-white/80 hover:text-white transition-colors"
           >
             <span className="inline-flex items-center gap-2">
-              <PawPrint size={13} /> What you'll experience
+              <PawPrint size={13} className="text-[#C2B6A2]" /> What you'll experience
             </span>
             <ChevronDown
               size={14}
