@@ -20,6 +20,7 @@ import { CinematicHero } from "@/components/site/CinematicHero";
 import { DestinationCard } from "@/components/site/DestinationCard";
 import { TourCard } from "@/components/site/TourCard";
 import { Testimonials } from "@/components/site/Testimonials";
+import { Partners } from "@/components/site/Partners";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { DESTINATIONS, TOURS, CATEGORIES, IMAGES } from "@/content/site";
 import { fadeUp } from "@/lib/motion";
@@ -306,6 +307,7 @@ function Home() {
       </motion.div>
     ))}
   </div>
-</section></>
+</section>
+</>
   );
 }
