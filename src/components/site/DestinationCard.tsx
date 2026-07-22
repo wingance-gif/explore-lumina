@@ -34,7 +34,7 @@ export function DestinationCard({
   return (
     <motion.article
       variants={fadeUp}
-      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-white/5 bg-[#181818] shadow-elevated text-white"
+      className="group relative flex flex-col self-start overflow-hidden rounded-3xl bg-[#181818] text-white shadow-[0_10px_30px_-15px_rgba(0,0,0,0.4)]"
     >
       <Link
         to="/destinations/$slug"
@@ -47,7 +47,7 @@ export function DestinationCard({
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#181818]/10 to-[#181818]" />
         <div className="absolute inset-x-6 top-6 flex items-center justify-between">
           <span className="text-[11px] uppercase tracking-[0.22em] text-white/80">
             {String(index + 1).padStart(2, "0")} / {region}
@@ -61,6 +61,7 @@ export function DestinationCard({
           <p className="mt-2 text-sm text-white/80 line-clamp-2 text-pretty">{short}</p>
         </div>
       </Link>
+
 
       {hasContent && (
         <div className="px-6 pt-4 pb-5">
