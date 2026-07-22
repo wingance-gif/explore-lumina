@@ -130,17 +130,18 @@ function Home() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="glass rounded-2xl p-6 text-center"
+              className="rounded-2xl p-6 text-center bg-[#8A7C67]/35 backdrop-blur-md border border-[#8A7C67]/40 shadow-elevated"
             >
-              <b.icon className="mx-auto text-primary" size={22} />
-              <p className="mt-4 font-display text-3xl">{b.stat}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              <b.icon className="mx-auto text-white" size={22} />
+              <p className="mt-4 font-display text-3xl text-white">{b.stat}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/85">
                 {b.label}
               </p>
             </motion.div>
           ))}
         </div>
       </section>
+
 
       {/* 3. Featured experiences */}
       <section id="featured" className="container-x mx-auto max-w-[1500px] py-16 scroll-mt-24">
