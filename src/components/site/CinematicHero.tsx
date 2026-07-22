@@ -84,7 +84,7 @@ export function CinematicHero() {
               <SunOrnament className="h-9 w-9 text-white/80" />
               <a
                 href="/plan-my-trip"
-                className="inline-flex items-center justify-center rounded-sm border border-[#827768] bg-[#827768] px-9 py-3.5 text-[11px] font-medium uppercase tracking-[0.35em] text-primary-foreground hover:bg-[#6f6558] transition-colors"
+                className="inline-flex items-center justify-center rounded-sm border border-[#827768] bg-[#827768] px-9 py-3.5 text-[11px] font-medium uppercase tracking-[0.35em] text-white hover:bg-[#6f6558] transition-colors"
               >
                 Plan a trip
               </a>

@@ -24,7 +24,7 @@ export function TourCard({ tour }: { tour: Tour }) {
             <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/90">
               {tour.category}
             </span>
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-[#827768] text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-[#827768] text-white opacity-0 transition-opacity group-hover:opacity-100">
               <ArrowUpRight size={14} />
             </span>
           </div>
