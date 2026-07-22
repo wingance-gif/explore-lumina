@@ -30,24 +30,31 @@ export function Partners() {
         </p>
       </div>
 
-      <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-        {PARTNERS.map((p) => (
-          <motion.div
-            key={p.name}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="group flex aspect-[4/3] items-center justify-center rounded-2xl bg-[#C2B6A2]/15 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-[#C2B6A2]/25 hover:-translate-y-1"
-          >
-            <img
-              src={p.src}
-              alt={p.name}
-              loading="lazy"
-              className="max-h-16 w-auto object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100 dark:invert"
-            />
-          </motion.div>
-        ))}
+      <div
+        className="mt-14 relative overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
+      >
+        <div className="flex w-max animate-partners-marquee gap-16 pr-16 hover:[animation-play-state:paused]">
+          {[...PARTNERS, ...PARTNERS].map((p, i) => (
+            <div
+              key={`${p.name}-${i}`}
+              className="flex h-24 shrink-0 items-center justify-center"
+              aria-hidden={i >= PARTNERS.length ? true : undefined}
+            >
+              <img
+                src={p.src}
+                alt={p.name}
+                loading="lazy"
+                className="max-h-16 w-auto object-contain opacity-70 transition-opacity duration-300 hover:opacity-100 dark:invert"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
