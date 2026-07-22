@@ -182,7 +182,7 @@ function ContactPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-accent px-7 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime disabled:opacity-60 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-4 text-sm font-medium text-white shadow-glow-lime disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>

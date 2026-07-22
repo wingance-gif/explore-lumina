@@ -151,7 +151,7 @@ function ToursPage() {
               key={c}
               onClick={() => setCat(c)}
               className={`shrink-0 rounded-full px-5 py-2 text-xs uppercase tracking-[0.18em] transition-all ${
-                cat === c ? "bg-gradient-accent text-primary-foreground shadow-glow-lime" : "glass hover:bg-surface-elevated"
+                cat === c ? "bg-[#827768] text-white shadow-glow-lime" : "glass hover:bg-surface-elevated"
               }`}
             >
               {c}

@@ -69,7 +69,7 @@ function AboutPage() {
             climbing and Zanzibar island vacations. Every booking is tailor-made to your specifications for a
             once-in-a-lifetime, memorable travel experience.
           </p>
-          <Link to="/plan-my-trip" className="inline-flex items-center gap-2 rounded-full bg-gradient-accent px-7 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime">
+          <Link to="/plan-my-trip" className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-4 text-sm font-medium text-white shadow-glow-lime">
             Plan your trip →
           </Link>
         </div>
@@ -135,7 +135,7 @@ function AboutPage() {
             We're putting together portraits and stories of the guides, drivers, chefs and trip designers
             who make every Sahara Wild journey what it is. Check back shortly.
           </p>
-          <Link to="/plan-my-trip" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-accent px-7 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime">
+          <Link to="/plan-my-trip" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-4 text-sm font-medium text-white shadow-glow-lime">
             Get in touch →
           </Link>
         </motion.div>

@@ -315,7 +315,7 @@ function SafariItinerariesPage() {
               <li key={s.id} className="shrink-0">
                 <a
                   href={`#${s.id}`}
-                  className="inline-block rounded-full border border-border px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] text-foreground/80 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors whitespace-nowrap"
+                  className="inline-block rounded-full border border-border px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] text-foreground/80 hover:bg-primary hover:text-white hover:border-primary transition-colors whitespace-nowrap"
                 >
                   {s.name}
                 </a>
@@ -387,7 +387,7 @@ function SafariItinerariesPage() {
                 {s.days.map((d, di) => (
                   <li key={`${s.id}-${di}`} className="rounded-xl border border-border bg-card p-5">
                     <div className="flex items-center gap-3">
-                      <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-xs font-medium">
+                      <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-white text-xs font-medium">
                         {d.day}
                       </span>
                       <p className="font-display text-lg leading-tight">{d.title}</p>
@@ -431,7 +431,7 @@ function SafariItinerariesPage() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 to="/plan-my-trip"
-                className="inline-flex items-center gap-2 rounded-sm bg-gradient-accent px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:scale-[1.02] transition-transform"
+                className="inline-flex items-center gap-2 rounded-sm bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
               >
                 Plan this safari <ArrowRight size={14} />
               </Link>
