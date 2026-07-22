@@ -73,7 +73,7 @@ export function CinematicHero() {
             <p className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.45em] md:tracking-[0.55em] text-white drop-shadow">
               {slide.eyebrow}
             </p>
-            <h1 className="font-script font-bold text-white text-balance leading-[0.95] drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)] mt-6 text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
+            <h1 className="font-script font-light text-white text-balance leading-[0.95] drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)] mt-6 text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
               {slide.title.replace(/\.$/, "")}
             </h1>
             <p className="mx-auto mt-5 max-w-md text-[11px] md:text-xs font-semibold uppercase tracking-[0.35em] text-white/90">
