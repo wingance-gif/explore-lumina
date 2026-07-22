@@ -80,8 +80,8 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} {SITE.name}. Crafted in Arusha, Tanzania.</p>
             <div className="flex justify-between items-center">
-              <p>Site By</p>
-            <img src="/images/gallery/homeeee.png" alt="logo" className="w-90 h-10" />
+              <p className="text-xs text-muted-foreground">Site By</p>
+            <img src="/images/gallery/homeeee.png" alt="logo" className="w-60 h-10" />
             </div>
          <div className="flex items-center gap-4">
             <a href="#" className="hover:text-foreground">Privacy</a>

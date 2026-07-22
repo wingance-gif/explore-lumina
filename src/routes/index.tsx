@@ -132,9 +132,9 @@ function Home() {
               viewport={{ once: true }}
               className="rounded-2xl p-6 text-center bg-[#8A7C67]/35 backdrop-blur-md border border-[#8A7C67]/40 shadow-elevated"
             >
-              <b.icon className="mx-auto text-white" size={22} />
-              <p className="mt-4 font-display text-3xl text-white">{b.stat}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/85">
+              <b.icon className="mx-auto text-black" size={22} />
+              <p className="mt-4 font-display text-3xl text-black">{b.stat}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-black/85">
                 {b.label}
               </p>
             </motion.div>
