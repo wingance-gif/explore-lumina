@@ -58,7 +58,7 @@ export function DestinationCard({
       </Link>
 
       {hasContent && (
-        <details className="group/details border-t border-border/50 px-5 py-3">
+        <details className="group/details px-5 py-3">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary">
             <span className="inline-flex items-center gap-2">
               <PawPrint size={13} /> What you'll experience

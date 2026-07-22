@@ -90,7 +90,7 @@
   --gradient-forest: linear-gradient(180deg, var(--forest), var(--background));
 
   /* Shadows */
-  --shadow-elevated: 0 24px 60px -20px oklch(0 0 0 / 0.6), 0 8px 24px -8px oklch(0 0 0 / 0.4);
+  --shadow-elevated: 0 10px 30px -18px oklch(0 0 0 / 0.35), 0 4px 12px -6px oklch(0 0 0 / 0.2);
   --shadow-glow-lime: 0 0 30px oklch(0.92 0.04 85 / 0.25);
   --shadow-glow-gold: 0 0 30px oklch(0.78 0.10 80 / 0.35);
 }
