@@ -34,7 +34,7 @@ export function DestinationCard({
   return (
     <motion.article
       variants={fadeUp}
-      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-border/40 bg-card shadow-elevated"
+      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-white/5 bg-[#181818] shadow-elevated text-white"
     >
       <Link
         to="/destinations/$slug"
@@ -68,10 +68,10 @@ export function DestinationCard({
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            className="flex w-full cursor-pointer items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary"
+            className="flex w-full cursor-pointer items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-white/80 hover:text-white transition-colors"
           >
             <span className="inline-flex items-center gap-2">
-              <PawPrint size={13} /> What you'll experience
+              <PawPrint size={13} className="text-[#C2B6A2]" /> What you'll experience
             </span>
             <ChevronDown
               size={14}
@@ -90,22 +90,22 @@ export function DestinationCard({
                 className="overflow-hidden"
               >
                 {hasExperiences ? (
-                  <ul className="mt-5 grid gap-4 text-sm text-foreground/85">
+                  <ul className="mt-5 grid gap-4 text-sm text-white/80">
                     {experiences.map((exp) => (
                       <li key={exp.title} className="flex items-start gap-3">
-                        <PawPrint size={14} className="mt-1 shrink-0 text-primary" />
+                        <PawPrint size={14} className="mt-1 shrink-0 text-[#C2B6A2]" />
                         <div>
-                          <p className="font-medium text-foreground">{exp.title}</p>
-                          <p className="mt-1 text-foreground/70 leading-relaxed">{exp.description}</p>
+                          <p className="font-medium text-white">{exp.title}</p>
+                          <p className="mt-1 text-white/70 leading-relaxed">{exp.description}</p>
                         </div>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <ul className="mt-4 grid gap-2 text-sm text-foreground/85">
+                  <ul className="mt-4 grid gap-2 text-sm text-white/80">
                     {highlights.map((h) => (
                       <li key={h} className="flex items-start gap-2">
-                        <PawPrint size={12} className="mt-1 shrink-0 text-primary" />
+                        <PawPrint size={12} className="mt-1 shrink-0 text-[#C2B6A2]" />
                         {h}
                       </li>
                     ))}
@@ -120,7 +120,7 @@ export function DestinationCard({
                       trigger={
                         <button
                           type="button"
-                          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
+                          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-[#C2B6A2] hover:text-white transition-colors"
                         >
                           Plan this experience →
                         </button>
