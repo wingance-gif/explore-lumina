@@ -70,13 +70,13 @@ export function CinematicHero() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-5xl"
           >
-            <p className="text-[10px] md:text-xs font-light uppercase tracking-[0.45em] md:tracking-[0.55em] text-white/85 drop-shadow">
+            <p className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.45em] md:tracking-[0.55em] text-white drop-shadow">
               {slide.eyebrow}
             </p>
-            <h1 className="font-script text-white text-balance leading-[0.95] drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)] mt-6 text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
+            <h1 className="font-script font-bold text-white text-balance leading-[0.95] drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)] mt-6 text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
               {slide.title.replace(/\.$/, "")}
             </h1>
-            <p className="mx-auto mt-5 max-w-md text-[11px] md:text-xs font-light uppercase tracking-[0.35em] text-white/80">
+            <p className="mx-auto mt-5 max-w-md text-[11px] md:text-xs font-semibold uppercase tracking-[0.35em] text-white/90">
               {slide.sub.split(" — ")[0] || slide.sub.split(".")[0]}
             </p>
 
