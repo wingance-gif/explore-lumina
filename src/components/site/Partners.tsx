@@ -39,18 +39,18 @@ export function Partners() {
             "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}
       >
-        <div className="flex w-max animate-partners-marquee gap-16 pr-16 hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-partners-marquee gap-24 pr-24 hover:[animation-play-state:paused]">
           {[...PARTNERS, ...PARTNERS].map((p, i) => (
             <div
               key={`${p.name}-${i}`}
-              className="flex h-24 shrink-0 items-center justify-center"
+              className="flex h-40 shrink-0 items-center justify-center"
               aria-hidden={i >= PARTNERS.length ? true : undefined}
             >
               <img
                 src={p.src}
                 alt={p.name}
                 loading="lazy"
-                className="max-h-16 w-auto object-contain opacity-70 transition-opacity duration-300 hover:opacity-100 dark:invert"
+                className="max-h-32 w-auto object-contain opacity-80 transition-opacity duration-300 hover:opacity-100 dark:invert"
               />
             </div>
           ))}
