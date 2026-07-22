@@ -258,11 +258,12 @@ export function SiteNav() {
 
           </span>
 
-          <span className="hidden lg:inline font-display font-semibold text-2xl leading-none text-foreground">
+          <span className="hidden lg:inline font-display font-semibold text-base xl:text-lg leading-none whitespace-nowrap text-foreground">
 
             {SITE.shortName}
 
           </span>
+
 
 
         </Link>
