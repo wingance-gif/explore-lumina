@@ -178,7 +178,30 @@ function Home() {
         </ScrollReveal>
       </section>
 
-      {/* 4. Top destinations */}
+      {/* 4. Popular tour packages */}
+      <section className="container-x mx-auto max-w-[1500px] py-24">
+        <div className="flex items-end justify-between gap-6 mb-12">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-primary">Popular packages</p>
+            <h2 className="mt-3 font-display text-4xl md:text-6xl text-balance">
+              Tours travellers love.
+            </h2>
+          </div>
+          <Link
+            to="/safari-itineraries"
+            className="hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+          >
+            All itineraries <ArrowRight size={14} />
+          </Link>
+        </div>
+        <ScrollReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredTours.map((t) => (
+            <TourCard key={t.slug} tour={t} />
+          ))}
+        </ScrollReveal>
+      </section>
+
+      {/* 5. Top destinations */}
       <section id="destinations" className="container-x mx-auto max-w-[1500px] py-24 scroll-mt-24">
         <div className="flex items-end justify-between gap-6 mb-12">
           <div>
@@ -201,7 +224,7 @@ function Home() {
         </ScrollReveal>
       </section>
 
-      {/* 5. Why Choose Us */}
+      {/* 6. Why Choose Us */}
       <section className="container-x mx-auto max-w-[1500px] py-24">
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">Why choose us</p>
@@ -223,38 +246,16 @@ function Home() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="glass rounded-2xl p-6 text-center"
+              className="rounded-2xl p-6 text-center bg-[#C2B6A2]/35 backdrop-blur-md border border-[#C2B6A2]/50 shadow-elevated"
             >
               <b.icon className="mx-auto text-primary" size={24} />
               <p className="mt-4 font-display text-lg">{b.label}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{b.text}</p>
+              <p className="mt-2 text-sm text-foreground/75">{b.text}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* 6. Popular tour packages */}
-      <section className="container-x mx-auto max-w-[1500px] py-24">
-        <div className="flex items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Popular packages</p>
-            <h2 className="mt-3 font-display text-4xl md:text-6xl text-balance">
-              Tours travellers love.
-            </h2>
-          </div>
-          <Link
-            to="/tours"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
-          >
-            All tours <ArrowRight size={14} />
-          </Link>
-        </div>
-        <ScrollReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredTours.map((t) => (
-            <TourCard key={t.slug} tour={t} />
-          ))}
-        </ScrollReveal>
-      </section>
 
       {/* Parallax CTA */}
       <section className="relative my-24 h-[70svh] min-h-[480px] w-full overflow-hidden">
