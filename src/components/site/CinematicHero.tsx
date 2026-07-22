@@ -60,7 +60,7 @@ export function CinematicHero() {
       </AnimatePresence>
 
       {/* Center stage */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-32 md:pt-40 text-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={i}
@@ -70,24 +70,18 @@ export function CinematicHero() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-5xl"
           >
-            <p className="text-[10px] md:text-xs font-light uppercase tracking-[0.45em] md:tracking-[0.55em] text-white/85 drop-shadow">
+            <p className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.45em] md:tracking-[0.55em] text-white drop-shadow">
               {slide.eyebrow}
             </p>
-            <h1 className="font-script text-white text-balance leading-[0.95] drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)] mt-6 text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
+            <h1 className="font-script font-light text-white text-balance leading-[0.95] drop-shadow-[0_6px_30px_rgba(0,0,0,0.55)] mt-6 text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
               {slide.title.replace(/\.$/, "")}
             </h1>
-            <p className="mx-auto mt-5 max-w-md text-[11px] md:text-xs font-light uppercase tracking-[0.35em] text-white/80">
+            <p className="mx-auto mt-5 max-w-md text-[11px] md:text-xs font-semibold uppercase tracking-[0.35em] text-white/90">
               {slide.sub.split(" — ")[0] || slide.sub.split(".")[0]}
             </p>
 
             <div className="mt-10 flex flex-col items-center gap-6">
               <SunOrnament className="h-9 w-9 text-white/80" />
-              <a
-                href="/plan-my-trip"
-                className="inline-flex items-center justify-center rounded-sm border border-cream/80 bg-cream/95 px-9 py-3.5 text-[11px] font-medium uppercase tracking-[0.35em] text-primary-foreground hover:bg-white transition-colors"
-              >
-                Plan a trip
-              </a>
             </div>
           </motion.div>
         </AnimatePresence>

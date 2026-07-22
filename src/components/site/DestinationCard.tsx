@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { ArrowUpRight, ChevronDown, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, ChevronDown, PawPrint } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
 import type { DestinationExperience } from "@/content/site";
+import { PlanTripDialog } from "@/components/site/PlanTripDialog";
 
 type Props = {
   slug: string;
@@ -25,15 +27,19 @@ export function DestinationCard({
   experiences = [],
   index = 0,
 }: Props) {
+  const [open, setOpen] = useState(false);
   const hasExperiences = experiences.length > 0;
   const hasContent = hasExperiences || highlights.length > 0;
 
   return (
-    <motion.article variants={fadeUp} className="group relative flex flex-col">
+    <motion.article
+      variants={fadeUp}
+      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-border/40 bg-card shadow-elevated"
+    >
       <Link
         to="/destinations/$slug"
         params={{ slug }}
-        className="relative block aspect-[3/4] overflow-hidden rounded-3xl"
+        className="relative block aspect-[3/4] overflow-hidden"
       >
         <img
           src={image}
@@ -46,7 +52,7 @@ export function DestinationCard({
           <span className="text-[11px] uppercase tracking-[0.22em] text-white/80">
             {String(index + 1).padStart(2, "0")} / {region}
           </span>
-          <span className="grid h-10 w-10 place-items-center rounded-full glass text-white transition-colors group-hover:bg-gradient-accent group-hover:text-primary-foreground">
+          <span className="grid h-10 w-10 place-items-center rounded-full glass text-white transition-colors group-hover:bg-[#827768] group-hover:text-white">
             <ArrowUpRight size={16} />
           </span>
         </div>
@@ -57,49 +63,77 @@ export function DestinationCard({
       </Link>
 
       {hasContent && (
-        <details className="group/details mt-3 rounded-2xl border border-border bg-card/80 backdrop-blur-sm px-5 py-3">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary">
+        <div className="px-6 pt-4 pb-5">
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            className="flex w-full cursor-pointer items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary"
+          >
             <span className="inline-flex items-center gap-2">
-              <Sparkles size={12} /> What you'll experience
+              <PawPrint size={13} /> What you'll experience
             </span>
-            <ChevronDown size={14} className="opacity-70 transition-transform duration-300 group-open/details:rotate-180" />
-          </summary>
+            <ChevronDown
+              size={14}
+              className={`opacity-70 transition-transform duration-300 ease-in-out ${open ? "rotate-180" : ""}`}
+            />
+          </button>
 
-          {hasExperiences ? (
-            <ul className="mt-4 grid gap-4 text-sm text-foreground/85">
-              {experiences.map((exp) => (
-                <li key={exp.title} className="flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  <div>
-                    <p className="font-medium text-foreground">{exp.title}</p>
-                    <p className="mt-1 text-foreground/70 leading-relaxed">{exp.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
-              {highlights.map((h) => (
-                <li key={h} className="flex items-start gap-2">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                  {h}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {hasExperiences && (
-            <div className="mt-4 border-t border-border/60 pt-3">
-              <Link
-                to="/plan-my-trip"
-                className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
+          <AnimatePresence initial={false}>
+            {open && (
+              <motion.div
+                key="content"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
               >
-                Plan this experience →
-              </Link>
-            </div>
-          )}
-        </details>
+                {hasExperiences ? (
+                  <ul className="mt-5 grid gap-4 text-sm text-foreground/85">
+                    {experiences.map((exp) => (
+                      <li key={exp.title} className="flex items-start gap-3">
+                        <PawPrint size={14} className="mt-1 shrink-0 text-primary" />
+                        <div>
+                          <p className="font-medium text-foreground">{exp.title}</p>
+                          <p className="mt-1 text-foreground/70 leading-relaxed">{exp.description}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <ul className="mt-4 grid gap-2 text-sm text-foreground/85">
+                    {highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2">
+                        <PawPrint size={12} className="mt-1 shrink-0 text-primary" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {hasExperiences && (
+                  <div className="mt-5">
+                    <PlanTripDialog
+                      destination={name}
+                      experienceTitle={name}
+                      trigger={
+                        <button
+                          type="button"
+                          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
+                        >
+                          Plan this experience →
+                        </button>
+                      }
+                    />
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       )}
     </motion.article>
   );
 }
+

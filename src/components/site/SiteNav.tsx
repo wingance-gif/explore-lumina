@@ -258,11 +258,19 @@ export function SiteNav() {
 
           </span>
 
-          <span className="hidden lg:inline font-script text-xl leading-none text-foreground">
+          {/* <span className="hidden lg:inline font-serif text-xl leading-none text-foreground">
+            
+          {SITE.shortName}
+
+          </span> */}
+
+          <span className="hidden lg:inline font-display font-semibold text-base xl:text-lg leading-none whitespace-nowrap text-foreground">
 
             {SITE.shortName}
 
           </span>
+
+
 
         </Link>
 
@@ -286,10 +294,10 @@ export function SiteNav() {
 
               <Link
                 to={group.to}
-                className={`relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 transition-colors hover:text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
+                className={`relative inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.3em] px-3 py-1.5 transition-colors hover:text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
                   scrolled ? "text-foreground" : "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.7)]"
                 }`}
-                activeProps={{ className: "relative inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.3em] px-3 py-1.5 text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:scale-x-100" }}
+                activeProps={{ className: "relative inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.3em] px-3 py-1.5 text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:scale-x-100" }}
                 onClick={() => setOpenGroup(null)}
               >
 
@@ -435,7 +443,7 @@ export function SiteNav() {
 
           </button>
 
-          <Link to="/plan-my-trip" className="rounded-sm border border-cream/70 bg-cream/95 px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:bg-white transition-colors whitespace-nowrap">
+          <Link to="/plan-my-trip" className="rounded-sm border border-[#827768] bg-[#827768] px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white hover:bg-[#6f6558] transition-colors whitespace-nowrap">
 
             Plan a trip
 
@@ -579,7 +587,7 @@ export function SiteNav() {
 
             })}
 
-            <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-cream/70 bg-cream/95 px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-primary-foreground whitespace-nowrap">
+            <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-[#827768] bg-[#827768] px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-white whitespace-nowrap">
 
               Plan a trip
 

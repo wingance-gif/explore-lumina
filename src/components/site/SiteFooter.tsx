@@ -70,7 +70,7 @@ export function SiteFooter() {
                 placeholder="you@example.com"
                 className="flex-1 rounded-full bg-input/40 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-ring"
               />
-              <button className="rounded-full bg-gradient-accent px-5 py-3 text-sm font-medium text-primary-foreground hover:scale-105 transition-transform">
+              <button className="rounded-full bg-[#827768] px-5 py-3 text-sm font-medium text-white hover:scale-105 transition-transform">
                 Join
               </button>
             </form>
