@@ -46,7 +46,7 @@ export function DestinationCard({
           <span className="text-[11px] uppercase tracking-[0.22em] text-white/80">
             {String(index + 1).padStart(2, "0")} / {region}
           </span>
-          <span className="grid h-10 w-10 place-items-center rounded-full glass text-white transition-colors group-hover:bg-gradient-accent group-hover:text-primary-foreground">
+          <span className="grid h-10 w-10 place-items-center rounded-full glass text-white transition-colors group-hover:bg-[#827768] group-hover:text-white">
             <ArrowUpRight size={16} />
           </span>
         </div>

@@ -106,7 +106,7 @@ function Home() {
           <div className="mt-5 flex justify-end">
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-accent px-7 py-3 text-sm font-medium text-primary-foreground hover:scale-[1.02] transition-transform"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#827768] px-7 py-3 text-sm font-medium text-white hover:scale-[1.02] transition-transform"
             >
               Plan my safari <Send size={14} />
             </button>
@@ -269,7 +269,7 @@ function Home() {
           </h2>
           <Link
             to="/plan-my-trip"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-accent px-8 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-105 transition-transform"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#827768] px-8 py-4 text-sm font-medium text-white shadow-glow-lime hover:scale-105 transition-transform"
           >
             Plan my trip <ArrowRight size={16} />
           </Link>

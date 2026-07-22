@@ -57,7 +57,7 @@ function TourDetail() {
           <ol className="mt-10 space-y-6">
             {tour.itinerary.map((step: { day: number; title: string; body: string }) => (
               <li key={step.day} className="glass rounded-2xl p-6 md:p-7 flex gap-5">
-                <div className="shrink-0 grid h-12 w-12 place-items-center rounded-full bg-gradient-accent text-primary-foreground font-display text-lg">
+                <div className="shrink-0 grid h-12 w-12 place-items-center rounded-full bg-[#827768] text-white font-display text-lg">
                   {step.day}
                 </div>
                 <div>
@@ -101,7 +101,7 @@ function TourDetail() {
             ))}
           </div>
 
-          <Link to="/plan-my-trip" className="mt-8 w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-accent px-6 py-4 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-[1.02] transition-transform">
+          <Link to="/plan-my-trip" className="mt-8 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#827768] px-6 py-4 text-sm font-medium text-white shadow-glow-lime hover:scale-[1.02] transition-transform">
             Enquire about this tour <ArrowRight size={14} />
           </Link>
           <a href="https://wa.me/255686166360" target="_blank" rel="noreferrer" className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-full glass px-6 py-4 text-sm hover:bg-surface-elevated transition-colors">
