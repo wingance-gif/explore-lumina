@@ -411,6 +411,20 @@ function SafariItinerariesPage() {
                   </li>
                 ))}
               </ol>
+
+              <div className="mt-8">
+                <PlanTripDialog
+                  experienceTitle={s.name}
+                  trigger={
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
+                    >
+                      Book my trip <ArrowRight size={14} />
+                    </button>
+                  }
+                />
+              </div>
             </div>
 
             {/* Includes / excludes */}
