@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ChevronDown, Sparkles } from "lucide-react";
+import { ArrowUpRight, ChevronDown, PawPrint } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
 import type { DestinationExperience } from "@/content/site";
+import { PlanTripDialog } from "@/components/site/PlanTripDialog";
 
 type Props = {
   slug: string;
@@ -29,11 +30,11 @@ export function DestinationCard({
   const hasContent = hasExperiences || highlights.length > 0;
 
   return (
-    <motion.article variants={fadeUp} className="group relative flex flex-col">
+    <motion.article variants={fadeUp} className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm shadow-elevated">
       <Link
         to="/destinations/$slug"
         params={{ slug }}
-        className="relative block aspect-[3/4] overflow-hidden rounded-3xl"
+        className="relative block aspect-[3/4] overflow-hidden"
       >
         <img
           src={image}
@@ -57,10 +58,10 @@ export function DestinationCard({
       </Link>
 
       {hasContent && (
-        <details className="group/details mt-3 rounded-2xl border border-border bg-card/80 backdrop-blur-sm px-5 py-3">
+        <details className="group/details border-t border-border/50 px-5 py-3">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary">
             <span className="inline-flex items-center gap-2">
-              <Sparkles size={12} /> What you'll experience
+              <PawPrint size={13} /> What you'll experience
             </span>
             <ChevronDown size={14} className="opacity-70 transition-transform duration-300 group-open/details:rotate-180" />
           </summary>
@@ -69,7 +70,7 @@ export function DestinationCard({
             <ul className="mt-4 grid gap-4 text-sm text-foreground/85">
               {experiences.map((exp) => (
                 <li key={exp.title} className="flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <PawPrint size={14} className="mt-1 shrink-0 text-primary" />
                   <div>
                     <p className="font-medium text-foreground">{exp.title}</p>
                     <p className="mt-1 text-foreground/70 leading-relaxed">{exp.description}</p>
@@ -81,7 +82,7 @@ export function DestinationCard({
             <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
               {highlights.map((h) => (
                 <li key={h} className="flex items-start gap-2">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                  <PawPrint size={12} className="mt-1 shrink-0 text-primary" />
                   {h}
                 </li>
               ))}
@@ -90,12 +91,18 @@ export function DestinationCard({
 
           {hasExperiences && (
             <div className="mt-4 border-t border-border/60 pt-3">
-              <Link
-                to="/plan-my-trip"
-                className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
-              >
-                Plan this experience →
-              </Link>
+              <PlanTripDialog
+                destination={name}
+                experienceTitle={name}
+                trigger={
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
+                  >
+                    Plan this experience →
+                  </button>
+                }
+              />
             </div>
           )}
         </details>
