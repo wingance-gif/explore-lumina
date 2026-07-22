@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Calendar, Check, MapPin, X } from "lucide-react";
 import { IMAGES } from "@/content/site";
+import { PlanTripDialog } from "@/components/site/PlanTripDialog";
 
 export const Route = createFileRoute("/safari-itineraries")({
   head: () => ({
