@@ -431,7 +431,7 @@ function SafariItinerariesPage() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 to="/plan-my-trip"
-                className="inline-flex items-center gap-2 rounded-sm bg-gradient-accent px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:scale-[1.02] transition-transform"
+                className="inline-flex items-center gap-2 rounded-sm bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:scale-[1.02] transition-transform"
               >
                 Plan this safari <ArrowRight size={14} />
               </Link>

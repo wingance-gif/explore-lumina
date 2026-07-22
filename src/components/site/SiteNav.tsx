@@ -435,7 +435,7 @@ export function SiteNav() {
 
           </button>
 
-          <Link to="/plan-my-trip" className="rounded-sm border border-cream/70 bg-cream/95 px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:bg-white transition-colors whitespace-nowrap">
+          <Link to="/plan-my-trip" className="rounded-sm border border-[#827768] bg-[#827768] px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-primary-foreground hover:bg-[#6f6558] transition-colors whitespace-nowrap">
 
             Plan a trip
 
@@ -579,7 +579,7 @@ export function SiteNav() {
 
             })}
 
-            <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-cream/70 bg-cream/95 px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-primary-foreground whitespace-nowrap">
+            <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-[#827768] bg-[#827768] px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-primary-foreground whitespace-nowrap">
 
               Plan a trip
 

@@ -332,7 +332,7 @@ function TrekkingItineraryPage() {
           <ol className="space-y-5">
             {trek.days.map((d) => (
               <li key={d.day} className="glass rounded-2xl p-6 md:p-7 flex gap-5">
-                <div className="shrink-0 grid h-12 w-12 place-items-center rounded-full bg-gradient-accent text-primary-foreground font-display text-lg">
+                <div className="shrink-0 grid h-12 w-12 place-items-center rounded-full bg-[#827768] text-primary-foreground font-display text-lg">
                   {d.day}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -392,7 +392,7 @@ function TrekkingItineraryPage() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               to="/plan-my-trip"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-accent px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-[1.02] transition-transform"
+              className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-glow-lime hover:scale-[1.02] transition-transform"
             >
               Plan this climb <ArrowRight size={14} />
             </Link>

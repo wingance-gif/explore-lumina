@@ -173,7 +173,7 @@
     background-clip: text;
     color: transparent;
   }
-  .bg-gradient-accent { background: var(--gradient-accent); }
+  .bg-[#827768] { background: var(--gradient-accent); }
   .bg-gradient-hero { background: var(--gradient-hero); }
   .bg-gradient-forest { background: var(--gradient-forest); }
   .shadow-elevated { box-shadow: var(--shadow-elevated); }

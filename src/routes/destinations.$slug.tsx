@@ -97,7 +97,7 @@ function DestinationDetailPage() {
           )}
           <Link
             to="/plan-my-trip"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-accent px-5 py-3 text-sm font-medium text-primary-foreground"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#827768] px-5 py-3 text-sm font-medium text-primary-foreground"
           >
             Plan a trip here <ArrowRight size={14} />
           </Link>
