@@ -60,7 +60,7 @@ export function CinematicHero() {
       </AnimatePresence>
 
       {/* Center stage */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-32 md:pt-40 text-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={i}
