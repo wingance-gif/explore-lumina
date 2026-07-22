@@ -134,8 +134,8 @@ function Home() {
               className="rounded-2xl p-6 text-center bg-[#8A7C67]/35 backdrop-blur-md border border-[#8A7C67]/40 shadow-elevated"
             >
               <b.icon className="mx-auto text-auto" size={22} />
-              <p className="mt-4 font-display text-3xl text-auto">{b.stat}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-auto/85">
+              <p className="mt-4 font-display text-2xl text-auto">{b.stat}</p>
+              <p className="mt-1 text-xs lowercase tracking-[0.2em] text-auto/85">
                 {b.label}
               </p>
             </motion.div>
