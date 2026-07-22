@@ -120,7 +120,7 @@ export function DestinationCard({
                       trigger={
                         <button
                           type="button"
-                          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
+                          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-[#C2B6A2] hover:text-white transition-colors"
                         >
                           Plan this experience →
                         </button>
