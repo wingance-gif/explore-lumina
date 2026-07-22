@@ -34,7 +34,7 @@ export function DestinationCard({
   return (
     <motion.article
       variants={fadeUp}
-      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm shadow-elevated"
+      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-border/40 bg-card shadow-elevated"
     >
       <Link
         to="/destinations/$slug"
@@ -63,7 +63,7 @@ export function DestinationCard({
       </Link>
 
       {hasContent && (
-        <div className="px-5 py-3">
+        <div className="px-6 pt-4 pb-5">
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -75,7 +75,7 @@ export function DestinationCard({
             </span>
             <ChevronDown
               size={14}
-              className={`opacity-70 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+              className={`opacity-70 transition-transform duration-300 ease-in-out ${open ? "rotate-180" : ""}`}
             />
           </button>
 
@@ -86,11 +86,11 @@ export function DestinationCard({
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
                 {hasExperiences ? (
-                  <ul className="mt-4 grid gap-4 text-sm text-foreground/85">
+                  <ul className="mt-5 grid gap-4 text-sm text-foreground/85">
                     {experiences.map((exp) => (
                       <li key={exp.title} className="flex items-start gap-3">
                         <PawPrint size={14} className="mt-1 shrink-0 text-primary" />
@@ -102,7 +102,7 @@ export function DestinationCard({
                     ))}
                   </ul>
                 ) : (
-                  <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
+                  <ul className="mt-4 grid gap-2 text-sm text-foreground/85">
                     {highlights.map((h) => (
                       <li key={h} className="flex items-start gap-2">
                         <PawPrint size={12} className="mt-1 shrink-0 text-primary" />
@@ -113,7 +113,7 @@ export function DestinationCard({
                 )}
 
                 {hasExperiences && (
-                  <div className="mt-4 pt-3">
+                  <div className="mt-5">
                     <PlanTripDialog
                       destination={name}
                       experienceTitle={name}
