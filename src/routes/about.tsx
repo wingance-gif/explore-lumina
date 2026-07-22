@@ -80,7 +80,7 @@ function AboutPage() {
         <div className="grid md:grid-cols-2 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-            className="rounded-2xl border border-[#C2B6A2]/40 bg-[#8A7C67]/35 p-6 shadow-elevated backdrop-blur-md"
+            className="rounded-2xl border border-[#C2B6A2]/40 bg-[#C2B6A2]/35 p-6 shadow-elevated backdrop-blur-md"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-primary">Our Mission</p>
             <h2 className="mt-4 font-display text-3xl md:text-4xl">Unforgettable, responsible journeys.</h2>
@@ -92,7 +92,7 @@ function AboutPage() {
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="rounded-2xl border border-[#C2B6A2]/40 bg-[#8A7C67]/35 p-6 shadow-elevated backdrop-blur-md"
+            className="rounded-2xl border border-[#C2B6A2]/40 bg-[#C2B6A2]/35 p-6 shadow-elevated backdrop-blur-md"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-primary">Our Vision</p>
             <h2 className="mt-4 font-display text-3xl md:text-4xl">Tanzania's leading safari company.</h2>
@@ -112,7 +112,7 @@ function AboutPage() {
         <h2 className="mt-4 font-display text-3xl md:text-5xl mb-12">What sets us apart.</h2>
         <ScrollReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {REASONS.map((v) => (
-            <motion.div key={v.t} variants={fadeUp}  className="rounded-2xl border border-[#C2B6A2]/40 bg-[#8A7C67]/35 p-6 shadow-elevated backdrop-blur-md"
+            <motion.div key={v.t} variants={fadeUp}  className="rounded-2xl border border-[#C2B6A2]/40 bg-[#C2B6A2]/35 p-6 shadow-elevated backdrop-blur-md"
 >
               <v.icon className="text-primary" size={22} />
               <h3 className="mt-5 font-display text-xl">{v.t}</h3>
