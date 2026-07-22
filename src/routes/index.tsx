@@ -217,7 +217,7 @@ function Home() {
             All destinations <ArrowRight size={14} />
           </Link>
         </div>
-        <ScrollReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ScrollReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start">
           {topDestinations.map((d, i) => (
             <DestinationCard key={d.slug} {...d} index={i} />
           ))}

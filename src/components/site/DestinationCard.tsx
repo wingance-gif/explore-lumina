@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ChevronDown, PawPrint } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
 import type { DestinationExperience } from "@/content/site";
@@ -26,11 +27,15 @@ export function DestinationCard({
   experiences = [],
   index = 0,
 }: Props) {
+  const [open, setOpen] = useState(false);
   const hasExperiences = experiences.length > 0;
   const hasContent = hasExperiences || highlights.length > 0;
 
   return (
-    <motion.article variants={fadeUp} className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm shadow-elevated">
+    <motion.article
+      variants={fadeUp}
+      className="group relative flex flex-col self-start overflow-hidden rounded-3xl border border-border/60 bg-card/60 backdrop-blur-sm shadow-elevated"
+    >
       <Link
         to="/destinations/$slug"
         params={{ slug }}
@@ -58,55 +63,77 @@ export function DestinationCard({
       </Link>
 
       {hasContent && (
-        <details className="group/details px-5 py-3">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary">
+        <div className="px-5 py-3">
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            className="flex w-full cursor-pointer items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-primary"
+          >
             <span className="inline-flex items-center gap-2">
               <PawPrint size={13} /> What you'll experience
             </span>
-            <ChevronDown size={14} className="opacity-70 transition-transform duration-300 group-open/details:rotate-180" />
-          </summary>
+            <ChevronDown
+              size={14}
+              className={`opacity-70 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+            />
+          </button>
 
-          {hasExperiences ? (
-            <ul className="mt-4 grid gap-4 text-sm text-foreground/85">
-              {experiences.map((exp) => (
-                <li key={exp.title} className="flex items-start gap-3">
-                  <PawPrint size={14} className="mt-1 shrink-0 text-primary" />
-                  <div>
-                    <p className="font-medium text-foreground">{exp.title}</p>
-                    <p className="mt-1 text-foreground/70 leading-relaxed">{exp.description}</p>
+          <AnimatePresence initial={false}>
+            {open && (
+              <motion.div
+                key="content"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden"
+              >
+                {hasExperiences ? (
+                  <ul className="mt-4 grid gap-4 text-sm text-foreground/85">
+                    {experiences.map((exp) => (
+                      <li key={exp.title} className="flex items-start gap-3">
+                        <PawPrint size={14} className="mt-1 shrink-0 text-primary" />
+                        <div>
+                          <p className="font-medium text-foreground">{exp.title}</p>
+                          <p className="mt-1 text-foreground/70 leading-relaxed">{exp.description}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
+                    {highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2">
+                        <PawPrint size={12} className="mt-1 shrink-0 text-primary" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {hasExperiences && (
+                  <div className="mt-4 pt-3">
+                    <PlanTripDialog
+                      destination={name}
+                      experienceTitle={name}
+                      trigger={
+                        <button
+                          type="button"
+                          className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
+                        >
+                          Plan this experience →
+                        </button>
+                      }
+                    />
                   </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <ul className="mt-3 grid gap-2 text-sm text-foreground/85">
-              {highlights.map((h) => (
-                <li key={h} className="flex items-start gap-2">
-                  <PawPrint size={12} className="mt-1 shrink-0 text-primary" />
-                  {h}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {hasExperiences && (
-            <div className="mt-4 border-t border-border/60 pt-3">
-              <PlanTripDialog
-                destination={name}
-                experienceTitle={name}
-                trigger={
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.22em] text-primary hover:opacity-80"
-                  >
-                    Plan this experience →
-                  </button>
-                }
-              />
-            </div>
-          )}
-        </details>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       )}
     </motion.article>
   );
 }
+
