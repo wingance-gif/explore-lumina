@@ -134,8 +134,8 @@ function Home() {
               className="rounded-2xl p-6 text-center bg-[#8A7C67]/35 backdrop-blur-md border border-[#8A7C67]/40 shadow-elevated"
             >
               <b.icon className="mx-auto text-auto" size={22} />
-              <p className="mt-4 font-display text-3xl text-auto">{b.stat}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-auto/85">
+              <p className="mt-4 font-display text-2xl text-auto">{b.stat}</p>
+              <p className="mt-1 text-xs lowercase tracking-[0.2em] text-auto/85">
                 {b.label}
               </p>
             </motion.div>
@@ -285,29 +285,13 @@ function Home() {
       </section>
 
       {/* Trust strip */}
-<section className="container-x mx-auto max-w-[1500px] py-20">
-  <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+<section className="container-x mx-auto max-w-[1500px] pb-24">
+  <div className="grid gap-6 md:grid-cols-4">
     {[
-      {
-        icon: Award,
-        label: "15+ Years",
-        text: "Local guides, KPAP-certified crews.",
-      },
-      {
-        icon: ShieldCheck,
-        label: "100% Tailor-Made",
-        text: "Every itinerary built around you.",
-      },
-      {
-        icon: Leaf,
-        label: "Low-Impact Travel",
-        text: "Conservation-first camps and partners.",
-      },
-      {
-        icon: Compass,
-        label: "24/7 In-Country",
-        text: "On-ground team from arrival to departure.",
-      },
+      { icon: Award, label: "15+ years guiding", text: "Local guides, KPAP-certified crews." },
+      { icon: ShieldCheck, label: "100% tailor-made", text: "Every itinerary built around you." },
+      { icon: Leaf, label: "Low-impact travel", text: "Conservation-first camps and partners." },
+      { icon: Compass, label: "24/7 in-country", text: "On-ground team from arrival to departure." },
     ].map((b) => (
       <motion.div
         key={b.label}
@@ -315,21 +299,11 @@ function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="rounded-2xl border border-[#8A7C67]/40 bg-[#8A7C67]/35 p-6 text-center shadow-elevated backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#8A7C67]/45"
+        className="rounded-2xl border border-[#8A7C67]/40 bg-[#8A7C67]/35 p-6 shadow-elevated backdrop-blur-md"
       >
-        <b.icon
-          className="mx-auto text-foreground"
-          size={22}
-          strokeWidth={1.8}
-        />
-
-        <p className="mt-4 font-display text-2xl text-foreground md:text-3xl">
-          {b.label}
-        </p>
-
-        <p className="mt-2 text-xs uppercase leading-5 tracking-[0.15em] text-foreground/85">
-          {b.text}
-        </p>
+        <b.icon className="text-primary" size={22} />
+        <p className="mt-4 font-display text-lg">{b.label}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{b.text}</p>
       </motion.div>
     ))}
   </div>
