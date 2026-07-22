@@ -333,6 +333,10 @@ function Home() {
       </motion.div>
     ))}
   </div>
-</section>    </>
+</section>
+
+      {/* 8. Partners */}
+      <Partners />
+    </>
   );
 }
