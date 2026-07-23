@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Calendar, Check, MapPin, X } from "lucide-react";
 import { IMAGES } from "@/content/site";
+import { PlanTripDialog } from "@/components/site/PlanTripDialog";
 
 export const Route = createFileRoute("/safari-itineraries")({
   head: () => ({
@@ -372,11 +373,25 @@ function SafariItinerariesPage() {
 
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {s.highlights.map((h) => (
-                    <li key={h} className="text-[10px] uppercase tracking-[0.18em] rounded-full border border-primary/40 px-3 py-1 text-foreground/85">
+                    <li key={h} className="text-[10px] uppercase tracking-[0.18em] rounded-full bg-[#3D372F] px-3 py-1 text-white">
                       {h}
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-6">
+                  <PlanTripDialog
+                    experienceTitle={s.name}
+                    trigger={
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
+                      >
+                        Plan my trip <ArrowRight size={14} />
+                      </button>
+                    }
+                  />
+                </div>
               </div>
             </div>
 
@@ -396,6 +411,20 @@ function SafariItinerariesPage() {
                   </li>
                 ))}
               </ol>
+
+              <div className="mt-8">
+                <PlanTripDialog
+                  experienceTitle={s.name}
+                  trigger={
+                    <button
+                      type="button"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
+                    >
+                      Book my trip <ArrowRight size={14} />
+                    </button>
+                  }
+                />
+              </div>
             </div>
 
             {/* Includes / excludes */}
@@ -429,12 +458,17 @@ function SafariItinerariesPage() {
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                to="/plan-my-trip"
-                className="inline-flex items-center gap-2 rounded-sm bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
-              >
-                Plan this safari <ArrowRight size={14} />
-              </Link>
+              <PlanTripDialog
+                experienceTitle={s.name}
+                trigger={
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-6 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white hover:scale-[1.02] transition-transform"
+                  >
+                    Plan this safari <ArrowRight size={14} />
+                  </button>
+                }
+              />
               <a
                 href="#top"
                 className="text-[11px] uppercase tracking-[0.25em] text-foreground/60 hover:text-primary transition-colors"

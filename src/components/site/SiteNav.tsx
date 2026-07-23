@@ -16,142 +16,27 @@ import logoBlack from "@/assets/logo-black.png";
 
 
 
-type SubLink = { label: string; hash?: string; to?: string; children?: SubLink[] };
+type SubLink = { label: string; to: string; hash?: string };
 
-type NavGroup = { label: string; to: string; sub: SubLink[] };
-
-
-
-const SAFARI_TYPES: SubLink[] = [
-
-  { label: "Tanzania Luxury Safaris", to: "/safari-itineraries", hash: "safari-luxury" },
-
-  { label: "Tented Lodge Safari", to: "/safari-itineraries", hash: "safari-tented-lodge" },
-
-  { label: "Tanzania Camping Safaris", to: "/safari-itineraries", hash: "safari-camping" },
-
-  { label: "Bird Watching Safaris", to: "/safari-itineraries", hash: "safari-bird-watching" },
-
-  { label: "Honeymoon Safari Packages", to: "/safari-itineraries", hash: "safari-honeymoon" },
-
-  { label: "Flying Safari", to: "/safari-itineraries", hash: "safari-flying" },
-
-  { label: "Family Safari", to: "/safari-itineraries", hash: "safari-family" },
-
-  { label: "Photographic Safari", to: "/safari-itineraries", hash: "safari-photographic" },
-
-  { label: "Wildebeest Migration", to: "/safari-itineraries", hash: "safari-migration" },
-
-  { label: "Balloon Safari", to: "/safari-itineraries", hash: "safari-balloon" },
-
-  { label: "Guided Walking Safaris", to: "/safari-itineraries", hash: "safari-walking" },
-
-];
+type NavGroup = { label: string; to: string; sub?: SubLink[] };
 
 
 
 const NAV: NavGroup[] = [
-
+  { label: "Home", to: "/" },
   {
-
-    label: "Home",
-
-    to: "/",
-
+    label: "Packages",
+    to: "/safari-packages",
     sub: [
-
-      { label: "Welcome", hash: "welcome" },
-
-      { label: "Featured safaris", hash: "featured" },
-
-      { label: "Popular destinations", hash: "destinations" },
-
-      { label: "Testimonials", hash: "testimonials" },
-
+      { label: "Safari Packages", to: "/safari-packages" },
+      { label: "Zanzibar Packages", to: "/zanzibar-packages" },
+      { label: "Trekking Packages", to: "/trekking-packages" },
     ],
-
   },
-
-  {
-
-    label: "About",
-
-    to: "/about",
-
-    sub: [
-
-      { label: "Company story", hash: "story" },
-
-      { label: "Mission & vision", hash: "mission" },
-
-      { label: "Why choose us", hash: "why-us" },
-
-      { label: "Team", hash: "team" },
-
-    ],
-
-  },
-
-  {
-
-    label: "Tours & Safaris",
-
-    to: "/tours",
-
-    sub: [
-
-      { label: "Safari", to: "/safari-itineraries", children: SAFARI_TYPES },
-
-      { label: "Trekking", to: "/trekking-itinerary" },
-
-      { label: "Day Trips", to: "/tours", hash: "day-trips" },
-
-      { label: "Zanzibar Packages", to: "/zanzibar-honeymoon" },
-
-    ],
-
-  },
-
-  {
-
-    label: "Destinations",
-
-    to: "/destinations",
-
-    sub: [
-
-      { label: "Tanzania destinations", hash: "tanzania" },
-
-      { label: "National parks", hash: "parks" },
-
-      { label: "Beaches & islands", hash: "beaches" },
-
-      { label: "Travel guides", hash: "guides" },
-
-    ],
-
-  },
-
-  {
-
-    label: "Contact & Blog",
-
-    to: "/contact",
-
-    sub: [
-
-      { label: "Contact", to: "/contact" },
-
-      { label: "Inquiry form", to: "/contact", hash: "inquiry" },
-
-      { label: "Blogs / travel articles", to: "/blog" },
-
-      { label: "FAQs", to: "/contact", hash: "faq" },
-
-    ],
-
-  },
-
+  { label: "About Us", to: "/about" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "FAQs", to: "/faqs" },
+  { label: "Contact", to: "/contact" },
 ];
 
 
@@ -277,21 +162,13 @@ export function SiteNav() {
 
 
         <nav className="hidden lg:flex items-center gap-3">
-
           {NAV.map((group) => (
-
             <div
-
               key={group.label}
-
               className="relative"
-
               onMouseEnter={() => hoverOpen(group.label)}
-
               onMouseLeave={hoverClose}
-
             >
-
               <Link
                 to={group.to}
                 className={`relative inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.3em] px-3 py-1.5 transition-colors hover:text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
@@ -300,116 +177,32 @@ export function SiteNav() {
                 activeProps={{ className: "relative inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.3em] px-3 py-1.5 text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:scale-x-100" }}
                 onClick={() => setOpenGroup(null)}
               >
-
                 {group.label}
-                <ChevronDown size={10} className="opacity-70" />
+                {group.sub && <ChevronDown size={10} className="opacity-70" />}
               </Link>
 
-              {openGroup === group.label && (
-
+              {group.sub && openGroup === group.label && (
                 <div className="absolute left-1/2 top-full -translate-x-1/2 pt-3">
-
                   <div className="min-w-[220px] rounded-md border border-border bg-popover text-popover-foreground shadow-elevated py-2">
-
-                    {group.sub.map((s) => {
-
-                      const to = s.to ?? group.to;
-
-                      if (s.children?.length) {
-
-                        return (
-
-                          <div key={s.label} className="relative group/sub">
-
-                            <Link
-
-                              to={to}
-
-                              hash={s.hash}
-
-                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
-
-                              onClick={() => setOpenGroup(null)}
-
-                            >
-
-                              <span>{s.label}</span>
-
-                              <ChevronDown size={10} className="-rotate-90 opacity-70" />
-
-                            </Link>
-
-                            <div className="absolute left-full top-0 hidden group-hover/sub:block pl-2">
-
-                              <div className="min-w-[240px] rounded-md border border-border bg-popover text-popover-foreground shadow-elevated py-2">
-
-                                {s.children.map((c) => (
-
-                                  <Link
-
-                                    key={c.label}
-
-                                    to={c.to ?? to}
-
-                                    hash={c.hash}
-
-                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
-
-                                    onClick={() => setOpenGroup(null)}
-
-                                  >
-
-                                    {c.label}
-
-                                  </Link>
-
-                                ))}
-
-                              </div>
-
-                            </div>
-
-                          </div>
-
-                        );
-
-                      }
-
-                      return (
-
-                        <Link
-
-                          key={s.label}
-
-                          to={to}
-
-                          hash={s.hash}
-
-                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
-
-                          onClick={() => setOpenGroup(null)}
-
-                        >
-
-                          {s.label}
-
-                        </Link>
-
-                      );
-
-                    })}
-
+                    {group.sub.map((s) => (
+                      <Link
+                        key={s.label}
+                        to={s.to}
+                        hash={s.hash}
+                        className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
+                        onClick={() => setOpenGroup(null)}
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
                   </div>
-
                 </div>
-
               )}
-
             </div>
-
           ))}
-
         </nav>
+
+
 
 
 
@@ -445,7 +238,7 @@ export function SiteNav() {
 
           <Link to="/plan-my-trip" className="rounded-sm border border-[#827768] bg-[#827768] px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white hover:bg-[#6f6558] transition-colors whitespace-nowrap">
 
-            Plan a trip
+            Book Now
 
           </Link>
 
@@ -480,116 +273,50 @@ export function SiteNav() {
           <nav className="container-x mx-auto flex flex-col py-2">
 
             {NAV.map((group) => {
-
               const isOpen = mobileGroup === group.label;
-
+              const hasSub = !!group.sub?.length;
               return (
-
                 <div key={group.label} className="border-b border-border/50 last:border-0">
-
                   <div className="flex items-center">
-
                     <Link
-
                       to={group.to}
-
                       onClick={() => setOpen(false)}
-
                       className="flex-1 py-3 text-xs uppercase tracking-[0.3em] text-foreground/85"
-
                     >
-
                       {group.label}
-
                     </Link>
-
-                    <button
-
-                      aria-label={`Toggle ${group.label} submenu`}
-
-                      onClick={() => setMobileGroup(isOpen ? null : group.label)}
-
-                      className="grid h-9 w-9 place-items-center text-foreground/70"
-
-                    >
-
-                      <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
-
-                    </button>
-
+                    {hasSub && (
+                      <button
+                        aria-label={`Toggle ${group.label} submenu`}
+                        onClick={() => setMobileGroup(isOpen ? null : group.label)}
+                        className="grid h-9 w-9 place-items-center text-foreground/70"
+                      >
+                        <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                      </button>
+                    )}
                   </div>
-
-                  {isOpen && (
-
+                  {hasSub && isOpen && (
                     <div className="pb-2 pl-3">
-
-                      {group.sub.map((s) => (
-
-                        <div key={s.label}>
-
-                          <Link
-
-                            to={s.to ?? group.to}
-
-                            hash={s.hash}
-
-                            onClick={() => setOpen(false)}
-
-                            className="block py-2 text-[11px] uppercase tracking-[0.25em] text-foreground/70"
-
-                          >
-
-                            {s.label}
-
-                          </Link>
-
-                          {s.children?.length ? (
-
-                            <div className="pl-3 border-l border-border/50 ml-1 mb-1">
-
-                              {s.children.map((c) => (
-
-                                <Link
-
-                                  key={c.label}
-
-                                  to={c.to ?? s.to ?? group.to}
-
-                                  hash={c.hash}
-
-                                  onClick={() => setOpen(false)}
-
-                                  className="block py-1.5 text-[10px] uppercase tracking-[0.22em] text-foreground/60"
-
-                                >
-
-                                  {c.label}
-
-                                </Link>
-
-                              ))}
-
-                            </div>
-
-                          ) : null}
-
-                        </div>
-
+                      {group.sub!.map((s) => (
+                        <Link
+                          key={s.label}
+                          to={s.to}
+                          hash={s.hash}
+                          onClick={() => setOpen(false)}
+                          className="block py-2 text-[11px] uppercase tracking-[0.25em] text-foreground/70"
+                        >
+                          {s.label}
+                        </Link>
                       ))}
-
                     </div>
-
                   )}
-
                 </div>
-
               );
-
             })}
 
             <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-[#827768] bg-[#827768] px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-white whitespace-nowrap">
 
-              Plan a trip
+              Book Now
 
             </Link>
 
