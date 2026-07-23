@@ -61,32 +61,28 @@ export const Route = createFileRoute("/tours/$slug")({
 
 type TierKey = "budget" | "mid" | "luxury" | "ultra";
 
-const TIERS: { key: TierKey; label: string; multiplier: number; blurb: string }[] = [
+const TIERS: { key: TierKey; label: string; blurb: string }[] = [
   {
     key: "budget",
     label: "Budget",
-    multiplier: 1,
     blurb:
       "Authentic camping and simple guesthouses — the sounds of the bush at night, warm meals around the fire, no frills.",
   },
   {
     key: "mid",
     label: "Mid-range",
-    multiplier: 1.6,
     blurb:
       "Well-appointed lodges and permanent tented camps with hot showers, comfortable beds and full-board dining.",
   },
   {
     key: "luxury",
     label: "Luxury",
-    multiplier: 2.6,
     blurb:
       "Signature lodges and boutique tented camps in prime locations — private guides, plunge pools and elevated dining.",
   },
   {
     key: "ultra",
     label: "Ultra Luxury",
-    multiplier: 4.4,
     blurb:
       "Private conservancies, butler service and exclusive-use camps — the rarefied top tier of an African journey.",
   },
@@ -118,6 +114,9 @@ const TIER_GALLERIES: Record<TierKey, string[]> = {
     IMAGES.safariTypes.flying,
   ],
 };
+
+const QUOTE_PLACEHOLDER = "Accommodation confirmed with your quotation.";
+
 
 function deriveDay(step: { day: number; title: string; body: string }, totalDays: number, category: Tour["category"]) {
   const route = step.title.includes("→") ? step.title : undefined;
