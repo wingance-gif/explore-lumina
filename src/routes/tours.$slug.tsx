@@ -233,11 +233,8 @@ function TourDetail() {
             >
               Send Inquiry <Send size={14} />
             </a>
-            <span className="hidden md:inline-flex items-center text-sm text-white/70 ml-2">
-              From <strong className="text-white ml-1.5">${tour.priceFrom.toLocaleString()}</strong>
-              <span className="ml-1">/ person</span>
-            </span>
           </div>
+
         </div>
       </section>
 
