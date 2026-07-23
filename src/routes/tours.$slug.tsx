@@ -195,7 +195,7 @@ function TourDetail() {
     [tour.slug, tour.category],
   );
   const activeTier = TIERS.find((t) => t.key === tier)!;
-  const price = Math.round((tour.priceFrom * activeTier.multiplier) / 10) * 10;
+
 
   return (
     <>
