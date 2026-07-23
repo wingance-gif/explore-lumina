@@ -61,52 +61,97 @@ export const Route = createFileRoute("/tours/$slug")({
 
 type TierKey = "budget" | "mid" | "luxury" | "ultra";
 
-const TIERS: { key: TierKey; label: string; multiplier: number; blurb: string; sample: (dest: string) => string[] }[] = [
+const TIERS: { key: TierKey; label: string; multiplier: number; blurb: string }[] = [
   {
     key: "budget",
     label: "Budget",
     multiplier: 1,
-    blurb: "Comfortable public campsites and clean mid-range guesthouses — the authentic bush experience without frills.",
-    sample: (d) => [
-      `Public campsite — ${d.split("·")[0]?.trim() || "Park"}`,
-      "Simba Farm Lodge / equivalent guesthouse",
-      "Karatu Highview Camp",
-    ],
+    blurb:
+      "Authentic camping and simple guesthouses — the sounds of the bush at night, warm meals around the fire, no frills.",
   },
   {
     key: "mid",
     label: "Mid-range",
     multiplier: 1.6,
-    blurb: "Well-appointed lodges and permanent tented camps with hot showers, plunge pools and full-board dining.",
-    sample: (d) => [
-      `Tarangire Simba Lodge / equivalent`,
-      `Serena Lodge — ${d.split("·")[1]?.trim() || "Ngorongoro"}`,
-      "Karatu Country Lodge",
-    ],
+    blurb:
+      "Well-appointed lodges and permanent tented camps with hot showers, comfortable beds and full-board dining.",
   },
   {
     key: "luxury",
     label: "Luxury",
     multiplier: 2.6,
-    blurb: "Signature lodges and boutique tented camps in prime locations, with private guides and elevated dining.",
-    sample: (d) => [
-      "Sanctuary Swala — Tarangire",
-      `Four Seasons Safari Lodge — ${d.split("·")[1]?.trim() || "Serengeti"}`,
-      "The Highlands — Ngorongoro",
-    ],
+    blurb:
+      "Signature lodges and boutique tented camps in prime locations — private guides, plunge pools and elevated dining.",
   },
   {
     key: "ultra",
     label: "Ultra Luxury",
     multiplier: 4.4,
-    blurb: "The rarefied top tier — private conservancies, butler service, helicopter transfers and exclusive-use camps.",
-    sample: (d) => [
-      "Singita Faru Faru — Grumeti Reserve",
-      "&Beyond Serengeti Under Canvas",
-      `Gibb's Farm & Crater Lodge — ${d.split("·").slice(-1)[0]?.trim() || "Ngorongoro"}`,
-    ],
+    blurb:
+      "Private conservancies, butler service and exclusive-use camps — the rarefied top tier of an African journey.",
   },
 ];
+
+const TIER_GALLERIES: Record<TierKey, string[]> = {
+  budget: [
+    IMAGES.safariTypes.camping,
+    IMAGES.safariTypes.walking,
+    IMAGES.wildElephants,
+    IMAGES.heroSerengeti,
+  ],
+  mid: [
+    IMAGES.safariTypes.tentedLodge,
+    IMAGES.heroLuxuryCamp,
+    IMAGES.destinations.serengeti,
+    IMAGES.wildLion,
+  ],
+  luxury: [
+    IMAGES.safariTypes.luxury,
+    IMAGES.luxuryPool,
+    IMAGES.heroNgorongoro,
+    IMAGES.safariTypes.balloon,
+  ],
+  ultra: [
+    IMAGES.safariTypes.honeymoon,
+    IMAGES.heroZanzibar,
+    IMAGES.luxuryPool,
+    IMAGES.safariTypes.flying,
+  ],
+};
+
+function deriveDay(step: { day: number; title: string; body: string }, totalDays: number, category: Tour["category"]) {
+  const route = step.title.includes("→") ? step.title : undefined;
+  const isArrival = step.day === 1;
+  const isDeparture = step.day === totalDays && totalDays > 1;
+  const meals = isArrival
+    ? "Lunch · Dinner"
+    : isDeparture
+      ? "Breakfast"
+      : "Breakfast · Lunch · Dinner";
+
+  const base: string[] =
+    category === "Trekking"
+      ? ["Guided trekking stage", "Acclimatisation briefing", "Camp overnight"]
+      : category === "Beach" || category === "Honeymoon"
+        ? ["Beach & leisure time", "Optional excursions", "Sunset dinner"]
+        : ["Morning game drive", "Wildlife photography stops", "Evening at the camp"];
+
+  const body = step.body.toLowerCase();
+  const activities: string[] = [];
+  if (body.includes("balloon")) activities.push("Sunrise hot-air balloon flight");
+  if (body.includes("crater") || body.includes("caldera")) activities.push("Descent into Ngorongoro crater");
+  if (body.includes("cultural") || body.includes("maasai")) activities.push("Maasai cultural visit");
+  if (body.includes("snorkel")) activities.push("Reef snorkelling");
+  if (body.includes("stone town")) activities.push("Stone Town heritage walk");
+  if (body.includes("summit")) activities.push("Summit push · Uhuru Peak");
+  if (body.includes("spice")) activities.push("Spice plantation tour");
+  if (body.includes("birding") || body.includes("bird")) activities.push("Specialist birding session");
+  if (body.includes("transfer") || body.includes("airport")) activities.push("Airport transfer");
+  const merged = [...activities, ...base].slice(0, 4);
+
+  return { route, meals, activities: merged };
+}
+
 
 function bestTimeFor(t: Tour) {
   if (t.category === "Trekking") return "Jan–Mar · Jun–Oct";
