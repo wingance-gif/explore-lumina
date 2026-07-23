@@ -145,17 +145,20 @@ function Home() {
 
 
       {/* 3. Featured experiences */}
-      <section id="featured" className="container-x mx-auto max-w-[1500px] py-16 scroll-mt-24">
-        <div className="flex items-end justify-between gap-6 mb-10">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Featured experiences</p>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your kind of wild.</h2>
+      <section id="featured" className="container-x mx-auto max-w-[1500px] py-24 md:py-28 scroll-mt-24">
+        <div className="flex items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-primary">Featured experiences</p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl text-balance leading-[1.05]">Pick your kind of wild.</h2>
+            <p className="mt-5 text-sm md:text-base text-foreground/65 leading-relaxed max-w-md">
+              Eleven ways to experience Tanzania — choose your rhythm, your comfort, your kind of adventure.
+            </p>
           </div>
           <Link
             to="/tours"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+            className="group hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
           >
-            All categories <ArrowRight size={14} />
+            All categories <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
         <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4">
