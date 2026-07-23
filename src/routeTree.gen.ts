@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZanzibarHoneymoonRouteImport } from './routes/zanzibar-honeymoon'
 import { Route as TrekkingItineraryRouteImport } from './routes/trekking-itinerary'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as SafariPackagesRouteImport } from './routes/safari-packages'
 import { Route as SafariItinerariesRouteImport } from './routes/safari-itineraries'
 import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -38,6 +39,11 @@ const TrekkingItineraryRoute = TrekkingItineraryRouteImport.update({
 const ToursRoute = ToursRouteImport.update({
   id: '/tours',
   path: '/tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafariPackagesRoute = SafariPackagesRouteImport.update({
+  id: '/safari-packages',
+  path: '/safari-packages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SafariItinerariesRoute = SafariItinerariesRouteImport.update({
@@ -111,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
+  '/safari-packages': typeof SafariPackagesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
+  '/safari-packages': typeof SafariPackagesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -146,6 +154,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
+  '/safari-packages': typeof SafariPackagesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/plan-my-trip'
     | '/safari-itineraries'
+    | '/safari-packages'
     | '/tours'
     | '/trekking-itinerary'
     | '/zanzibar-honeymoon'
@@ -182,6 +192,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/plan-my-trip'
     | '/safari-itineraries'
+    | '/safari-packages'
     | '/tours'
     | '/trekking-itinerary'
     | '/zanzibar-honeymoon'
@@ -199,6 +210,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/plan-my-trip'
     | '/safari-itineraries'
+    | '/safari-packages'
     | '/tours'
     | '/trekking-itinerary'
     | '/zanzibar-honeymoon'
@@ -217,6 +229,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   PlanMyTripRoute: typeof PlanMyTripRoute
   SafariItinerariesRoute: typeof SafariItinerariesRoute
+  SafariPackagesRoute: typeof SafariPackagesRoute
   ToursRoute: typeof ToursRouteWithChildren
   TrekkingItineraryRoute: typeof TrekkingItineraryRoute
   ZanzibarHoneymoonRoute: typeof ZanzibarHoneymoonRoute
@@ -243,6 +256,13 @@ declare module '@tanstack/react-router' {
       path: '/tours'
       fullPath: '/tours'
       preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safari-packages': {
+      id: '/safari-packages'
+      path: '/safari-packages'
+      fullPath: '/safari-packages'
+      preLoaderRoute: typeof SafariPackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/safari-itineraries': {
@@ -374,6 +394,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   PlanMyTripRoute: PlanMyTripRoute,
   SafariItinerariesRoute: SafariItinerariesRoute,
+  SafariPackagesRoute: SafariPackagesRoute,
   ToursRoute: ToursRouteWithChildren,
   TrekkingItineraryRoute: TrekkingItineraryRoute,
   ZanzibarHoneymoonRoute: ZanzibarHoneymoonRoute,
