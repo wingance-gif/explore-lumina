@@ -25,19 +25,20 @@ type NavGroup = { label: string; to: string; sub?: SubLink[] };
 const NAV: NavGroup[] = [
   { label: "Home", to: "/" },
   {
-    label: "Packages",
-    to: "/safari-packages",
+    label: "Experiences",
+    to: "/safari-itineraries",
     sub: [
-      { label: "Safari Packages", to: "/safari-packages" },
+      { label: "Safari Itineraries", to: "/safari-itineraries" },
+      { label: "Kilimanjaro Trekking", to: "/trekking-packages" },
       { label: "Zanzibar Packages", to: "/zanzibar-packages" },
-      { label: "Trekking Packages", to: "/trekking-packages" },
+      { label: "Day Trips", to: "/tours", hash: "day-trips" },
+      { label: "Destinations", to: "/destinations" },
     ],
   },
   { label: "About Us", to: "/about" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "FAQs", to: "/faqs" },
   { label: "Contact", to: "/contact" },
 ];
+
 
 
 
@@ -238,7 +239,8 @@ export function SiteNav() {
 
           <Link to="/plan-my-trip" className="rounded-sm border border-[#827768] bg-[#827768] px-6 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white hover:bg-[#6f6558] transition-colors whitespace-nowrap">
 
-            Book Now
+            Plan My Trip
+
 
           </Link>
 
@@ -316,7 +318,7 @@ export function SiteNav() {
 
             <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-[#827768] bg-[#827768] px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-white whitespace-nowrap">
 
-              Book Now
+              Plan My Trip
 
             </Link>
 
