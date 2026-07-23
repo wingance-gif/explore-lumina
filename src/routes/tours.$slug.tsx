@@ -4,19 +4,20 @@ import {
   ArrowRight,
   Calendar,
   Check,
-  ChevronDown,
   Clock,
   Compass,
   MapPin,
+  Route as RouteIcon,
   Send,
   Sparkles,
   Star,
   Sun,
   Tag,
   Users,
+  UtensilsCrossed,
   X,
 } from "lucide-react";
-import { TOURS, type Tour } from "@/content/site";
+import { TOURS, IMAGES, type Tour } from "@/content/site";
 import { PlanTripDialog } from "@/components/site/PlanTripDialog";
 import { FormBanner, SelectField, TextAreaField, TextField } from "@/components/site/FormField";
 import {
@@ -25,6 +26,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+
 
 export const Route = createFileRoute("/tours/$slug")({
   loader: ({ params }) => {
@@ -58,52 +61,97 @@ export const Route = createFileRoute("/tours/$slug")({
 
 type TierKey = "budget" | "mid" | "luxury" | "ultra";
 
-const TIERS: { key: TierKey; label: string; multiplier: number; blurb: string; sample: (dest: string) => string[] }[] = [
+const TIERS: { key: TierKey; label: string; multiplier: number; blurb: string }[] = [
   {
     key: "budget",
     label: "Budget",
     multiplier: 1,
-    blurb: "Comfortable public campsites and clean mid-range guesthouses — the authentic bush experience without frills.",
-    sample: (d) => [
-      `Public campsite — ${d.split("·")[0]?.trim() || "Park"}`,
-      "Simba Farm Lodge / equivalent guesthouse",
-      "Karatu Highview Camp",
-    ],
+    blurb:
+      "Authentic camping and simple guesthouses — the sounds of the bush at night, warm meals around the fire, no frills.",
   },
   {
     key: "mid",
     label: "Mid-range",
     multiplier: 1.6,
-    blurb: "Well-appointed lodges and permanent tented camps with hot showers, plunge pools and full-board dining.",
-    sample: (d) => [
-      `Tarangire Simba Lodge / equivalent`,
-      `Serena Lodge — ${d.split("·")[1]?.trim() || "Ngorongoro"}`,
-      "Karatu Country Lodge",
-    ],
+    blurb:
+      "Well-appointed lodges and permanent tented camps with hot showers, comfortable beds and full-board dining.",
   },
   {
     key: "luxury",
     label: "Luxury",
     multiplier: 2.6,
-    blurb: "Signature lodges and boutique tented camps in prime locations, with private guides and elevated dining.",
-    sample: (d) => [
-      "Sanctuary Swala — Tarangire",
-      `Four Seasons Safari Lodge — ${d.split("·")[1]?.trim() || "Serengeti"}`,
-      "The Highlands — Ngorongoro",
-    ],
+    blurb:
+      "Signature lodges and boutique tented camps in prime locations — private guides, plunge pools and elevated dining.",
   },
   {
     key: "ultra",
     label: "Ultra Luxury",
     multiplier: 4.4,
-    blurb: "The rarefied top tier — private conservancies, butler service, helicopter transfers and exclusive-use camps.",
-    sample: (d) => [
-      "Singita Faru Faru — Grumeti Reserve",
-      "&Beyond Serengeti Under Canvas",
-      `Gibb's Farm & Crater Lodge — ${d.split("·").slice(-1)[0]?.trim() || "Ngorongoro"}`,
-    ],
+    blurb:
+      "Private conservancies, butler service and exclusive-use camps — the rarefied top tier of an African journey.",
   },
 ];
+
+const TIER_GALLERIES: Record<TierKey, string[]> = {
+  budget: [
+    IMAGES.safariTypes.camping,
+    IMAGES.safariTypes.walking,
+    IMAGES.wildElephants,
+    IMAGES.heroSerengeti,
+  ],
+  mid: [
+    IMAGES.safariTypes.tentedLodge,
+    IMAGES.heroLuxuryCamp,
+    IMAGES.destinations.serengeti,
+    IMAGES.wildLion,
+  ],
+  luxury: [
+    IMAGES.safariTypes.luxury,
+    IMAGES.luxuryPool,
+    IMAGES.heroNgorongoro,
+    IMAGES.safariTypes.balloon,
+  ],
+  ultra: [
+    IMAGES.safariTypes.honeymoon,
+    IMAGES.heroZanzibar,
+    IMAGES.luxuryPool,
+    IMAGES.safariTypes.flying,
+  ],
+};
+
+function deriveDay(step: { day: number; title: string; body: string }, totalDays: number, category: Tour["category"]) {
+  const route = step.title.includes("→") ? step.title : undefined;
+  const isArrival = step.day === 1;
+  const isDeparture = step.day === totalDays && totalDays > 1;
+  const meals = isArrival
+    ? "Lunch · Dinner"
+    : isDeparture
+      ? "Breakfast"
+      : "Breakfast · Lunch · Dinner";
+
+  const base: string[] =
+    category === "Trekking"
+      ? ["Guided trekking stage", "Acclimatisation briefing", "Camp overnight"]
+      : category === "Beach" || category === "Honeymoon"
+        ? ["Beach & leisure time", "Optional excursions", "Sunset dinner"]
+        : ["Morning game drive", "Wildlife photography stops", "Evening at the camp"];
+
+  const body = step.body.toLowerCase();
+  const activities: string[] = [];
+  if (body.includes("balloon")) activities.push("Sunrise hot-air balloon flight");
+  if (body.includes("crater") || body.includes("caldera")) activities.push("Descent into Ngorongoro crater");
+  if (body.includes("cultural") || body.includes("maasai")) activities.push("Maasai cultural visit");
+  if (body.includes("snorkel")) activities.push("Reef snorkelling");
+  if (body.includes("stone town")) activities.push("Stone Town heritage walk");
+  if (body.includes("summit")) activities.push("Summit push · Uhuru Peak");
+  if (body.includes("spice")) activities.push("Spice plantation tour");
+  if (body.includes("birding") || body.includes("bird")) activities.push("Specialist birding session");
+  if (body.includes("transfer") || body.includes("airport")) activities.push("Airport transfer");
+  const merged = [...activities, ...base].slice(0, 4);
+
+  return { route, meals, activities: merged };
+}
+
 
 function bestTimeFor(t: Tour) {
   if (t.category === "Trekking") return "Jan–Mar · Jun–Oct";
@@ -224,45 +272,19 @@ function TourDetail() {
         </div>
       </section>
 
-      {/* ITINERARY */}
-      <section className="container-x mx-auto max-w-[1500px] py-16">
-        <SectionHeading eyebrow="Itinerary" title="Day-by-day" />
-        <Accordion type="single" collapsible defaultValue="day-1" className="mt-10 space-y-3">
-          {tour.itinerary.map((step) => (
-            <AccordionItem
-              key={step.day}
-              value={`day-${step.day}`}
-              className="rounded-2xl border border-border bg-card/60 px-5 md:px-6 overflow-hidden data-[state=open]:bg-card"
-            >
-              <AccordionTrigger className="hover:no-underline py-5">
-                <div className="flex items-center gap-5 text-left">
-                  <div className="shrink-0 grid h-11 w-11 place-items-center rounded-full bg-[#827768] text-white font-display text-base">
-                    {step.day}
-                  </div>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/55">Day {step.day}</p>
-                    <p className="font-display text-lg md:text-xl mt-0.5">{step.title}</p>
-                  </div>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="pb-6 pl-16 pr-2 text-sm text-foreground/75 leading-relaxed">
-                {step.body}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </section>
-
-      {/* ACCOMMODATION */}
+      {/* ACCOMMODATION PREVIEW (moved before itinerary) */}
       <section className="container-x mx-auto max-w-[1500px] py-16">
         <SectionHeading
           eyebrow="Accommodation"
           title="Choose your comfort level"
-          intro="Same itinerary, four ways to sleep. Select a category to see the recommended camps and pricing."
+          intro="Same itinerary — four ways to experience it. Pick a category to preview the style of accommodation and the starting price."
         />
+
+        {/* Tier selector */}
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
           {TIERS.map((t) => {
             const selected = t.key === tier;
+            const p = Math.round((tour.priceFrom * t.multiplier) / 10) * 10;
             return (
               <button
                 key={t.key}
@@ -279,45 +301,154 @@ function TourDetail() {
                 </p>
                 <p className="mt-2 font-display text-2xl">{t.label}</p>
                 <p className={`mt-3 text-xs ${selected ? "text-white/80" : "text-foreground/60"}`}>
-                  From ${Math.round((tour.priceFrom * t.multiplier) / 10) * 10} pp
+                  From ${p.toLocaleString()} pp
                 </p>
               </button>
             );
           })}
         </div>
 
-        <div className="mt-8 grid lg:grid-cols-2 gap-8 rounded-3xl border border-border bg-card/60 p-6 md:p-10">
-          <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-foreground/55">{activeTier.label} accommodation</p>
-            <h3 className="mt-2 font-display text-3xl">Where you'll stay</h3>
-            <p className="mt-4 text-sm text-foreground/75 leading-relaxed">{activeTier.blurb}</p>
-            <ul className="mt-6 space-y-3">
-              {activeTier.sample(tour.destination).map((s) => (
-                <li key={s} className="flex items-start gap-3 text-sm">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#827768] shrink-0" />
-                  <span className="text-foreground/85">{s}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-xs text-foreground/55">
-              Final camps confirmed at booking based on availability and season.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <img src={tour.image} alt="" className="aspect-[4/5] w-full rounded-2xl object-cover" />
-            <div className="grid gap-3">
-              <img src={tour.image} alt="" className="aspect-square w-full rounded-2xl object-cover" />
-              <div className="rounded-2xl bg-[#3D372F] text-white p-5 flex flex-col justify-between">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Your selection</p>
-                <div>
-                  <p className="font-display text-2xl">{activeTier.label}</p>
-                  <p className="text-xs text-white/70 mt-1">From ${price.toLocaleString()} per person</p>
-                </div>
+        {/* Preview: gallery + short blurb + price */}
+        <div className="mt-8 rounded-3xl border border-border bg-card/60 p-6 md:p-8">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 items-start">
+            {/* Gallery */}
+            <div className="grid grid-cols-4 grid-rows-2 gap-2.5 h-[420px] md:h-[480px]">
+              <img
+                src={TIER_GALLERIES[tier][0]}
+                alt={`${activeTier.label} accommodation preview 1`}
+                className="col-span-2 row-span-2 h-full w-full rounded-2xl object-cover"
+              />
+              <img
+                src={TIER_GALLERIES[tier][1]}
+                alt={`${activeTier.label} accommodation preview 2`}
+                className="col-span-2 h-full w-full rounded-2xl object-cover"
+              />
+              <img
+                src={TIER_GALLERIES[tier][2]}
+                alt={`${activeTier.label} accommodation preview 3`}
+                className="h-full w-full rounded-2xl object-cover"
+              />
+              <img
+                src={TIER_GALLERIES[tier][3]}
+                alt={`${activeTier.label} accommodation preview 4`}
+                className="h-full w-full rounded-2xl object-cover"
+              />
+            </div>
+
+            {/* Copy + price */}
+            <div className="flex flex-col justify-between h-full min-h-[420px] md:min-h-[480px]">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/55">
+                  {activeTier.label} preview
+                </p>
+                <h3 className="mt-2 font-display text-3xl md:text-4xl">
+                  A taste of {activeTier.label.toLowerCase()} on this journey
+                </h3>
+                <p className="mt-4 text-sm md:text-base text-foreground/75 leading-relaxed">
+                  {activeTier.blurb}
+                </p>
+              </div>
+
+              <div className="mt-8 rounded-2xl bg-[#3D372F] text-white p-6">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Starting from</p>
+                <p className="mt-2 font-display text-4xl leading-none">
+                  ${price.toLocaleString()}
+                  <span className="text-sm text-white/70 font-sans ml-2">/ person</span>
+                </p>
+                <p className="mt-3 text-xs text-white/70">
+                  Based on 2 sharing · {tour.days} days / {tour.nights} nights · {activeTier.label} category
+                </p>
+                <PlanTripDialog
+                  destination={tour.destination}
+                  experienceTitle={`${tour.title} (${activeTier.label})`}
+                  trigger={
+                    <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#827768] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-white hover:bg-[#6f6558] transition-colors">
+                      Book this tier <ArrowRight size={13} />
+                    </button>
+                  }
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ITINERARY (identical for every accommodation tier) */}
+      <section className="container-x mx-auto max-w-[1500px] py-16">
+        <SectionHeading
+          eyebrow="Itinerary"
+          title="Day-by-day"
+          intro="Your daily programme stays the same across all accommodation categories — only where you sleep changes."
+        />
+        <Accordion type="single" collapsible defaultValue="day-1" className="mt-10 space-y-3">
+          {tour.itinerary.map((step) => {
+            const { route, meals, activities } = deriveDay(step, tour.days, tour.category);
+            return (
+              <AccordionItem
+                key={step.day}
+                value={`day-${step.day}`}
+                className="rounded-2xl border border-border bg-card/60 px-5 md:px-6 overflow-hidden data-[state=open]:bg-card"
+              >
+                <AccordionTrigger className="hover:no-underline py-5">
+                  <div className="flex items-center gap-5 text-left w-full">
+                    <div className="shrink-0 grid h-11 w-11 place-items-center rounded-full bg-[#827768] text-white font-display text-base">
+                      {step.day}
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/55">Day {step.day}</p>
+                      <p className="font-display text-lg md:text-xl mt-0.5">{step.title}</p>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 md:pl-16 pr-2">
+                  <div className="grid md:grid-cols-3 gap-5 mt-1">
+                    <div className="md:col-span-2">
+                      <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/55">
+                        The day
+                      </p>
+                      <p className="mt-2 text-sm text-foreground/80 leading-relaxed">
+                        {step.body}
+                      </p>
+
+                      <p className="mt-6 text-[10px] uppercase tracking-[0.22em] text-foreground/55">
+                        Activities
+                      </p>
+                      <ul className="mt-3 grid sm:grid-cols-2 gap-2">
+                        {activities.map((a) => (
+                          <li key={a} className="flex items-start gap-2 text-sm text-foreground/80">
+                            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#827768] shrink-0" />
+                            {a}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="space-y-4 rounded-xl bg-background/50 border border-border p-4 h-fit">
+                      <FactRow
+                        icon={<RouteIcon size={14} />}
+                        label="Route"
+                        value={route ?? tour.destination}
+                      />
+                      <FactRow
+                        icon={<UtensilsCrossed size={14} />}
+                        label="Meals"
+                        value={meals}
+                      />
+                      <FactRow
+                        icon={<Compass size={14} />}
+                        label="Style"
+                        value={tour.category}
+                      />
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
+        </Accordion>
+      </section>
+
+
 
       {/* PRICING */}
       <section className="container-x mx-auto max-w-[1500px] py-16">
@@ -454,6 +585,20 @@ function TourDetail() {
       {/* BOOKING */}
       <BookingSection tour={tour} tier={activeTier.label} />
     </>
+  );
+}
+
+function FactRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 grid h-7 w-7 place-items-center rounded-full bg-[#827768]/15 text-[#827768] shrink-0">
+        {icon}
+      </span>
+      <div className="min-w-0">
+        <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/55">{label}</p>
+        <p className="text-sm text-foreground/85 mt-0.5 break-words">{value}</p>
+      </div>
+    </div>
   );
 }
 
@@ -607,6 +752,3 @@ function BookingSection({ tour, tier }: { tour: Tour; tier: string }) {
     </section>
   );
 }
-
-// Keep icon import used
-void ChevronDown;
