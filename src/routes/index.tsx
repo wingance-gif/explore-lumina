@@ -76,6 +76,7 @@ function Home() {
                 placeholder="Your name"
               />
             </div>
+            
             <div>
               <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/60">Email</label>
               <input
