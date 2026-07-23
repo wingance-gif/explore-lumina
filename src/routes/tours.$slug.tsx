@@ -588,6 +588,20 @@ function TourDetail() {
   );
 }
 
+function FactRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 grid h-7 w-7 place-items-center rounded-full bg-[#827768]/15 text-[#827768] shrink-0">
+        {icon}
+      </span>
+      <div className="min-w-0">
+        <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/55">{label}</p>
+        <p className="text-sm text-foreground/85 mt-0.5 break-words">{value}</p>
+      </div>
+    </div>
+  );
+}
+
 function QuickFact({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <div className="flex items-start gap-3 p-2">
