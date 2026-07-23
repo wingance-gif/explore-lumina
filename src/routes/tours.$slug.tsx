@@ -246,7 +246,7 @@ function TourDetail() {
           <QuickFact icon={<MapPin size={16} />} label="Destination" value={tour.destination} />
           <QuickFact icon={<Sun size={16} />} label="Best Time" value={bestTimeFor(tour)} />
           <QuickFact icon={<Users size={16} />} label="Group Size" value="Private · 2–8" />
-          <QuickFact icon={<Tag size={16} />} label="From" value={`$${tour.priceFrom.toLocaleString()} pp`} />
+          <QuickFact icon={<Tag size={16} />} label="Pricing" value="On quotation" />
         </div>
       </section>
 
