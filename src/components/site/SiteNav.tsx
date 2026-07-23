@@ -16,142 +16,27 @@ import logoBlack from "@/assets/logo-black.png";
 
 
 
-type SubLink = { label: string; hash?: string; to?: string; children?: SubLink[] };
+type SubLink = { label: string; to: string; hash?: string };
 
-type NavGroup = { label: string; to: string; sub: SubLink[] };
-
-
-
-const SAFARI_TYPES: SubLink[] = [
-
-  { label: "Tanzania Luxury Safaris", to: "/safari-itineraries", hash: "safari-luxury" },
-
-  { label: "Tented Lodge Safari", to: "/safari-itineraries", hash: "safari-tented-lodge" },
-
-  { label: "Tanzania Camping Safaris", to: "/safari-itineraries", hash: "safari-camping" },
-
-  { label: "Bird Watching Safaris", to: "/safari-itineraries", hash: "safari-bird-watching" },
-
-  { label: "Honeymoon Safari Packages", to: "/safari-itineraries", hash: "safari-honeymoon" },
-
-  { label: "Flying Safari", to: "/safari-itineraries", hash: "safari-flying" },
-
-  { label: "Family Safari", to: "/safari-itineraries", hash: "safari-family" },
-
-  { label: "Photographic Safari", to: "/safari-itineraries", hash: "safari-photographic" },
-
-  { label: "Wildebeest Migration", to: "/safari-itineraries", hash: "safari-migration" },
-
-  { label: "Balloon Safari", to: "/safari-itineraries", hash: "safari-balloon" },
-
-  { label: "Guided Walking Safaris", to: "/safari-itineraries", hash: "safari-walking" },
-
-];
+type NavGroup = { label: string; to: string; sub?: SubLink[] };
 
 
 
 const NAV: NavGroup[] = [
-
+  { label: "Home", to: "/" },
   {
-
-    label: "Home",
-
-    to: "/",
-
+    label: "Packages",
+    to: "/safari-packages",
     sub: [
-
-      { label: "Welcome", hash: "welcome" },
-
-      { label: "Featured safaris", hash: "featured" },
-
-      { label: "Popular destinations", hash: "destinations" },
-
-      { label: "Testimonials", hash: "testimonials" },
-
+      { label: "Safari Packages", to: "/safari-packages" },
+      { label: "Zanzibar Packages", to: "/zanzibar-packages" },
+      { label: "Trekking Packages", to: "/trekking-packages" },
     ],
-
   },
-
-  {
-
-    label: "About",
-
-    to: "/about",
-
-    sub: [
-
-      { label: "Company story", hash: "story" },
-
-      { label: "Mission & vision", hash: "mission" },
-
-      { label: "Why choose us", hash: "why-us" },
-
-      { label: "Team", hash: "team" },
-
-    ],
-
-  },
-
-  {
-
-    label: "Tours & Safaris",
-
-    to: "/tours",
-
-    sub: [
-
-      { label: "Safari", to: "/safari-itineraries", children: SAFARI_TYPES },
-
-      { label: "Trekking", to: "/trekking-itinerary" },
-
-      { label: "Day Trips", to: "/tours", hash: "day-trips" },
-
-      { label: "Zanzibar Packages", to: "/zanzibar-honeymoon" },
-
-    ],
-
-  },
-
-  {
-
-    label: "Destinations",
-
-    to: "/destinations",
-
-    sub: [
-
-      { label: "Tanzania destinations", hash: "tanzania" },
-
-      { label: "National parks", hash: "parks" },
-
-      { label: "Beaches & islands", hash: "beaches" },
-
-      { label: "Travel guides", hash: "guides" },
-
-    ],
-
-  },
-
-  {
-
-    label: "Contact & Blog",
-
-    to: "/contact",
-
-    sub: [
-
-      { label: "Contact", to: "/contact" },
-
-      { label: "Inquiry form", to: "/contact", hash: "inquiry" },
-
-      { label: "Blogs / travel articles", to: "/blog" },
-
-      { label: "FAQs", to: "/contact", hash: "faq" },
-
-    ],
-
-  },
-
+  { label: "About Us", to: "/about" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "FAQs", to: "/faqs" },
+  { label: "Contact", to: "/contact" },
 ];
 
 
