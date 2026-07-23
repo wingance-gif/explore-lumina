@@ -25,19 +25,20 @@ type NavGroup = { label: string; to: string; sub?: SubLink[] };
 const NAV: NavGroup[] = [
   { label: "Home", to: "/" },
   {
-    label: "Packages",
-    to: "/safari-packages",
+    label: "Experiences",
+    to: "/safari-itineraries",
     sub: [
-      { label: "Safari Packages", to: "/safari-packages" },
+      { label: "Safari Itineraries", to: "/safari-itineraries" },
+      { label: "Kilimanjaro Trekking", to: "/trekking-packages" },
       { label: "Zanzibar Packages", to: "/zanzibar-packages" },
-      { label: "Trekking Packages", to: "/trekking-packages" },
+      { label: "Day Trips", to: "/tours", hash: "day-trips" },
+      { label: "Destinations", to: "/destinations" },
     ],
   },
   { label: "About Us", to: "/about" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "FAQs", to: "/faqs" },
   { label: "Contact", to: "/contact" },
 ];
+
 
 
 
