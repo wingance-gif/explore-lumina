@@ -446,44 +446,34 @@ function TourDetail() {
 
 
 
-      {/* PRICING */}
+      {/* PRICING NOTE */}
       <section className="container-x mx-auto max-w-[1500px] py-16">
         <SectionHeading
           eyebrow="Pricing"
-          title="Transparent, per-person rates"
-          intro="Rates are based on 2 guests sharing. Solo, family and larger-group pricing on request."
+          title="Tailored to your package"
+          intro="Every quotation is built around the accommodation package you choose. The route, activities and daily programme stay the same — only where you sleep changes."
         />
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {TIERS.map((t) => {
-            const p = Math.round((tour.priceFrom * t.multiplier) / 10) * 10;
-            const selected = t.key === tier;
-            return (
-              <div
-                key={t.key}
-                className={`rounded-2xl p-6 transition-all cursor-pointer ${
-                  selected
-                    ? "bg-[#827768] text-white shadow-elevated -translate-y-1"
-                    : "bg-card/60 border border-border hover:-translate-y-0.5"
-                }`}
-                onClick={() => setTier(t.key)}
-              >
-                <p className={`text-[10px] uppercase tracking-[0.22em] ${selected ? "text-white/70" : "text-foreground/55"}`}>
-                  {t.label}
-                </p>
-                <p className="mt-3 font-display text-3xl">${p.toLocaleString()}</p>
-                <p className={`text-xs mt-1 ${selected ? "text-white/70" : "text-foreground/55"}`}>
-                  per person · from
-                </p>
-                {selected && (
-                  <p className="mt-4 inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em]">
-                    <Check size={12} /> Selected
-                  </p>
-                )}
-              </div>
-            );
-          })}
+        <div className="mt-10 rounded-3xl border border-border bg-card/60 p-8 md:p-10 text-center">
+          <p className="font-display text-2xl md:text-3xl leading-snug max-w-2xl mx-auto">
+            {QUOTE_PLACEHOLDER}
+          </p>
+          <p className="mt-4 text-sm text-foreground/70 max-w-xl mx-auto">
+            Share your preferred travel dates and party size and our team will confirm camps, lodges and a per-person rate for your selected {activeTier.label} package within 24 hours.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <PlanTripDialog
+              destination={tour.destination}
+              experienceTitle={`${tour.title} — ${activeTier.label}`}
+              trigger={
+                <button className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-3.5 text-sm font-medium text-white hover:scale-[1.02] transition-transform">
+                  Request a quotation <ArrowRight size={14} />
+                </button>
+              }
+            />
+          </div>
         </div>
       </section>
+
 
       {/* INCLUDED / EXCLUDED */}
       <section className="container-x mx-auto max-w-[1500px] py-16 grid md:grid-cols-2 gap-6">
