@@ -610,6 +610,3 @@ function BookingSection({ tour, tier }: { tour: Tour; tier: string }) {
     </section>
   );
 }
-
-// Keep icon import used
-void ChevronDown;
