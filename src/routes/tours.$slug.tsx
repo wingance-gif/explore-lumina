@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -61,28 +61,32 @@ export const Route = createFileRoute("/tours/$slug")({
 
 type TierKey = "budget" | "mid" | "luxury" | "ultra";
 
-const TIERS: { key: TierKey; label: string; blurb: string }[] = [
+const TIERS: { key: TierKey; label: string; multiplier: number; blurb: string }[] = [
   {
     key: "budget",
     label: "Budget",
+    multiplier: 1,
     blurb:
       "Authentic camping and simple guesthouses — the sounds of the bush at night, warm meals around the fire, no frills.",
   },
   {
     key: "mid",
     label: "Mid-range",
+    multiplier: 1.6,
     blurb:
       "Well-appointed lodges and permanent tented camps with hot showers, comfortable beds and full-board dining.",
   },
   {
     key: "luxury",
     label: "Luxury",
+    multiplier: 2.6,
     blurb:
       "Signature lodges and boutique tented camps in prime locations — private guides, plunge pools and elevated dining.",
   },
   {
     key: "ultra",
     label: "Ultra Luxury",
+    multiplier: 4.4,
     blurb:
       "Private conservancies, butler service and exclusive-use camps — the rarefied top tier of an African journey.",
   },
@@ -114,9 +118,6 @@ const TIER_GALLERIES: Record<TierKey, string[]> = {
     IMAGES.safariTypes.flying,
   ],
 };
-
-const QUOTE_PLACEHOLDER = "Accommodation confirmed with your quotation.";
-
 
 function deriveDay(step: { day: number; title: string; body: string }, totalDays: number, category: Tour["category"]) {
   const route = step.title.includes("→") ? step.title : undefined;
@@ -195,7 +196,7 @@ function TourDetail() {
     [tour.slug, tour.category],
   );
   const activeTier = TIERS.find((t) => t.key === tier)!;
-
+  const price = Math.round((tour.priceFrom * activeTier.multiplier) / 10) * 10;
 
   return (
     <>
@@ -233,8 +234,11 @@ function TourDetail() {
             >
               Send Inquiry <Send size={14} />
             </a>
+            <span className="hidden md:inline-flex items-center text-sm text-white/70 ml-2">
+              From <strong className="text-white ml-1.5">${tour.priceFrom.toLocaleString()}</strong>
+              <span className="ml-1">/ person</span>
+            </span>
           </div>
-
         </div>
       </section>
 
@@ -246,7 +250,7 @@ function TourDetail() {
           <QuickFact icon={<MapPin size={16} />} label="Destination" value={tour.destination} />
           <QuickFact icon={<Sun size={16} />} label="Best Time" value={bestTimeFor(tour)} />
           <QuickFact icon={<Users size={16} />} label="Group Size" value="Private · 2–8" />
-          <QuickFact icon={<Tag size={16} />} label="Pricing" value="On quotation" />
+          <QuickFact icon={<Tag size={16} />} label="From" value={`$${tour.priceFrom.toLocaleString()} pp`} />
         </div>
       </section>
 
@@ -280,6 +284,7 @@ function TourDetail() {
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
           {TIERS.map((t) => {
             const selected = t.key === tier;
+            const p = Math.round((tour.priceFrom * t.multiplier) / 10) * 10;
             return (
               <button
                 key={t.key}
@@ -292,17 +297,16 @@ function TourDetail() {
                 aria-pressed={selected}
               >
                 <p className={`text-[10px] uppercase tracking-[0.22em] ${selected ? "text-white/70" : "text-foreground/55"}`}>
-                  Package
+                  Tier
                 </p>
                 <p className="mt-2 font-display text-2xl">{t.label}</p>
                 <p className={`mt-3 text-xs ${selected ? "text-white/80" : "text-foreground/60"}`}>
-                  Price on quotation
+                  From ${p.toLocaleString()} pp
                 </p>
               </button>
             );
           })}
         </div>
-
 
         {/* Preview: gallery + short blurb + price */}
         <div className="mt-8 rounded-3xl border border-border bg-card/60 p-6 md:p-8">
@@ -346,24 +350,24 @@ function TourDetail() {
               </div>
 
               <div className="mt-8 rounded-2xl bg-[#3D372F] text-white p-6">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Camps & lodges</p>
-                <p className="mt-3 font-display text-2xl leading-snug">
-                  {QUOTE_PLACEHOLDER}
+                <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Starting from</p>
+                <p className="mt-2 font-display text-4xl leading-none">
+                  ${price.toLocaleString()}
+                  <span className="text-sm text-white/70 font-sans ml-2">/ person</span>
                 </p>
                 <p className="mt-3 text-xs text-white/70">
-                  {activeTier.label} category · {tour.days} days / {tour.nights} nights · based on 2 sharing
+                  Based on 2 sharing · {tour.days} days / {tour.nights} nights · {activeTier.label} category
                 </p>
                 <PlanTripDialog
                   destination={tour.destination}
-                  experienceTitle={`${tour.title} — ${activeTier.label}`}
+                  experienceTitle={`${tour.title} (${activeTier.label})`}
                   trigger={
                     <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#827768] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-white hover:bg-[#6f6558] transition-colors">
-                      Request quotation <ArrowRight size={13} />
+                      Book this tier <ArrowRight size={13} />
                     </button>
                   }
                 />
               </div>
-
             </div>
           </div>
         </div>
@@ -446,34 +450,44 @@ function TourDetail() {
 
 
 
-      {/* PRICING NOTE */}
+      {/* PRICING */}
       <section className="container-x mx-auto max-w-[1500px] py-16">
         <SectionHeading
           eyebrow="Pricing"
-          title="Tailored to your package"
-          intro="Every quotation is built around the accommodation package you choose. The route, activities and daily programme stay the same — only where you sleep changes."
+          title="Transparent, per-person rates"
+          intro="Rates are based on 2 guests sharing. Solo, family and larger-group pricing on request."
         />
-        <div className="mt-10 rounded-3xl border border-border bg-card/60 p-8 md:p-10 text-center">
-          <p className="font-display text-2xl md:text-3xl leading-snug max-w-2xl mx-auto">
-            {QUOTE_PLACEHOLDER}
-          </p>
-          <p className="mt-4 text-sm text-foreground/70 max-w-xl mx-auto">
-            Share your preferred travel dates and party size and our team will confirm camps, lodges and a per-person rate for your selected {activeTier.label} package within 24 hours.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <PlanTripDialog
-              destination={tour.destination}
-              experienceTitle={`${tour.title} — ${activeTier.label}`}
-              trigger={
-                <button className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-3.5 text-sm font-medium text-white hover:scale-[1.02] transition-transform">
-                  Request a quotation <ArrowRight size={14} />
-                </button>
-              }
-            />
-          </div>
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {TIERS.map((t) => {
+            const p = Math.round((tour.priceFrom * t.multiplier) / 10) * 10;
+            const selected = t.key === tier;
+            return (
+              <div
+                key={t.key}
+                className={`rounded-2xl p-6 transition-all cursor-pointer ${
+                  selected
+                    ? "bg-[#827768] text-white shadow-elevated -translate-y-1"
+                    : "bg-card/60 border border-border hover:-translate-y-0.5"
+                }`}
+                onClick={() => setTier(t.key)}
+              >
+                <p className={`text-[10px] uppercase tracking-[0.22em] ${selected ? "text-white/70" : "text-foreground/55"}`}>
+                  {t.label}
+                </p>
+                <p className="mt-3 font-display text-3xl">${p.toLocaleString()}</p>
+                <p className={`text-xs mt-1 ${selected ? "text-white/70" : "text-foreground/55"}`}>
+                  per person · from
+                </p>
+                {selected && (
+                  <p className="mt-4 inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.2em]">
+                    <Check size={12} /> Selected
+                  </p>
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
-
 
       {/* INCLUDED / EXCLUDED */}
       <section className="container-x mx-auto max-w-[1500px] py-16 grid md:grid-cols-2 gap-6">
@@ -641,11 +655,6 @@ function BookingSection({ tour, tier }: { tour: Tour; tier: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  useEffect(() => {
-    setValues((s) => ({ ...s, tier }));
-  }, [tier]);
-
-
   const set = <K extends keyof BookingValues>(k: K, v: BookingValues[K]) => {
     setValues((s) => ({ ...s, [k]: v }));
     setErrors((e) => ({ ...e, [k]: undefined }));
@@ -695,11 +704,10 @@ function BookingSection({ tour, tier }: { tour: Tour; tier: string }) {
                 <p className="mt-1">{tour.days}D / {tour.nights}N</p>
               </div>
               <div>
-                <p className="text-white/60 text-[10px] uppercase tracking-[0.22em]">Package</p>
-                <p className="mt-1">{tier}</p>
+                <p className="text-white/60 text-[10px] uppercase tracking-[0.22em]">From</p>
+                <p className="mt-1">${tour.priceFrom.toLocaleString()} pp</p>
               </div>
             </div>
-
           </div>
         </div>
 

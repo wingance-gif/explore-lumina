@@ -43,14 +43,12 @@ export function SiteFooter() {
             <h4 className="font-display text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-10 after:bg-primary">Explore</h4>
             <ul className="mt-2 space-y-3.5 text-sm text-muted-foreground">
               <li><Link to="/destinations" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Destinations</Link></li>
-              <li><Link to="/safari-itineraries" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Safari Itineraries</Link></li>
-              <li><Link to="/accommodation" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Accommodation</Link></li>
+              <li><Link to="/tours" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">All tours</Link></li>
+              <li><Link to="/accommodation" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Luxury stays</Link></li>
               <li><Link to="/gallery" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Gallery</Link></li>
               <li><Link to="/blog" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Journal</Link></li>
-              <li><Link to="/faqs" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">FAQs</Link></li>
             </ul>
           </div>
-
 
           <div>
             <h4 className="font-display text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-10 after:bg-primary">Contact</h4>
