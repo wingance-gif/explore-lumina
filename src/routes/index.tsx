@@ -259,23 +259,34 @@ function Home() {
 
 
       {/* Parallax CTA */}
-      <section className="relative my-24 h-[70svh] min-h-[480px] w-full overflow-hidden">
+      <section className="relative my-32 h-[75svh] min-h-[520px] w-full overflow-hidden">
         <div
-          className="absolute inset-0 bg-fixed bg-cover bg-center"
+          className="absolute inset-0 bg-fixed bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${IMAGES.cta.parallax})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
         <div className="relative z-10 container-x mx-auto max-w-[1100px] h-full flex flex-col items-center justify-center text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary">Experience Tanzania</p>
-          <h2 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-balance text-white">
-            Beyond Expectations.
-          </h2>
-          <Link
-            to="/plan-my-trip"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#827768] px-8 py-4 text-sm font-medium text-white shadow-glow-lime hover:scale-105 transition-transform"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            Plan my trip <ArrowRight size={16} />
-          </Link>
+            <p className="text-xs uppercase tracking-[0.4em] text-primary">Experience Tanzania</p>
+            <h2 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-balance text-white drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)]">
+              Beyond Expectations.
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-sm md:text-base text-white/80 leading-relaxed">
+              Let our local experts craft a journey shaped entirely around you — every camp, every guide, every sunrise.
+            </p>
+            <Link
+              to="/plan-my-trip"
+              className="group mt-10 inline-flex items-center gap-3 rounded-full bg-[#827768] px-9 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white shadow-[0_20px_60px_-15px_rgba(130,119,104,0.8)] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_25px_70px_-15px_rgba(130,119,104,1)]"
+            >
+              Plan my trip <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
