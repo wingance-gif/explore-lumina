@@ -384,7 +384,6 @@ export const TOURS: Tour[] = [
     includes: ["Park fees", "4x4 transport", "Driver-guide", "Accommodation", "Meals as itinerary"],
     excludes: ["Flights", "Visa", "Tips"],
     packages: DEFAULT_PACKAGES,
-    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "4-days-tanzania-lodge-safari",
