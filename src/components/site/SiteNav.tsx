@@ -273,111 +273,45 @@ export function SiteNav() {
           <nav className="container-x mx-auto flex flex-col py-2">
 
             {NAV.map((group) => {
-
               const isOpen = mobileGroup === group.label;
-
+              const hasSub = !!group.sub?.length;
               return (
-
                 <div key={group.label} className="border-b border-border/50 last:border-0">
-
                   <div className="flex items-center">
-
                     <Link
-
                       to={group.to}
-
                       onClick={() => setOpen(false)}
-
                       className="flex-1 py-3 text-xs uppercase tracking-[0.3em] text-foreground/85"
-
                     >
-
                       {group.label}
-
                     </Link>
-
-                    <button
-
-                      aria-label={`Toggle ${group.label} submenu`}
-
-                      onClick={() => setMobileGroup(isOpen ? null : group.label)}
-
-                      className="grid h-9 w-9 place-items-center text-foreground/70"
-
-                    >
-
-                      <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
-
-                    </button>
-
+                    {hasSub && (
+                      <button
+                        aria-label={`Toggle ${group.label} submenu`}
+                        onClick={() => setMobileGroup(isOpen ? null : group.label)}
+                        className="grid h-9 w-9 place-items-center text-foreground/70"
+                      >
+                        <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                      </button>
+                    )}
                   </div>
-
-                  {isOpen && (
-
+                  {hasSub && isOpen && (
                     <div className="pb-2 pl-3">
-
-                      {group.sub.map((s) => (
-
-                        <div key={s.label}>
-
-                          <Link
-
-                            to={s.to ?? group.to}
-
-                            hash={s.hash}
-
-                            onClick={() => setOpen(false)}
-
-                            className="block py-2 text-[11px] uppercase tracking-[0.25em] text-foreground/70"
-
-                          >
-
-                            {s.label}
-
-                          </Link>
-
-                          {s.children?.length ? (
-
-                            <div className="pl-3 border-l border-border/50 ml-1 mb-1">
-
-                              {s.children.map((c) => (
-
-                                <Link
-
-                                  key={c.label}
-
-                                  to={c.to ?? s.to ?? group.to}
-
-                                  hash={c.hash}
-
-                                  onClick={() => setOpen(false)}
-
-                                  className="block py-1.5 text-[10px] uppercase tracking-[0.22em] text-foreground/60"
-
-                                >
-
-                                  {c.label}
-
-                                </Link>
-
-                              ))}
-
-                            </div>
-
-                          ) : null}
-
-                        </div>
-
+                      {group.sub!.map((s) => (
+                        <Link
+                          key={s.label}
+                          to={s.to}
+                          hash={s.hash}
+                          onClick={() => setOpen(false)}
+                          className="block py-2 text-[11px] uppercase tracking-[0.25em] text-foreground/70"
+                        >
+                          {s.label}
+                        </Link>
                       ))}
-
                     </div>
-
                   )}
-
                 </div>
-
               );
-
             })}
 
             <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-[#827768] bg-[#827768] px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-white whitespace-nowrap">
