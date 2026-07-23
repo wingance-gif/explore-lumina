@@ -21,9 +21,10 @@ function TrekkingPackagesPage() {
     <PackageListing
       eyebrow="Packages"
       title="Trekking Packages"
-      intro="Stand on the Roof of Africa. Our Kilimanjaro and Mount Meru treks are led by certified KPAP guides with the acclimatisation days, crew ratios and safety standards that put summit success first."
+      intro="Stand on the Roof of Africa. Kilimanjaro and Mount Meru treks led by certified KPAP guides with the acclimatisation, crew ratios and safety standards that put summit success first."
       heroImage={IMAGES.heroKilimanjaro}
       tours={tours}
+      featuredSlugs={["8-days-lemosho-route-kilimanjaro"]}
     />
   );
 }

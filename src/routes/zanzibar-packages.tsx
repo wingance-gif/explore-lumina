@@ -21,9 +21,10 @@ function ZanzibarPackagesPage() {
     <PackageListing
       eyebrow="Packages"
       title="Zanzibar Packages"
-      intro="Turquoise water, spice-scented streets and barefoot luxury on the Swahili coast. Combine the bush and the beach, or unwind on Zanzibar's finest sands with a private villa and sunset dhow."
+      intro="Turquoise water, spice-scented streets and barefoot luxury on the Swahili coast — from short beach escapes to honeymoon journeys combining bush and sand."
       heroImage={IMAGES.heroZanzibar}
       tours={tours}
+      featuredSlugs={["14-days-serengeti-honeymoon-safari"]}
     />
   );
 }
