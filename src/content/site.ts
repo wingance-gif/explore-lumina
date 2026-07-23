@@ -282,6 +282,23 @@ export const DESTINATIONS: Destination[] = [
 ];
 
 
+export type TourCamp = { night: number; name: string; area?: string };
+export type TourPackageTier = "Budget" | "Mid-range" | "Luxury" | "Ultra Luxury";
+export type TourPackage = {
+  tier: TourPackageTier;
+  blurb: string;
+  camps: TourCamp[] | null;
+  gallery: string[] | null;
+  priceFrom: number | null;
+};
+
+export const DEFAULT_PACKAGES: TourPackage[] = [
+  { tier: "Budget", blurb: "Public campsites and simple guesthouses — authentic bush nights around the fire, no frills.", camps: null, gallery: null, priceFrom: null },
+  { tier: "Mid-range", blurb: "Well-appointed lodges and permanent tented camps with hot showers and full-board dining.", camps: null, gallery: null, priceFrom: null },
+  { tier: "Luxury", blurb: "Signature lodges and boutique tented camps in prime locations, elevated dining and private guides.", camps: null, gallery: null, priceFrom: null },
+  { tier: "Ultra Luxury", blurb: "Private conservancies, butler service and exclusive-use camps — the rarefied top tier.", camps: null, gallery: null, priceFrom: null },
+];
+
 export type Tour = {
   slug: string;
   title: string;
@@ -296,6 +313,7 @@ export type Tour = {
   itinerary: { day: number; title: string; body: string }[];
   includes: string[];
   excludes: string[];
+  packages?: TourPackage[];
 };
 
 export const TOURS: Tour[] = [
