@@ -4,18 +4,29 @@ import {
   ArrowRight,
   Calendar,
   Check,
-  ChevronDown,
   Clock,
   Compass,
   MapPin,
+  Route as RouteIcon,
   Send,
   Sparkles,
   Star,
   Sun,
   Tag,
   Users,
+  UtensilsCrossed,
   X,
 } from "lucide-react";
+import { TOURS, IMAGES, type Tour } from "@/content/site";
+import { PlanTripDialog } from "@/components/site/PlanTripDialog";
+import { FormBanner, SelectField, TextAreaField, TextField } from "@/components/site/FormField";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 import { TOURS, type Tour } from "@/content/site";
 import { PlanTripDialog } from "@/components/site/PlanTripDialog";
 import { FormBanner, SelectField, TextAreaField, TextField } from "@/components/site/FormField";
