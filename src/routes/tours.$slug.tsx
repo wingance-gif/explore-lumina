@@ -280,7 +280,6 @@ function TourDetail() {
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
           {TIERS.map((t) => {
             const selected = t.key === tier;
-            const p = Math.round((tour.priceFrom * t.multiplier) / 10) * 10;
             return (
               <button
                 key={t.key}
@@ -293,16 +292,17 @@ function TourDetail() {
                 aria-pressed={selected}
               >
                 <p className={`text-[10px] uppercase tracking-[0.22em] ${selected ? "text-white/70" : "text-foreground/55"}`}>
-                  Tier
+                  Package
                 </p>
                 <p className="mt-2 font-display text-2xl">{t.label}</p>
                 <p className={`mt-3 text-xs ${selected ? "text-white/80" : "text-foreground/60"}`}>
-                  From ${p.toLocaleString()} pp
+                  Price on quotation
                 </p>
               </button>
             );
           })}
         </div>
+
 
         {/* Preview: gallery + short blurb + price */}
         <div className="mt-8 rounded-3xl border border-border bg-card/60 p-6 md:p-8">
