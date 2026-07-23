@@ -384,6 +384,7 @@ export const TOURS: Tour[] = [
     includes: ["Park fees", "4x4 transport", "Driver-guide", "Accommodation", "Meals as itinerary"],
     excludes: ["Flights", "Visa", "Tips"],
     packages: DEFAULT_PACKAGES,
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "4-days-tanzania-lodge-safari",
@@ -402,6 +403,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Park fees", "4x4 with pop-top", "Lodging", "Driver-guide", "Meals"],
     excludes: ["Flights", "Visa", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "tarangire-national-park-birding",
@@ -421,6 +423,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Specialist birding guide", "Park fees", "Lodging", "Meals"],
     excludes: ["Binoculars", "Flights", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "7-days-machame-route-kilimanjaro",
@@ -442,6 +445,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Park fees & rescue fees", "Certified guide, cook, porters", "Tents & mess gear", "All meals on mountain", "Transfers"],
     excludes: ["Sleeping bag", "Personal gear", "Tips for crew (USD 250–350)"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "8-days-lemosho-route-kilimanjaro",
@@ -464,6 +468,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Park fees", "Certified guides & porters", "Tents", "All meals", "Transfers"],
     excludes: ["Sleeping bag", "Tips", "Personal gear"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "5-days-luxury-honeymoon-zanzibar",
@@ -483,6 +488,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Beachfront accommodation B&B", "Tours as itinerary", "Transfers"],
     excludes: ["Flights", "Lunches & dinners", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "1-day-balloon-safari-serengeti",
