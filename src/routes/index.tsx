@@ -235,12 +235,15 @@ function Home() {
       </section>
 
       {/* 6. Why Choose Us */}
-      <section className="container-x mx-auto max-w-[1500px] py-24">
+      <section className="container-x mx-auto max-w-[1500px] py-24 md:py-32">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary">Why choose us</p>
-          <h2 className="mt-4 font-display text-4xl md:text-6xl text-balance">
+          <p className="text-xs uppercase tracking-[0.35em] text-primary">Why choose us</p>
+          <h2 className="mt-4 font-display text-4xl md:text-6xl text-balance leading-[1.02]">
             Built by locals. Loved by travellers.
           </h2>
+          <p className="mt-5 text-sm md:text-base text-foreground/65 leading-relaxed">
+            Fifteen years of guiding, and a promise: no template itineraries, no shortcuts, no compromises.
+          </p>
         </div>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {[
