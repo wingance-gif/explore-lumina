@@ -346,24 +346,24 @@ function TourDetail() {
               </div>
 
               <div className="mt-8 rounded-2xl bg-[#3D372F] text-white p-6">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Starting from</p>
-                <p className="mt-2 font-display text-4xl leading-none">
-                  ${price.toLocaleString()}
-                  <span className="text-sm text-white/70 font-sans ml-2">/ person</span>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Camps & lodges</p>
+                <p className="mt-3 font-display text-2xl leading-snug">
+                  {QUOTE_PLACEHOLDER}
                 </p>
                 <p className="mt-3 text-xs text-white/70">
-                  Based on 2 sharing · {tour.days} days / {tour.nights} nights · {activeTier.label} category
+                  {activeTier.label} category · {tour.days} days / {tour.nights} nights · based on 2 sharing
                 </p>
                 <PlanTripDialog
                   destination={tour.destination}
-                  experienceTitle={`${tour.title} (${activeTier.label})`}
+                  experienceTitle={`${tour.title} — ${activeTier.label}`}
                   trigger={
                     <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#827768] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-white hover:bg-[#6f6558] transition-colors">
-                      Book this tier <ArrowRight size={13} />
+                      Request quotation <ArrowRight size={13} />
                     </button>
                   }
                 />
               </div>
+
             </div>
           </div>
         </div>
