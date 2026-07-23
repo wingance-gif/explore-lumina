@@ -141,7 +141,7 @@ function tourFaqs(t: Tour) {
 }
 
 function TourDetail() {
-  const { tour } = Route.useLoaderData();
+  const { tour } = Route.useLoaderData() as { tour: Tour };
   const [tier, setTier] = useState<TierKey>("mid");
   const related = useMemo(
     () => TOURS.filter((t) => t.slug !== tour.slug && t.category === tour.category).slice(0, 3),
