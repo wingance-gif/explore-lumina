@@ -19,6 +19,7 @@ import { Route as SafariItinerariesRouteImport } from './routes/safari-itinerari
 import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqsRouteImport } from './routes/faqs'
+import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -79,6 +80,11 @@ const FaqsRoute = FaqsRouteImport.update({
   path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperiencesRoute = ExperiencesRouteImport.update({
+  id: '/experiences',
+  path: '/experiences',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DestinationsRoute = DestinationsRouteImport.update({
   id: '/destinations',
   path: '/destinations',
@@ -132,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/experiences': typeof ExperiencesRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
@@ -153,6 +160,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/experiences': typeof ExperiencesRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
@@ -175,6 +183,7 @@ export interface FileRoutesById {
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/experiences': typeof ExperiencesRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
@@ -198,6 +207,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/destinations'
+    | '/experiences'
     | '/faqs'
     | '/gallery'
     | '/plan-my-trip'
@@ -219,6 +229,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/destinations'
+    | '/experiences'
     | '/faqs'
     | '/gallery'
     | '/plan-my-trip'
@@ -240,6 +251,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/destinations'
+    | '/experiences'
     | '/faqs'
     | '/gallery'
     | '/plan-my-trip'
@@ -262,6 +274,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
+  ExperiencesRoute: typeof ExperiencesRoute
   FaqsRoute: typeof FaqsRoute
   GalleryRoute: typeof GalleryRoute
   PlanMyTripRoute: typeof PlanMyTripRoute
@@ -344,6 +357,13 @@ declare module '@tanstack/react-router' {
       path: '/faqs'
       fullPath: '/faqs'
       preLoaderRoute: typeof FaqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiences': {
+      id: '/experiences'
+      path: '/experiences'
+      fullPath: '/experiences'
+      preLoaderRoute: typeof ExperiencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/destinations': {
@@ -451,6 +471,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
+  ExperiencesRoute: ExperiencesRoute,
   FaqsRoute: FaqsRoute,
   GalleryRoute: GalleryRoute,
   PlanMyTripRoute: PlanMyTripRoute,

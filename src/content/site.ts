@@ -282,6 +282,23 @@ export const DESTINATIONS: Destination[] = [
 ];
 
 
+export type TourCamp = { night: number; name: string; area?: string };
+export type TourPackageTier = "Budget" | "Mid-range" | "Luxury" | "Ultra Luxury";
+export type TourPackage = {
+  tier: TourPackageTier;
+  blurb: string;
+  camps: TourCamp[] | null;
+  gallery: string[] | null;
+  priceFrom: number | null;
+};
+
+export const DEFAULT_PACKAGES: TourPackage[] = [
+  { tier: "Budget", blurb: "Public campsites and simple guesthouses — authentic bush nights around the fire, no frills.", camps: null, gallery: null, priceFrom: null },
+  { tier: "Mid-range", blurb: "Well-appointed lodges and permanent tented camps with hot showers and full-board dining.", camps: null, gallery: null, priceFrom: null },
+  { tier: "Luxury", blurb: "Signature lodges and boutique tented camps in prime locations, elevated dining and private guides.", camps: null, gallery: null, priceFrom: null },
+  { tier: "Ultra Luxury", blurb: "Private conservancies, butler service and exclusive-use camps — the rarefied top tier.", camps: null, gallery: null, priceFrom: null },
+];
+
 export type Tour = {
   slug: string;
   title: string;
@@ -296,21 +313,22 @@ export type Tour = {
   itinerary: { day: number; title: string; body: string }[];
   includes: string[];
   excludes: string[];
+  packages?: TourPackage[];
 };
 
 export const TOURS: Tour[] = [
   {
     slug: "6-days-tanzania-luxury-scenic-lodge-safari",
-    title: "6 Days Tanzania Luxury Scenic Lodge Safari",
-    category: "Luxury Safari",
+    title: "6 Days Northern Circuit Safari — Tarangire, Serengeti & Ngorongoro",
+    category: "Lodge Safari",
     days: 6, nights: 5, priceFrom: 570,
     destination: "Tarangire · Serengeti · Ngorongoro",
     image: IMAGES.heroSerengeti,
-    summary: "A six-day journey through Tanzania's iconic Northern Circuit, sleeping in scenic luxury lodges with sweeping views over the parks.",
+    summary: "A six-day journey through Tanzania's iconic Northern Circuit — one route, four accommodation tiers to match your comfort and budget.",
     highlights: ["Big Five game drives", "Sunrise on the Serengeti", "Crater descent", "Maasai cultural visit"],
     itinerary: [
-      { day: 1, title: "Arusha → Tarangire", body: "Morning pickup, drive to Tarangire for an afternoon game drive among baobabs and elephant herds. Sundowner at the lodge." },
-      { day: 2, title: "Tarangire → Lake Manyara → Karatu", body: "Game drive in Manyara — flamingos, tree-climbing lions, dense forest. Overnight in a Karatu highland lodge." },
+      { day: 1, title: "Arusha → Tarangire", body: "Morning pickup, drive to Tarangire for an afternoon game drive among baobabs and elephant herds. Sundowner at your camp or lodge." },
+      { day: 2, title: "Tarangire → Lake Manyara → Karatu", body: "Game drive in Manyara — flamingos, tree-climbing lions, dense forest. Overnight in the Karatu highlands." },
       { day: 3, title: "Karatu → Central Serengeti", body: "Cross the Ngorongoro highlands and descend into the Serengeti. Afternoon game drive in the Seronera valley." },
       { day: 4, title: "Full day Serengeti", body: "Dawn-to-dusk game drives across the central Serengeti. Optional balloon safari at sunrise." },
       { day: 5, title: "Serengeti → Ngorongoro Crater", body: "Morning game drive en route to the crater rim. Spectacular sunset views." },
@@ -318,6 +336,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["All park fees", "Private 4x4 with pop-top roof", "English-speaking driver-guide", "Full-board lodging", "Bottled water"],
     excludes: ["International flights", "Visa", "Tips", "Personal insurance"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "14-days-serengeti-honeymoon-safari",
@@ -346,43 +365,25 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Internal flights", "All park fees", "Private 4x4", "Beach villa with breakfast", "Stone Town tour"],
     excludes: ["International flights", "Lunches & dinners on Zanzibar", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "3-days-tanzania-lodge-safari",
-    title: "3 Days Tanzania Lodge Safari — Tarangire & Ngorongoro",
+    title: "3 Days Tanzania Safari — Tarangire & Ngorongoro",
     category: "Lodge Safari",
     days: 3, nights: 2, priceFrom: 340,
     destination: "Tarangire · Ngorongoro",
     image: IMAGES.tour.lodge3Days,
     summary: "A short, intense taste of Tanzania — perfect as an extension to a beach holiday or a long weekend escape.",
-    highlights: ["Tarangire elephants", "Ngorongoro Crater floor", "Comfortable mid-range lodges"],
+    highlights: ["Tarangire elephants", "Ngorongoro Crater floor", "Choice of four accommodation tiers"],
     itinerary: [
-      { day: 1, title: "Arusha → Tarangire", body: "Morning game drive in Tarangire, lodge overnight on the rim." },
+      { day: 1, title: "Arusha → Tarangire", body: "Morning game drive in Tarangire, overnight near the park." },
       { day: 2, title: "Tarangire → Ngorongoro", body: "Drive to the crater rim, sunset views." },
       { day: 3, title: "Crater game drive → Arusha", body: "Half-day descent into the caldera, return to Arusha." },
     ],
-    includes: ["Park fees", "4x4 transport", "Driver-guide", "Lodge accommodation", "Meals as itinerary"],
+    includes: ["Park fees", "4x4 transport", "Driver-guide", "Accommodation", "Meals as itinerary"],
     excludes: ["Flights", "Visa", "Tips"],
-  },
-  {
-    slug: "6-days-tanzania-camping-safari",
-    title: "6 Days Tanzania Camping Safari",
-    category: "Camping Safari",
-    days: 6, nights: 5, priceFrom: 610,
-    destination: "Tarangire · Serengeti · Ngorongoro",
-    image: IMAGES.tour.camping6Days,
-    summary: "Sleep close to the wild in our spacious safari tents — campfire stories, dawn coffees and the sounds of the bush at night.",
-    highlights: ["Public campsites inside parks", "Hot bucket showers", "Camp chef cooked meals", "Big Five viewing"],
-    itinerary: [
-      { day: 1, title: "Arusha → Tarangire camp", body: "Game drive, campfire dinner." },
-      { day: 2, title: "Tarangire → Serengeti", body: "Long transfer with game viewing." },
-      { day: 3, title: "Serengeti", body: "Full day game drives." },
-      { day: 4, title: "Serengeti", body: "Northern plains exploration." },
-      { day: 5, title: "Serengeti → Ngorongoro", body: "Crater rim camp." },
-      { day: 6, title: "Crater → Arusha", body: "Half-day caldera, return." },
-    ],
-    includes: ["Tents & camping gear", "Cook & guide", "All meals", "Park fees"],
-    excludes: ["Sleeping bag rental", "Flights", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "4-days-tanzania-lodge-safari",
@@ -401,6 +402,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Park fees", "4x4 with pop-top", "Lodging", "Driver-guide", "Meals"],
     excludes: ["Flights", "Visa", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "tarangire-national-park-birding",
@@ -420,6 +422,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Specialist birding guide", "Park fees", "Lodging", "Meals"],
     excludes: ["Binoculars", "Flights", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "7-days-machame-route-kilimanjaro",
@@ -441,6 +444,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Park fees & rescue fees", "Certified guide, cook, porters", "Tents & mess gear", "All meals on mountain", "Transfers"],
     excludes: ["Sleeping bag", "Personal gear", "Tips for crew (USD 250–350)"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "8-days-lemosho-route-kilimanjaro",
@@ -463,6 +467,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Park fees", "Certified guides & porters", "Tents", "All meals", "Transfers"],
     excludes: ["Sleeping bag", "Tips", "Personal gear"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "5-days-luxury-honeymoon-zanzibar",
@@ -482,6 +487,7 @@ export const TOURS: Tour[] = [
     ],
     includes: ["Beachfront accommodation B&B", "Tours as itinerary", "Transfers"],
     excludes: ["Flights", "Lunches & dinners", "Tips"],
+    packages: DEFAULT_PACKAGES,
   },
   {
     slug: "1-day-balloon-safari-serengeti",
