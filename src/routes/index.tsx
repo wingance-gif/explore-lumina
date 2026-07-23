@@ -166,7 +166,7 @@ function Home() {
           {CATEGORIES.map((c) => (
             <motion.div key={c.slug} variants={fadeUp}>
               <Link
-                to="/tours"
+                to="/experiences"
                 className="group relative block aspect-square overflow-hidden rounded-2xl"
               >
                 <img

@@ -598,8 +598,8 @@ function BookingSection({ tour, tier }: { tour: Tour; tier: string }) {
                 <p className="mt-1">{tour.days}D / {tour.nights}N</p>
               </div>
               <div>
-                <p className="text-white/60 text-[10px] uppercase tracking-[0.22em]">From</p>
-                <p className="mt-1">${tour.priceFrom.toLocaleString()} pp</p>
+                <p className="text-white/60 text-[10px] uppercase tracking-[0.22em]">Package</p>
+                <p className="mt-1">{tier}</p>
               </div>
             </div>
           </div>
