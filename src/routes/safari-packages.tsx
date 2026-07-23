@@ -23,9 +23,10 @@ function SafariPackagesPage() {
     <PackageListing
       eyebrow="Packages"
       title="Safari Packages"
-      intro="From private luxury camps in the Serengeti to authentic mobile camping under the stars — every safari is hand-built around your pace, budget and the wildlife you most want to see."
+      intro="Explore Tanzania's most unforgettable wildlife experiences, from short getaways to extended adventures across the legendary Northern and Southern Circuits."
       heroImage={IMAGES.heroSerengeti}
       tours={tours}
+      featuredSlugs={["6-days-tanzania-luxury-scenic-lodge-safari", "4-days-tanzania-lodge-safari"]}
     />
   );
 }
