@@ -641,6 +641,11 @@ function BookingSection({ tour, tier }: { tour: Tour; tier: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
+  useEffect(() => {
+    setValues((s) => ({ ...s, tier }));
+  }, [tier]);
+
+
   const set = <K extends keyof BookingValues>(k: K, v: BookingValues[K]) => {
     setValues((s) => ({ ...s, [k]: v }));
     setErrors((e) => ({ ...e, [k]: undefined }));
