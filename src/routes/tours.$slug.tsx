@@ -477,7 +477,7 @@ function TourDetail() {
       )}
 
       {/* BOOKING */}
-      <BookingSection tour={tour} tier={activeTier.label} />
+      <BookingSection tour={tour} tier={activePackage.tier} />
     </>
   );
 }
@@ -624,7 +624,7 @@ function BookingSection({ tour, tier }: { tour: Tour; tier: string }) {
                   name="tier"
                   value={values.tier}
                   onChange={(v) => set("tier", v)}
-                  options={TIERS.map((t) => ({ value: t.label, label: t.label }))}
+                  options={DEFAULT_PACKAGES.map((p) => ({ value: p.tier, label: p.tier }))}
                 />
                 <TextField label="Adults" name="adults" type="number" required min={1} max={20} value={values.adults} onChange={(v) => set("adults", v)} error={errors.adults} />
                 <TextField label="Children" name="children" type="number" min={0} max={20} value={values.children} onChange={(v) => set("children", v)} error={errors.children} />
