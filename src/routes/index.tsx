@@ -209,19 +209,22 @@ function Home() {
       </section>
 
       {/* 5. Top destinations */}
-      <section id="destinations" className="container-x mx-auto max-w-[1500px] py-24 scroll-mt-24">
-        <div className="flex items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Top destinations</p>
-            <h2 className="mt-3 font-display text-4xl md:text-6xl text-balance">
+      <section id="destinations" className="container-x mx-auto max-w-[1500px] py-24 md:py-32 scroll-mt-24">
+        <div className="flex items-end justify-between gap-6 mb-14">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-primary">Top destinations</p>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl text-balance leading-[1.02]">
               Iconic Tanzania.
             </h2>
+            <p className="mt-5 text-sm md:text-base text-foreground/65 leading-relaxed max-w-md">
+              From the endless Serengeti plains to the turquoise shores of Zanzibar — the places worth crossing the world for.
+            </p>
           </div>
           <Link
             to="/destinations"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+            className="group hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
           >
-            All destinations <ArrowRight size={14} />
+            All destinations <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
         <ScrollReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start">
