@@ -162,21 +162,13 @@ export function SiteNav() {
 
 
         <nav className="hidden lg:flex items-center gap-3">
-
           {NAV.map((group) => (
-
             <div
-
               key={group.label}
-
               className="relative"
-
               onMouseEnter={() => hoverOpen(group.label)}
-
               onMouseLeave={hoverClose}
-
             >
-
               <Link
                 to={group.to}
                 className={`relative inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.3em] px-3 py-1.5 transition-colors hover:text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:origin-center after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
@@ -185,116 +177,32 @@ export function SiteNav() {
                 activeProps={{ className: "relative inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.3em] px-3 py-1.5 text-[#827768] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-[#827768] after:scale-x-100" }}
                 onClick={() => setOpenGroup(null)}
               >
-
                 {group.label}
-                <ChevronDown size={10} className="opacity-70" />
+                {group.sub && <ChevronDown size={10} className="opacity-70" />}
               </Link>
 
-              {openGroup === group.label && (
-
+              {group.sub && openGroup === group.label && (
                 <div className="absolute left-1/2 top-full -translate-x-1/2 pt-3">
-
                   <div className="min-w-[220px] rounded-md border border-border bg-popover text-popover-foreground shadow-elevated py-2">
-
-                    {group.sub.map((s) => {
-
-                      const to = s.to ?? group.to;
-
-                      if (s.children?.length) {
-
-                        return (
-
-                          <div key={s.label} className="relative group/sub">
-
-                            <Link
-
-                              to={to}
-
-                              hash={s.hash}
-
-                              className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
-
-                              onClick={() => setOpenGroup(null)}
-
-                            >
-
-                              <span>{s.label}</span>
-
-                              <ChevronDown size={10} className="-rotate-90 opacity-70" />
-
-                            </Link>
-
-                            <div className="absolute left-full top-0 hidden group-hover/sub:block pl-2">
-
-                              <div className="min-w-[240px] rounded-md border border-border bg-popover text-popover-foreground shadow-elevated py-2">
-
-                                {s.children.map((c) => (
-
-                                  <Link
-
-                                    key={c.label}
-
-                                    to={c.to ?? to}
-
-                                    hash={c.hash}
-
-                                    className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
-
-                                    onClick={() => setOpenGroup(null)}
-
-                                  >
-
-                                    {c.label}
-
-                                  </Link>
-
-                                ))}
-
-                              </div>
-
-                            </div>
-
-                          </div>
-
-                        );
-
-                      }
-
-                      return (
-
-                        <Link
-
-                          key={s.label}
-
-                          to={to}
-
-                          hash={s.hash}
-
-                          className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
-
-                          onClick={() => setOpenGroup(null)}
-
-                        >
-
-                          {s.label}
-
-                        </Link>
-
-                      );
-
-                    })}
-
+                    {group.sub.map((s) => (
+                      <Link
+                        key={s.label}
+                        to={s.to}
+                        hash={s.hash}
+                        className="block px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-popover-foreground transition-all duration-200 hover:text-[#827768] hover:scale-105"
+                        onClick={() => setOpenGroup(null)}
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
                   </div>
-
                 </div>
-
               )}
-
             </div>
-
           ))}
-
         </nav>
+
+
 
 
 
