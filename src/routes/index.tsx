@@ -145,17 +145,20 @@ function Home() {
 
 
       {/* 3. Featured experiences */}
-      <section id="featured" className="container-x mx-auto max-w-[1500px] py-16 scroll-mt-24">
-        <div className="flex items-end justify-between gap-6 mb-10">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Featured experiences</p>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl">Pick your kind of wild.</h2>
+      <section id="featured" className="container-x mx-auto max-w-[1500px] py-24 md:py-28 scroll-mt-24">
+        <div className="flex items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-primary">Featured experiences</p>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl text-balance leading-[1.05]">Pick your kind of wild.</h2>
+            <p className="mt-5 text-sm md:text-base text-foreground/65 leading-relaxed max-w-md">
+              Eleven ways to experience Tanzania — choose your rhythm, your comfort, your kind of adventure.
+            </p>
           </div>
           <Link
             to="/tours"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+            className="group hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
           >
-            All categories <ArrowRight size={14} />
+            All categories <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
         <ScrollReveal className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -180,19 +183,22 @@ function Home() {
       </section>
 
       {/* 4. Popular tour packages */}
-      <section className="container-x mx-auto max-w-[1500px] py-24">
-        <div className="flex items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Popular packages</p>
-            <h2 className="mt-3 font-display text-4xl md:text-6xl text-balance">
+      <section className="container-x mx-auto max-w-[1500px] py-24 md:py-32">
+        <div className="flex items-end justify-between gap-6 mb-14">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-primary">Popular packages</p>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl text-balance leading-[1.02]">
               Tours travellers love.
             </h2>
+            <p className="mt-5 text-sm md:text-base text-foreground/65 leading-relaxed max-w-md">
+              Hand-picked journeys, refined by hundreds of guests — every one built to be tailored around you.
+            </p>
           </div>
           <Link
             to="/safari-itineraries"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+            className="group hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
           >
-            All itineraries <ArrowRight size={14} />
+            All itineraries <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
         <ScrollReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -203,19 +209,22 @@ function Home() {
       </section>
 
       {/* 5. Top destinations */}
-      <section id="destinations" className="container-x mx-auto max-w-[1500px] py-24 scroll-mt-24">
-        <div className="flex items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">Top destinations</p>
-            <h2 className="mt-3 font-display text-4xl md:text-6xl text-balance">
+      <section id="destinations" className="container-x mx-auto max-w-[1500px] py-24 md:py-32 scroll-mt-24">
+        <div className="flex items-end justify-between gap-6 mb-14">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-primary">Top destinations</p>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl text-balance leading-[1.02]">
               Iconic Tanzania.
             </h2>
+            <p className="mt-5 text-sm md:text-base text-foreground/65 leading-relaxed max-w-md">
+              From the endless Serengeti plains to the turquoise shores of Zanzibar — the places worth crossing the world for.
+            </p>
           </div>
           <Link
             to="/destinations"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary"
+            className="group hidden md:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
           >
-            All destinations <ArrowRight size={14} />
+            All destinations <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
         <ScrollReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start">
@@ -226,12 +235,15 @@ function Home() {
       </section>
 
       {/* 6. Why Choose Us */}
-      <section className="container-x mx-auto max-w-[1500px] py-24">
+      <section className="container-x mx-auto max-w-[1500px] py-24 md:py-32">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary">Why choose us</p>
-          <h2 className="mt-4 font-display text-4xl md:text-6xl text-balance">
+          <p className="text-xs uppercase tracking-[0.35em] text-primary">Why choose us</p>
+          <h2 className="mt-4 font-display text-4xl md:text-6xl text-balance leading-[1.02]">
             Built by locals. Loved by travellers.
           </h2>
+          <p className="mt-5 text-sm md:text-base text-foreground/65 leading-relaxed">
+            Fifteen years of guiding, and a promise: no template itineraries, no shortcuts, no compromises.
+          </p>
         </div>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {[
@@ -259,23 +271,34 @@ function Home() {
 
 
       {/* Parallax CTA */}
-      <section className="relative my-24 h-[70svh] min-h-[480px] w-full overflow-hidden">
+      <section className="relative my-32 h-[75svh] min-h-[520px] w-full overflow-hidden">
         <div
-          className="absolute inset-0 bg-fixed bg-cover bg-center"
+          className="absolute inset-0 bg-fixed bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${IMAGES.cta.parallax})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
         <div className="relative z-10 container-x mx-auto max-w-[1100px] h-full flex flex-col items-center justify-center text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary">Experience Tanzania</p>
-          <h2 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-balance text-white">
-            Beyond Expectations.
-          </h2>
-          <Link
-            to="/plan-my-trip"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#827768] px-8 py-4 text-sm font-medium text-white shadow-glow-lime hover:scale-105 transition-transform"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            Plan my trip <ArrowRight size={16} />
-          </Link>
+            <p className="text-xs uppercase tracking-[0.4em] text-primary">Experience Tanzania</p>
+            <h2 className="mt-6 font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-balance text-white drop-shadow-[0_6px_30px_rgba(0,0,0,0.5)]">
+              Beyond Expectations.
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-sm md:text-base text-white/80 leading-relaxed">
+              Let our local experts craft a journey shaped entirely around you — every camp, every guide, every sunrise.
+            </p>
+            <Link
+              to="/plan-my-trip"
+              className="group mt-10 inline-flex items-center gap-3 rounded-full bg-[#827768] px-9 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white shadow-[0_20px_60px_-15px_rgba(130,119,104,0.8)] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_25px_70px_-15px_rgba(130,119,104,1)]"
+            >
+              Plan my trip <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 

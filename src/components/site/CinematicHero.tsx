@@ -56,7 +56,10 @@ export function CinematicHero() {
             fetchPriority={i === 0 ? "high" : "auto"}
           />
           <div className="absolute inset-0 bg-gradient-hero" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.45)_100%)]" />
         </motion.div>
+
       </AnimatePresence>
 
       {/* Center stage */}
