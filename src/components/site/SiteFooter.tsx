@@ -40,23 +40,23 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="font-display text-lg">Explore</h4>
-            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/destinations" className="hover:text-primary">Destinations</Link></li>
-              <li><Link to="/tours" className="hover:text-primary">All tours</Link></li>
-              <li><Link to="/accommodation" className="hover:text-primary">Luxury stays</Link></li>
-              <li><Link to="/gallery" className="hover:text-primary">Gallery</Link></li>
-              <li><Link to="/blog" className="hover:text-primary">Journal</Link></li>
+            <h4 className="font-display text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-10 after:bg-primary">Explore</h4>
+            <ul className="mt-2 space-y-3.5 text-sm text-muted-foreground">
+              <li><Link to="/destinations" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Destinations</Link></li>
+              <li><Link to="/tours" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">All tours</Link></li>
+              <li><Link to="/accommodation" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Luxury stays</Link></li>
+              <li><Link to="/gallery" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Gallery</Link></li>
+              <li><Link to="/blog" className="inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">Journal</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display text-lg">Contact</h4>
-            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 text-primary" /> {SITE.address}</li>
-              <li className="flex items-start gap-2"><Phone size={14} className="mt-0.5 text-primary" /> <a href={`tel:${SITE.phone}`} className="hover:text-foreground">{SITE.phone}</a></li>
-              <li className="flex items-start gap-2"><Mail size={14} className="mt-0.5 text-primary" /> <a href={`mailto:${SITE.email}`} className="hover:text-foreground">{SITE.email}</a></li>
-              <li className="text-xs pt-2">{SITE.hours}</li>
+            <h4 className="font-display text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-10 after:bg-primary">Contact</h4>
+            <ul className="mt-2 space-y-3.5 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2.5"><MapPin size={14} className="mt-0.5 shrink-0 text-primary" /> <span>{SITE.address}</span></li>
+              <li className="flex items-start gap-2.5"><Phone size={14} className="mt-0.5 shrink-0 text-primary" /> <a href={`tel:${SITE.phone}`} className="hover:text-foreground transition-colors">{SITE.phone}</a></li>
+              <li className="flex items-start gap-2.5"><Mail size={14} className="mt-0.5 shrink-0 text-primary" /> <a href={`mailto:${SITE.email}`} className="hover:text-foreground transition-colors">{SITE.email}</a></li>
+              <li className="text-xs pt-2 text-muted-foreground/80">{SITE.hours}</li>
             </ul>
           </div>
 
