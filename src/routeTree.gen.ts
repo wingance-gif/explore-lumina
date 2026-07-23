@@ -9,12 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZanzibarPackagesRouteImport } from './routes/zanzibar-packages'
 import { Route as ZanzibarHoneymoonRouteImport } from './routes/zanzibar-honeymoon'
+import { Route as TrekkingPackagesRouteImport } from './routes/trekking-packages'
 import { Route as TrekkingItineraryRouteImport } from './routes/trekking-itinerary'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as SafariPackagesRouteImport } from './routes/safari-packages'
 import { Route as SafariItinerariesRouteImport } from './routes/safari-itineraries'
 import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -25,9 +29,19 @@ import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const ZanzibarPackagesRoute = ZanzibarPackagesRouteImport.update({
+  id: '/zanzibar-packages',
+  path: '/zanzibar-packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ZanzibarHoneymoonRoute = ZanzibarHoneymoonRouteImport.update({
   id: '/zanzibar-honeymoon',
   path: '/zanzibar-honeymoon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrekkingPackagesRoute = TrekkingPackagesRouteImport.update({
+  id: '/trekking-packages',
+  path: '/trekking-packages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrekkingItineraryRoute = TrekkingItineraryRouteImport.update({
@@ -38,6 +52,11 @@ const TrekkingItineraryRoute = TrekkingItineraryRouteImport.update({
 const ToursRoute = ToursRouteImport.update({
   id: '/tours',
   path: '/tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafariPackagesRoute = SafariPackagesRouteImport.update({
+  id: '/safari-packages',
+  path: '/safari-packages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SafariItinerariesRoute = SafariItinerariesRouteImport.update({
@@ -53,6 +72,11 @@ const PlanMyTripRoute = PlanMyTripRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DestinationsRoute = DestinationsRouteImport.update({
@@ -108,12 +132,16 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
+  '/safari-packages': typeof SafariPackagesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
+  '/trekking-packages': typeof TrekkingPackagesRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
+  '/zanzibar-packages': typeof ZanzibarPackagesRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -125,12 +153,16 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
+  '/safari-packages': typeof SafariPackagesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
+  '/trekking-packages': typeof TrekkingPackagesRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
+  '/zanzibar-packages': typeof ZanzibarPackagesRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -143,12 +175,16 @@ export interface FileRoutesById {
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
+  '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
+  '/safari-packages': typeof SafariPackagesRoute
   '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
+  '/trekking-packages': typeof TrekkingPackagesRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
+  '/zanzibar-packages': typeof ZanzibarPackagesRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
@@ -162,12 +198,16 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/destinations'
+    | '/faqs'
     | '/gallery'
     | '/plan-my-trip'
     | '/safari-itineraries'
+    | '/safari-packages'
     | '/tours'
     | '/trekking-itinerary'
+    | '/trekking-packages'
     | '/zanzibar-honeymoon'
+    | '/zanzibar-packages'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -179,12 +219,16 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/destinations'
+    | '/faqs'
     | '/gallery'
     | '/plan-my-trip'
     | '/safari-itineraries'
+    | '/safari-packages'
     | '/tours'
     | '/trekking-itinerary'
+    | '/trekking-packages'
     | '/zanzibar-honeymoon'
+    | '/zanzibar-packages'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -196,12 +240,16 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/destinations'
+    | '/faqs'
     | '/gallery'
     | '/plan-my-trip'
     | '/safari-itineraries'
+    | '/safari-packages'
     | '/tours'
     | '/trekking-itinerary'
+    | '/trekking-packages'
     | '/zanzibar-honeymoon'
+    | '/zanzibar-packages'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
@@ -214,21 +262,39 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
+  FaqsRoute: typeof FaqsRoute
   GalleryRoute: typeof GalleryRoute
   PlanMyTripRoute: typeof PlanMyTripRoute
   SafariItinerariesRoute: typeof SafariItinerariesRoute
+  SafariPackagesRoute: typeof SafariPackagesRoute
   ToursRoute: typeof ToursRouteWithChildren
   TrekkingItineraryRoute: typeof TrekkingItineraryRoute
+  TrekkingPackagesRoute: typeof TrekkingPackagesRoute
   ZanzibarHoneymoonRoute: typeof ZanzibarHoneymoonRoute
+  ZanzibarPackagesRoute: typeof ZanzibarPackagesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/zanzibar-packages': {
+      id: '/zanzibar-packages'
+      path: '/zanzibar-packages'
+      fullPath: '/zanzibar-packages'
+      preLoaderRoute: typeof ZanzibarPackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/zanzibar-honeymoon': {
       id: '/zanzibar-honeymoon'
       path: '/zanzibar-honeymoon'
       fullPath: '/zanzibar-honeymoon'
       preLoaderRoute: typeof ZanzibarHoneymoonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trekking-packages': {
+      id: '/trekking-packages'
+      path: '/trekking-packages'
+      fullPath: '/trekking-packages'
+      preLoaderRoute: typeof TrekkingPackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/trekking-itinerary': {
@@ -243,6 +309,13 @@ declare module '@tanstack/react-router' {
       path: '/tours'
       fullPath: '/tours'
       preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safari-packages': {
+      id: '/safari-packages'
+      path: '/safari-packages'
+      fullPath: '/safari-packages'
+      preLoaderRoute: typeof SafariPackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/safari-itineraries': {
@@ -264,6 +337,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/destinations': {
@@ -371,12 +451,16 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
+  FaqsRoute: FaqsRoute,
   GalleryRoute: GalleryRoute,
   PlanMyTripRoute: PlanMyTripRoute,
   SafariItinerariesRoute: SafariItinerariesRoute,
+  SafariPackagesRoute: SafariPackagesRoute,
   ToursRoute: ToursRouteWithChildren,
   TrekkingItineraryRoute: TrekkingItineraryRoute,
+  TrekkingPackagesRoute: TrekkingPackagesRoute,
   ZanzibarHoneymoonRoute: ZanzibarHoneymoonRoute,
+  ZanzibarPackagesRoute: ZanzibarPackagesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
