@@ -1,3 +1,6 @@
+import ultraLux1 from "@/assets/accommodations/lp-double-2.jpg.asset.json";
+import ultraLux2 from "@/assets/accommodations/lp-double-9.jpg.asset.json";
+
 // Locally delivered, authentic Tanzania photography.
 const TANZANIA_PHOTO = "/images/tours";
 
@@ -292,11 +295,13 @@ export type TourPackage = {
   priceFrom: number | null;
 };
 
+export const ULTRA_LUXURY_GALLERY: string[] = [ultraLux1.url, ultraLux2.url];
+
 export const DEFAULT_PACKAGES: TourPackage[] = [
   { tier: "Budget", blurb: "Public campsites and simple guesthouses — authentic bush nights around the fire, no frills.", camps: null, gallery: null, priceFrom: null },
   { tier: "Mid-range", blurb: "Well-appointed lodges and permanent tented camps with hot showers and full-board dining.", camps: null, gallery: null, priceFrom: null },
   { tier: "Luxury", blurb: "Signature lodges and boutique tented camps in prime locations, elevated dining and private guides.", camps: null, gallery: null, priceFrom: null },
-  { tier: "Ultra Luxury", blurb: "Private conservancies, butler service and exclusive-use camps — the rarefied top tier.", camps: null, gallery: null, priceFrom: null },
+  { tier: "Ultra Luxury", blurb: "Private conservancies, butler service and exclusive-use camps — the rarefied top tier. Photographs show a representative luxury tented suite and cottage.", camps: null, gallery: ULTRA_LUXURY_GALLERY, priceFrom: null },
 ];
 
 export type Tour = {
