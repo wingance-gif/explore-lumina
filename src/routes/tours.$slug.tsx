@@ -176,7 +176,7 @@ function TourDetail() {
               experienceTitle={tour.title}
               trigger={
                 <button className="inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-3.5 text-sm font-medium text-white hover:scale-[1.02] transition-transform">
-                  Book Now <ArrowRight size={14} />
+                  Plan My Trip <ArrowRight size={14} />
                 </button>
               }
             />
