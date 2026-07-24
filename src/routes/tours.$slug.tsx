@@ -61,13 +61,16 @@ export const Route = createFileRoute("/tours/$slug")({
 
 const FALLBACK_MESSAGE = "Accommodation confirmed with your quotation.";
 
-function defaultGalleryFor(tour: Tour): string[] {
-  return [
-    tour.image,
-    IMAGES.heroLuxuryCamp,
-    IMAGES.wildElephants,
-    IMAGES.heroSerengeti,
-  ];
+function GalleryPlaceholder({ tier, index }: { tier: string; index: number }) {
+  return (
+    <div className="h-full w-full rounded-2xl border border-dashed border-border bg-muted/40 grid place-items-center p-4 text-center">
+      <div>
+        <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/50">Image placeholder</p>
+        <p className="mt-2 text-xs md:text-sm text-foreground/70">{tier} preview {index + 1}</p>
+        <p className="mt-1 text-[10px] text-foreground/50">Awaiting approved photograph</p>
+      </div>
+    </div>
+  );
 }
 
 function deriveDay(step: { day: number; title: string; body: string }, totalDays: number, category: Tour["category"]) {
