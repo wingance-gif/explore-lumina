@@ -277,26 +277,9 @@ function TourDetail() {
                   {activePackage.blurb}
                 </p>
 
-                <div className="mt-6">
-                  {activePackage.camps && activePackage.camps.length > 0 ? (
-                    <ul className="space-y-3">
-                      {activePackage.camps.map((c) => (
-                        <li key={c.night} className="flex items-start gap-3 text-sm">
-                          <span className="mt-0.5 grid h-7 w-7 place-items-center rounded-full bg-[#827768]/15 text-[#827768] shrink-0 text-[11px] font-medium">
-                            N{c.night}
-                          </span>
-                          <div>
-                            <p className="text-foreground/90 font-medium">{c.name}</p>
-                            {c.area && <p className="text-xs text-foreground/60">{c.area}</p>}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <div className="rounded-xl border border-dashed border-border bg-background/40 p-4 text-sm text-foreground/70">
-                      {FALLBACK_MESSAGE}
-                    </div>
-                  )}
+                <div className="mt-6 rounded-xl border border-border bg-background/50 p-4 text-xs text-foreground/70 leading-relaxed">
+                  Accommodation images are representative of the expected standard. The final camp
+                  or lodge will be confirmed in your quotation and is subject to availability.
                 </div>
               </div>
 
@@ -305,17 +288,18 @@ function TourDetail() {
                 <p className="mt-2 font-display text-4xl leading-none">
                   {activePackage.priceFrom
                     ? <>${activePackage.priceFrom.toLocaleString()}<span className="text-sm text-white/70 font-sans ml-2">/ person</span></>
-                    : <span className="text-base font-sans">Confirmed with your tailored quotation</span>}
+                    : <span className="text-base font-sans">Price confirmed with your quotation</span>}
                 </p>
                 <p className="mt-3 text-xs text-white/70">
                   {tour.days} days / {tour.nights} nights · {activePackage.tier} package
                 </p>
                 <PlanTripDialog
                   destination={tour.destination}
-                  experienceTitle={`${tour.title} — ${activePackage.tier}`}
+                  experienceTitle={tour.title}
+                  packageTier={activePackage.tier}
                   trigger={
                     <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#827768] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-white hover:bg-[#6f6558] transition-colors">
-                      Book this package <ArrowRight size={13} />
+                      Book This Safari <ArrowRight size={13} />
                     </button>
                   }
                 />
