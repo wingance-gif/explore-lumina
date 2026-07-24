@@ -538,15 +538,12 @@ import balloonSafariImage from "../assets/balloon-safari.png";
 
 
 export const CATEGORIES = [
-  { slug: "luxury", label: "Luxury Safari", image: luxuryImage },
-  { slug: "lodge", label: "Lodge Safari", image: lodgeSafariImage },
-  { slug: "camping", label: "Camping Safari", image: campingSafariImage },
+  { slug: "safari", label: "Safari Itineraries", image: luxuryImage },
   { slug: "honeymoon", label: "Honeymoon", image: honeymoonImage },
   { slug: "trekking", label: "Kilimanjaro Trekking", image: IMAGES.kilimanjaroTrek },
   { slug: "birding", label: "Birding", image: birdingImage },
   { slug: "balloon", label: "Balloon Safari", image: balloonSafariImage },
   { slug: "beach", label: "Zanzibar Beach", image: zanzibarImage },
-  
 ];
 
 export const BLOG = [
