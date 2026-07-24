@@ -13,7 +13,6 @@ import { Route as ZanzibarPackagesRouteImport } from './routes/zanzibar-packages
 import { Route as ZanzibarHoneymoonRouteImport } from './routes/zanzibar-honeymoon'
 import { Route as TrekkingPackagesRouteImport } from './routes/trekking-packages'
 import { Route as TrekkingItineraryRouteImport } from './routes/trekking-itinerary'
-import { Route as ToursRouteImport } from './routes/tours'
 import { Route as SafariPackagesRouteImport } from './routes/safari-packages'
 import { Route as SafariItinerariesRouteImport } from './routes/safari-itineraries'
 import { Route as PlanMyTripRouteImport } from './routes/plan-my-trip'
@@ -26,6 +25,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AccommodationRouteImport } from './routes/accommodation'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToursIndexRouteImport } from './routes/tours.index'
 import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -48,11 +48,6 @@ const TrekkingPackagesRoute = TrekkingPackagesRouteImport.update({
 const TrekkingItineraryRoute = TrekkingItineraryRouteImport.update({
   id: '/trekking-itinerary',
   path: '/trekking-itinerary',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ToursRoute = ToursRouteImport.update({
-  id: '/tours',
-  path: '/tours',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SafariPackagesRoute = SafariPackagesRouteImport.update({
@@ -115,10 +110,15 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToursIndexRoute = ToursIndexRouteImport.update({
+  id: '/tours/',
+  path: '/tours/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToursSlugRoute = ToursSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ToursRoute,
+  id: '/tours/$slug',
+  path: '/tours/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
   id: '/$slug',
@@ -144,7 +144,6 @@ export interface FileRoutesByFullPath {
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
   '/safari-packages': typeof SafariPackagesRoute
-  '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/trekking-packages': typeof TrekkingPackagesRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -152,6 +151,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
+  '/tours/': typeof ToursIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -166,7 +166,6 @@ export interface FileRoutesByTo {
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
   '/safari-packages': typeof SafariPackagesRoute
-  '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/trekking-packages': typeof TrekkingPackagesRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -174,6 +173,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
+  '/tours': typeof ToursIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -189,7 +189,6 @@ export interface FileRoutesById {
   '/plan-my-trip': typeof PlanMyTripRoute
   '/safari-itineraries': typeof SafariItinerariesRoute
   '/safari-packages': typeof SafariPackagesRoute
-  '/tours': typeof ToursRouteWithChildren
   '/trekking-itinerary': typeof TrekkingItineraryRoute
   '/trekking-packages': typeof TrekkingPackagesRoute
   '/zanzibar-honeymoon': typeof ZanzibarHoneymoonRoute
@@ -197,6 +196,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/tours/$slug': typeof ToursSlugRoute
+  '/tours/': typeof ToursIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -213,7 +213,6 @@ export interface FileRouteTypes {
     | '/plan-my-trip'
     | '/safari-itineraries'
     | '/safari-packages'
-    | '/tours'
     | '/trekking-itinerary'
     | '/trekking-packages'
     | '/zanzibar-honeymoon'
@@ -221,6 +220,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
+    | '/tours/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -235,7 +235,6 @@ export interface FileRouteTypes {
     | '/plan-my-trip'
     | '/safari-itineraries'
     | '/safari-packages'
-    | '/tours'
     | '/trekking-itinerary'
     | '/trekking-packages'
     | '/zanzibar-honeymoon'
@@ -243,6 +242,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
+    | '/tours'
   id:
     | '__root__'
     | '/'
@@ -257,7 +257,6 @@ export interface FileRouteTypes {
     | '/plan-my-trip'
     | '/safari-itineraries'
     | '/safari-packages'
-    | '/tours'
     | '/trekking-itinerary'
     | '/trekking-packages'
     | '/zanzibar-honeymoon'
@@ -265,6 +264,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/tours/$slug'
+    | '/tours/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -280,11 +280,12 @@ export interface RootRouteChildren {
   PlanMyTripRoute: typeof PlanMyTripRoute
   SafariItinerariesRoute: typeof SafariItinerariesRoute
   SafariPackagesRoute: typeof SafariPackagesRoute
-  ToursRoute: typeof ToursRouteWithChildren
   TrekkingItineraryRoute: typeof TrekkingItineraryRoute
   TrekkingPackagesRoute: typeof TrekkingPackagesRoute
   ZanzibarHoneymoonRoute: typeof ZanzibarHoneymoonRoute
   ZanzibarPackagesRoute: typeof ZanzibarPackagesRoute
+  ToursSlugRoute: typeof ToursSlugRoute
+  ToursIndexRoute: typeof ToursIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -315,13 +316,6 @@ declare module '@tanstack/react-router' {
       path: '/trekking-itinerary'
       fullPath: '/trekking-itinerary'
       preLoaderRoute: typeof TrekkingItineraryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tours': {
-      id: '/tours'
-      path: '/tours'
-      fullPath: '/tours'
-      preLoaderRoute: typeof ToursRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/safari-packages': {
@@ -408,12 +402,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tours/': {
+      id: '/tours/'
+      path: '/tours'
+      fullPath: '/tours/'
+      preLoaderRoute: typeof ToursIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tours/$slug': {
       id: '/tours/$slug'
-      path: '/$slug'
+      path: '/tours/$slug'
       fullPath: '/tours/$slug'
       preLoaderRoute: typeof ToursSlugRouteImport
-      parentRoute: typeof ToursRoute
+      parentRoute: typeof rootRouteImport
     }
     '/destinations/$slug': {
       id: '/destinations/$slug'
@@ -454,16 +455,6 @@ const DestinationsRouteWithChildren = DestinationsRoute._addFileChildren(
   DestinationsRouteChildren,
 )
 
-interface ToursRouteChildren {
-  ToursSlugRoute: typeof ToursSlugRoute
-}
-
-const ToursRouteChildren: ToursRouteChildren = {
-  ToursSlugRoute: ToursSlugRoute,
-}
-
-const ToursRouteWithChildren = ToursRoute._addFileChildren(ToursRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -477,11 +468,12 @@ const rootRouteChildren: RootRouteChildren = {
   PlanMyTripRoute: PlanMyTripRoute,
   SafariItinerariesRoute: SafariItinerariesRoute,
   SafariPackagesRoute: SafariPackagesRoute,
-  ToursRoute: ToursRouteWithChildren,
   TrekkingItineraryRoute: TrekkingItineraryRoute,
   TrekkingPackagesRoute: TrekkingPackagesRoute,
   ZanzibarHoneymoonRoute: ZanzibarHoneymoonRoute,
   ZanzibarPackagesRoute: ZanzibarPackagesRoute,
+  ToursSlugRoute: ToursSlugRoute,
+  ToursIndexRoute: ToursIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
