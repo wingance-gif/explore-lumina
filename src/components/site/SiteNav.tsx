@@ -316,7 +316,7 @@ export function SiteNav() {
 
             <Link to="/plan-my-trip" onClick={() => setOpen(false)} className="mt-3 rounded-sm border border-[#827768] bg-[#827768] px-5 py-3 text-center text-xs uppercase tracking-[0.2em] text-white whitespace-nowrap">
 
-              Book Now
+              Plan My Trip
 
             </Link>
 
