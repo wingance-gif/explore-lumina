@@ -8,9 +8,9 @@ import { fadeUp } from "@/lib/motion";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Sahara Wild — Tanzania-Owned Safari Outfitter" },
+      { title: "About Tanzania Exploration — Tanzania-Owned Safari Outfitter" },
       { name: "description", content: "Over twenty years crafting bespoke safaris, Kilimanjaro climbs and Zanzibar escapes across Tanzania." },
-      { property: "og:title", content: "About Sahara Wild" },
+      { property: "og:title", content: "About Tanzania Exploration" },
       { property: "og:description", content: "Tanzanian-owned. Conservation-first. Designed end to end." },
       { property: "og:image", content: IMAGES.maasai },
       { property: "og:url", content: "/about" },
@@ -46,7 +46,7 @@ function AboutPage() {
           initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
           className="aspect-[4/5] overflow-hidden rounded-3xl"
         >
-          <img src={IMAGES.maasai} alt="Sahara Wild team in the field" className="h-full w-full object-cover" />
+          <img src={IMAGES.maasai} alt="Tanzania Exploration team in the field" className="h-full w-full object-cover" />
         </motion.div>
         <div className="space-y-6 text-base md:text-lg text-foreground/80 leading-relaxed">
           <p className="text-xs uppercase tracking-[0.3em] text-primary">Company History</p>
@@ -134,7 +134,7 @@ function AboutPage() {
           <h3 className="mt-6 font-display text-4xl md:text-5xl">Coming soon.</h3>
           <p className="mt-4 text-foreground/70 max-w-xl mx-auto leading-relaxed">
             We're putting together portraits and stories of the guides, drivers, chefs and trip designers
-            who make every Sahara Wild journey what it is. Check back shortly.
+            who make every Tanzania Exploration journey what it is. Check back shortly.
           </p>
           <Link to="/plan-my-trip" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#827768] px-7 py-4 text-sm font-medium text-white shadow-glow-lime">
             Get in touch →

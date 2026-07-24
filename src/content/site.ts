@@ -538,15 +538,12 @@ import balloonSafariImage from "../assets/balloon-safari.png";
 
 
 export const CATEGORIES = [
-  { slug: "luxury", label: "Luxury Safari", image: luxuryImage },
-  { slug: "lodge", label: "Lodge Safari", image: lodgeSafariImage },
-  { slug: "camping", label: "Camping Safari", image: campingSafariImage },
+  { slug: "safari", label: "Safari Itineraries", image: luxuryImage },
   { slug: "honeymoon", label: "Honeymoon", image: honeymoonImage },
   { slug: "trekking", label: "Kilimanjaro Trekking", image: IMAGES.kilimanjaroTrek },
   { slug: "birding", label: "Birding", image: birdingImage },
   { slug: "balloon", label: "Balloon Safari", image: balloonSafariImage },
   { slug: "beach", label: "Zanzibar Beach", image: zanzibarImage },
-  
 ];
 
 export const BLOG = [
@@ -597,7 +594,7 @@ We recommend Lemosho for most clients.`,
     title: "What to pack for your Tanzania safari",
     excerpt: "Soft duffel, neutral colours, the right binoculars — and what to leave at home.",
     date: "2025-08-10",
-    author: "Sahara Wild Editors",
+    author: "Tanzania Exploration Editors",
     image: IMAGES.trekking.kilimanjaro,
     body: `**Soft duffel only** — internal flights have a 15 kg limit and won't accept hard cases.
 **Neutral colours** — khaki, olive, brown. Skip black & dark blue (attract tsetse), white (shows dust), bright camo (illegal in some countries).

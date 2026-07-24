@@ -7,7 +7,7 @@ import { IMAGES } from "@/content/site";
 export const Route = createFileRoute("/trekking-itinerary")({
   head: () => ({
     meta: [
-      { title: "Kilimanjaro & Mount Meru Trekking Itineraries | Sahara Wild" },
+      { title: "Kilimanjaro & Mount Meru Trekking Itineraries | Tanzania Exploration" },
       {
         name: "description",
         content:

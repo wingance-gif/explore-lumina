@@ -7,7 +7,7 @@ import { fadeUp } from "@/lib/motion";
 export const Route = createFileRoute("/accommodation")({
   head: () => ({
     meta: [
-      { title: "Luxury Camps & Lodges in Tanzania | Sahara Wild" },
+      { title: "Luxury Camps & Lodges in Tanzania | Tanzania Exploration" },
       { name: "description", content: "Tented suites, geodesic domes, riverside camps and beach bandas — the most cinematic places to sleep in Tanzania." },
       { property: "og:title", content: "Luxury Stays — Tanzania & Zanzibar" },
       { property: "og:description", content: "Our handpicked camps, lodges and beach hideaways." },

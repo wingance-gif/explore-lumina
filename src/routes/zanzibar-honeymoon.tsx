@@ -5,7 +5,7 @@ import { IMAGES } from "@/content/site";
 export const Route = createFileRoute("/zanzibar-honeymoon")({
   head: () => ({
     meta: [
-      { title: "Zanzibar Luxury Honeymoon Itinerary | Sahara Wild" },
+      { title: "Zanzibar Luxury Honeymoon Itinerary | Tanzania Exploration" },
       {
         name: "description",
         content:

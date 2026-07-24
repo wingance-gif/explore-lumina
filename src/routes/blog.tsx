@@ -7,9 +7,9 @@ import { ScrollReveal } from "@/components/site/ScrollReveal";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Journal — Tanzania Travel Stories & Guides | Sahara Wild" },
+      { title: "Journal — Tanzania Travel Stories & Guides | Tanzania Exploration" },
       { name: "description", content: "Field notes, guides and stories from the Serengeti, Kilimanjaro and Zanzibar — written by our team in Arusha." },
-      { property: "og:title", content: "Sahara Wild Journal" },
+      { property: "og:title", content: "Tanzania Exploration Journal" },
       { property: "og:description", content: "Stories and guides from the field." },
       { property: "og:image", content: IMAGES.heroSerengeti },
       { property: "og:url", content: "/blog" },
