@@ -295,9 +295,6 @@ export type TourPackage = {
   priceFrom: number | null;
 };
 
-import ultraLux1 from "@/assets/accommodations/lp-double-2.jpg.asset.json";
-import ultraLux2 from "@/assets/accommodations/lp-double-9.jpg.asset.json";
-
 export const ULTRA_LUXURY_GALLERY: string[] = [ultraLux1.url, ultraLux2.url];
 
 export const DEFAULT_PACKAGES: TourPackage[] = [
