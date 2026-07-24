@@ -108,6 +108,16 @@ export function PlanTripDialog({
         ) : (
           <form onSubmit={submit} noValidate className="space-y-4 pt-2">
             {status === "error" && errorMsg && <FormBanner variant="error">{errorMsg}</FormBanner>}
+            {(values.experience || values.packageTier) && (
+              <div className="grid md:grid-cols-2 gap-4">
+                {values.experience && (
+                  <TextField label="Selected safari" name="experience" value={values.experience} onChange={(v) => set("experience", v)} />
+                )}
+                {values.packageTier && (
+                  <TextField label="Selected package" name="packageTier" value={values.packageTier} onChange={(v) => set("packageTier", v)} />
+                )}
+              </div>
+            )}
             <div className="grid md:grid-cols-2 gap-4">
               <TextField label="Full name" name="fullName" required value={values.fullName} onChange={(v) => set("fullName", v)} error={errors.fullName} />
               <TextField label="Email" name="email" type="email" required value={values.email} onChange={(v) => set("email", v)} error={errors.email} />
