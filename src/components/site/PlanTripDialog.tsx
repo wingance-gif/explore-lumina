@@ -10,6 +10,8 @@ type Values = {
   email: string;
   phone: string;
   destination: string;
+  experience: string;
+  packageTier: string;
   travelDate: string;
   travelers: string;
   requests: string;
@@ -32,10 +34,12 @@ export function PlanTripDialog({
   trigger,
   destination,
   experienceTitle,
+  packageTier,
 }: {
   trigger: ReactNode;
   destination?: string;
   experienceTitle?: string;
+  packageTier?: string;
 }) {
   const [open, setOpen] = useState(false);
   const initial: Values = {
@@ -43,9 +47,11 @@ export function PlanTripDialog({
     email: "",
     phone: "",
     destination: destination ?? "",
+    experience: experienceTitle ?? "",
+    packageTier: packageTier ?? "",
     travelDate: "",
     travelers: "",
-    requests: experienceTitle ? `Interested in: ${experienceTitle}` : "",
+    requests: "",
   };
   const [values, setValues] = useState<Values>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof Values, string>>>({});
