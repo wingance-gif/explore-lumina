@@ -54,11 +54,8 @@ export function PackageCard({ tour, featured = false }: { tour: Tour; featured?:
 
         <div className="mt-5 flex items-end justify-between gap-3 border-t border-border/50 pt-4">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60">From</p>
-            <p className="font-display text-2xl text-[#827768] leading-none mt-1">
-              ${tour.priceFrom.toLocaleString()}
-              <span className="text-xs text-foreground/60 font-sans ml-1">/ pp</span>
-            </p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60">Pricing</p>
+            <p className="text-sm text-foreground/80 mt-1">Confirmed with quotation</p>
           </div>
           <Link
             to="/tours/$slug"
