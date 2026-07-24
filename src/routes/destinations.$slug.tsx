@@ -18,7 +18,7 @@ export const Route = createFileRoute("/destinations/$slug")({
     const hero = loaderData?.detail?.hero ?? loaderData?.destination.image;
     return {
       meta: [
-        { title: `${loaderData?.destination.name} — Sahara Wild` },
+        { title: `${loaderData?.destination.name} — Tanzania Exploration` },
         { name: "description", content: loaderData?.destination.short },
         { property: "og:title", content: `${loaderData?.destination.name} — Tanzania` },
         { property: "og:description", content: loaderData?.destination.short },

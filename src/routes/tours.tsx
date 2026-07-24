@@ -8,9 +8,9 @@ import { TOURS, IMAGES, DAY_TRIPS } from "@/content/site";
 export const Route = createFileRoute("/tours")({
   head: () => ({
     meta: [
-      { title: "All Tanzania Tours & Safaris | Sahara Wild" },
+      { title: "All Tanzania Tours & Safaris | Tanzania Exploration" },
       { name: "description", content: "Luxury safaris, lodge & camping tours, Kilimanjaro treks, honeymoon journeys and Zanzibar escapes — every tour custom-built." },
-      { property: "og:title", content: "All Tanzania Tours — Sahara Wild" },
+      { property: "og:title", content: "All Tanzania Tours — Tanzania Exploration" },
       { property: "og:description", content: "Hand-crafted safaris, treks and beach journeys across Tanzania." },
       { property: "og:image", content: IMAGES.heroSerengeti },
       { property: "og:url", content: "/tours" },

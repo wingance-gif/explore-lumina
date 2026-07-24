@@ -7,9 +7,9 @@ import { GALLERY, IMAGES } from "@/content/site";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Tanzania Safari Photography | Sahara Wild" },
+      { title: "Gallery — Tanzania Safari Photography | Tanzania Exploration" },
       { name: "description", content: "Cinematic frames from the Serengeti, Kilimanjaro, Ngorongoro and Zanzibar — shot in the field." },
-      { property: "og:title", content: "Gallery — Sahara Wild" },
+      { property: "og:title", content: "Gallery — Tanzania Exploration" },
       { property: "og:description", content: "Tanzania, frame by frame." },
       { property: "og:image", content: IMAGES.wildLion },
       { property: "og:url", content: "/gallery" },

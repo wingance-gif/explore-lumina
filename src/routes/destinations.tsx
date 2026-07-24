@@ -6,9 +6,9 @@ import { DESTINATIONS, IMAGES } from "@/content/site";
 export const Route = createFileRoute("/destinations")({
   head: () => ({
     meta: [
-      { title: "Destinations — Serengeti, Ngorongoro, Kilimanjaro & Zanzibar | Sahara Wild" },
+      { title: "Destinations — Serengeti, Ngorongoro, Kilimanjaro & Zanzibar | Tanzania Exploration" },
       { name: "description", content: "Tanzania's most iconic destinations — northern circuit safaris, southern wilderness, Kilimanjaro and the Zanzibar archipelago." },
-      { property: "og:title", content: "Tanzania Destinations — Sahara Wild" },
+      { property: "og:title", content: "Tanzania Destinations — Tanzania Exploration" },
       { property: "og:description", content: "From the Serengeti to Zanzibar — explore Tanzania's iconic parks and islands." },
       { property: "og:image", content: IMAGES.heroNgorongoro },
       { property: "og:url", content: "/destinations" },
