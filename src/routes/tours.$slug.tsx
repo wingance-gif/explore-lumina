@@ -261,10 +261,22 @@ function TourDetail() {
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 items-start">
             {/* Gallery */}
             <div className="grid grid-cols-4 grid-rows-2 gap-2.5 h-[420px] md:h-[480px]">
-              <img src={gallery[0]} alt={`${activePackage.tier} preview 1`} className="col-span-2 row-span-2 h-full w-full rounded-2xl object-cover" />
-              <img src={gallery[1]} alt={`${activePackage.tier} preview 2`} className="col-span-2 h-full w-full rounded-2xl object-cover" />
-              <img src={gallery[2]} alt={`${activePackage.tier} preview 3`} className="h-full w-full rounded-2xl object-cover" />
-              <img src={gallery[3]} alt={`${activePackage.tier} preview 4`} className="h-full w-full rounded-2xl object-cover" />
+              {[0, 1, 2, 3].map((i) => {
+                const cls =
+                  i === 0 ? "col-span-2 row-span-2" : i === 1 ? "col-span-2" : "";
+                return gallery && gallery[i] ? (
+                  <img
+                    key={i}
+                    src={gallery[i]}
+                    alt={`${activePackage.tier} preview ${i + 1}`}
+                    className={`${cls} h-full w-full rounded-2xl object-cover`}
+                  />
+                ) : (
+                  <div key={i} className={cls}>
+                    <GalleryPlaceholder tier={activePackage.tier} index={i} />
+                  </div>
+                );
+              })}
             </div>
 
             {/* Copy + camps list + price */}
