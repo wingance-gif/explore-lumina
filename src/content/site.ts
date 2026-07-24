@@ -1,3 +1,6 @@
+import ultraLux1 from "@/assets/accommodations/lp-double-2.jpg.asset.json";
+import ultraLux2 from "@/assets/accommodations/lp-double-9.jpg.asset.json";
+
 // Locally delivered, authentic Tanzania photography.
 const TANZANIA_PHOTO = "/images/tours";
 
