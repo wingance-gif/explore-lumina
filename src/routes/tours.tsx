@@ -20,7 +20,7 @@ export const Route = createFileRoute("/tours")({
   component: ToursPage,
 });
 
-const CATS = ["All", "Luxury Safari", "Lodge Safari", "Camping Safari", "Honeymoon", "Trekking", "Birding", "Beach"] as const;
+const CATS = ["All", "Honeymoon", "Trekking", "Birding", "Beach"] as const;
 
 type SafariType = {
   id: string;
