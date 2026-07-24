@@ -5,7 +5,7 @@ export function WhatsAppFab() {
   return (
     <a
       href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-        "Hi Sahara Wild, I'd like to plan a trip to Tanzania."
+        "Hi Tanzania Exploration, I'd like to plan a trip to Tanzania."
       )}`}
       target="_blank"
       rel="noreferrer"
