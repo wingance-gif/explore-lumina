@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { TOURS, IMAGES, DAY_TRIPS } from "@/content/site";
 
 
-export const Route = createFileRoute("/tours")({
+export const Route = createFileRoute("/tours/")({
   head: () => ({
     meta: [
       { title: "All Tanzania Tours & Safaris | Tanzania Exploration" },
