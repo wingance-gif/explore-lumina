@@ -151,7 +151,7 @@ function TourDetail() {
     [tour.slug, tour.category],
   );
   const activePackage = packages.find((p) => p.tier === tier) ?? packages[0];
-  const gallery = activePackage.gallery ?? defaultGalleryFor(tour);
+  const gallery = activePackage.gallery;
 
   return (
     <>
